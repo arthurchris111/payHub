@@ -8,3 +8,4 @@ import { AuthenticationComponent } from './authentication.component';
   imports: [CommonModule, AuthenticationRoutingModule],
 })
 export class AuthenticationModule {}
+
