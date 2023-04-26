@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { ContentRoutingModule } from './content-routing.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,6 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     ContactComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ContentRoutingModule],
 })
 export class ContentModule {}
