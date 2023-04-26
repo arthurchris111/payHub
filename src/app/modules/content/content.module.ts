@@ -6,7 +6,12 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
-  declarations: [ContentComponent, HomeComponent, AboutComponent, ContactComponent],
+  declarations: [
+    ContentComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+  ],
   imports: [CommonModule],
 })
 export class ContentModule {}
