@@ -1,15 +1,20 @@
-<div class="container-fluid container-background">
+<div class="container-fluid container-background ">
   <nav class="navbar">
     <div class="container-fluid d-flex justify-content-end">
       <div class="d-flex gap-2">
-        <button type="button" class="btn btn-success btn-sm login">Small button</button>
-        <button type="button" class="btn btn-success btn-sm">Small button</button>
+        <button type="button" class="btn btn-success btn-sm login">Login</button>
+        <button type="button" class="btn btn-success btn-sm" (click)="onclick()">
+          <a [routerLink]="['/signup']" routerLinkActive="router-link-active"
+            class="text-decoration-none fw-bold text-white">
+            Sign up
+          </a>
+        </button>
       </div>
     </div>
   </nav>
 
   <div class="container">
-    <div class="row d-flex justify-content-center align-items-center">
+    <div class="row  d-flex justify-content-center align-items-center">
       <!-- text -->
       <div class="col-md-6">
         <h1 class="heading">Smart Payments</h1>
@@ -26,8 +31,12 @@
       </div>
 
       <!--image, signUp and signIn -->
-      <div class="col-md-6 ">
-        <img src="../../../../assets/images//card.png" alt="image" class="img-fluid photo">
+      <div class="col-md-6 " *ngIf="visible">
+        <img src="../../../../assets/images/card.png" alt="image" class="img-fluid photo shadow-sm">
+      </div>
+      <div class="col-md-6 d-flex justify-content-center align-content-center" *ngIf="!visible">
+        <img src="../../../../assets/images/virtual-credit-card-technology__1_-removebg-preview.png" alt="image"
+          class="img-fluid  shadow-sm">
       </div>
     </div>
   </div>
