@@ -31,12 +31,11 @@
       </div>
 
       <!--image, signUp and signIn -->
-      <div class="col-md-6 " *ngIf="visible">
+      <div class="col-6 " *ngIf="visible">
         <img src="../../../../assets/images/card.png" alt="image" class="img-fluid photo shadow-sm">
       </div>
-      <div class="col-md-6 d-flex justify-content-center align-content-center" *ngIf="!visible">
-        <img src="../../../../assets/images/virtual-credit-card-technology__1_-removebg-preview.png" alt="image"
-          class="img-fluid  shadow-sm">
+      <div class="col-6 d-flex justify-content-center align-content-center vh-100" *ngIf="!visible">
+        <app-signup></app-signup>
       </div>
     </div>
   </div>
