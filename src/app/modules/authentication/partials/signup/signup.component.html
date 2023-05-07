@@ -1,61 +1,18 @@
-<div class="text bg-light p-5 my-2">
-  <h4 class="fw-bold">SignUp</h4>
-</div>
-<div class="row p-0 m-0 d-flex justify-content-center">
-  <div class="col-lg-8 col-sm-8 m-0">
-    <form [formGroup]="signup" class="mt-3">
-      <div class="row mt-4">
-        <div class="row ">
-          <!-- first name -->
-          <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
-            <input class="form-control shadow-none p-3" type="text" id="firstName" placeholder="Enter First Name"
-              formControlName="firstName">
-            <div class="error text-start"
-              *ngIf="(signup.get('firstName')?.invalid && submitted) || signup.get('firstName')?.touched">
-              <small class="text-danger" *ngIf="signup.get('firstName')?.errors?.['required']">
-                First Name required*
-              </small>
-            </div>
-          </div>
-          <div class="col mb-3">
-            <!-- last name -->
-            <input class="form-control shadow-none p-3" type="text" id="lastName" placeholder="Enter Last Name"
-              formControlName="lastName">
-            <div class="error text-start"
-              *ngIf="(signup.get('lastName')?.invalid && submitted) || signup.get('lastName')?.touched">
-              <small class="text-danger" *ngIf="signup.get('lastName')?.errors?.['required']">
-                Last Name required*
-              </small>
-            </div>
-          </div>
-        </div>
+<!-- <p>registration-form works!</p> -->
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class=" contents">
+      <div class="">
+        <!-- login form -->
+        <form [formGroup]="signup" (ngSubmit)="onSubmit()">
 
-        <!-- number -->
-        <div class="col">
-          <input class="form-control shadow-none p-3" type="number" id="phone" placeholder="Phone Number"
-            formControlName="phone">
-          <!-- error messages -->
-          <div class="error text-start"
-            *ngIf="(signup.get('phone')?.invalid && submitted) || signup.get('phone')?.touched">
-            <small class="text-danger" *ngIf="signup.get('phone')?.errors?.['required'] ">
-              Phone number required*
-            </small>
-            <small class="text-danger" *ngIf="signup.get('phone')?.errors?.['minlength']">
-              Phone number must not be less 10*
-            </small>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control w-100" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
           </div>
-        </div>
+
+        </form>
       </div>
-      <!-- button -->
-      <div class="row d-flex justify-content-center">
-        <div class="register col-lg-7 col-sm-12 col-md-12 ">
-          <p class="mb-2">Already have an account?
-            <!-- signUp -->
-            <!-- <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active"
-              class="text-decoration-none text-success fw-bolder">Login</a> -->
-          </p>
-        </div>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
