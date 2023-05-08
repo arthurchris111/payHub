@@ -2,28 +2,40 @@
 <div class="container">
   <div class="row vh-100 d-flex justify-content-center align-items-center">
     <div class="contents">
-      <div class="card p-5 shadow-lg">
-        <!-- login form -->
+      <div class="card rounded-0 p-5 shadow-lg">
+        <!-- signup form header-->
+        <div class="header">
+          <p class="text-white fs-4">Signing Up</p>
+        </div>
+        <!-- signup form -->
         <form [formGroup]="signup" (ngSubmit)="onSubmit()">
-
+          <!-- first name -->
           <div class="form-floating mb-3">
             <input type="text" class="form-control  border-top-0 border-start-0 border-end-0 shadow-none rounded-0"
               id="floatingInput" placeholder="first name">
             <label for="floatingInput">First name</label>
           </div>
-
+          <!-- last name -->
           <div class="form-floating mb-3">
             <input type="text" class="form-control  border-top-0 border-start-0 border-end-0 shadow-none rounded-0"
               id="floatingInput" placeholder="last name">
             <label for="floatingInput">Last name</label>
           </div>
-
+          <!-- phone number -->
           <div class="form-floating mb-3">
             <input type="number" class="form-control  border-top-0 border-start-0 border-end-0 shadow-none rounded-0"
               id="floatingInput" placeholder="Phone number">
             <label for="floatingInput">Phone number</label>
           </div>
-
+          <!-- next signup form -->
+          <div class="float-end">
+            <a class="btn d-flex nextform border-0 shadow-none" type="button">
+              <span class="text-white me-2">Next</span>
+              <span class="material-symbols-outlined">
+                east
+              </span>
+            </a>
+          </div>
 
         </form>
       </div>
