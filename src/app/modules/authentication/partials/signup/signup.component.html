@@ -8,25 +8,33 @@
           <p class="text-white fs-4">Signing Up</p>
         </div>
         <!-- signup form -->
-        <form [formGroup]="signup" (ngSubmit)="onSubmit()">
+        <form [formGroup]="signup">
           <!-- first name -->
           <div class="form-floating mb-3">
             <input type="text" class="form-control  border-top-0 border-start-0 border-end-0 shadow-none rounded-0"
-              id="floatingInput" placeholder="first name">
+              id="floatingInput" placeholder="first name" formControlName="firstName">
             <label for="floatingInput">First name</label>
+            <div class="error" *ngIf="(signup.get('firstName')?.touched)">
+              <small class="text-danger" *ngIf="signup.get('firstName')?.errors?.['required'] ">
+                First name required
+              </small>
+            </div>
           </div>
+
           <!-- last name -->
           <div class="form-floating mb-3">
             <input type="text" class="form-control  border-top-0 border-start-0 border-end-0 shadow-none rounded-0"
-              id="floatingInput" placeholder="last name">
+              id="floatingInput" placeholder="last name" formControlName="lasttName">
             <label for="floatingInput">Last name</label>
           </div>
+
           <!-- phone number -->
           <div class="form-floating mb-3">
             <input type="number" class="form-control  border-top-0 border-start-0 border-end-0 shadow-none rounded-0"
-              id="floatingInput" placeholder="Phone number">
+              id="floatingInput" placeholder="Phone number" formControlName="phone">
             <label for="floatingInput">Phone number</label>
           </div>
+
           <!-- next signup form -->
           <div class="float-end">
             <a class="btn d-flex nextform border-0 shadow-none" type="button">
@@ -35,8 +43,7 @@
                 east
               </span>
             </a>
-          </div>
-
+          </div>+
         </form>
       </div>
     </div>

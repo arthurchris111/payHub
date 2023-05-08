@@ -25,20 +25,8 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
-  // submitting registration from
-  onSubmit() {
-    this.submitted = true;
-    this.userSubmitted = true;
-    if (this.signup.invalid) {
-      return;
-    }
-    const users = {
-      firstName: this.signup.value.email,
-      lastName: this.signup.value.lastName,
-      phone: this.signup.value.number,
-    };
-    console.log(users);
+  ngOnInit(): void {
+    this.signup;
+    this.signupForm();
   }
 }
