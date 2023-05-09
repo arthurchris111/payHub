@@ -29,4 +29,14 @@ export class SignupComponent implements OnInit {
     this.signup;
     this.signupForm();
   }
+  ReadMore: boolean = false;
+
+  //hiding info box
+  visible: boolean = true;
+
+  //onclick toggling both
+  onclick() {
+    this.ReadMore = !this.ReadMore; //not equal to condition
+    this.visible = !this.visible;
+  }
 }

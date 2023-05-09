@@ -1,9 +1,9 @@
-<div class="container-fluid container-background">
+<div class="container-fluid">
   <nav class="navbar">
     <div class="container-fluid d-flex justify-content-end">
       <div class="d-flex gap-2">
-        <button type="button" class="btn btn-success btn-sm login">Login</button>
-        <button type="button" class="btn btn-success btn-sm" (click)="onclick()">
+        <button type="button" class="btn btn-success btn-sm log rounded-0">Login</button>
+        <button type="button" class="btn btn-success btn-sm rounded-0" (click)="onclick()">
           <a [routerLink]="['/signup']" routerLinkActive="router-link-active"
             class="text-decoration-none fw-bold text-white">
             Sign up
@@ -20,23 +20,22 @@
         <h1 class="heading">Smart Payments</h1>
         <h1 class="heading">Anyway,</h1>
         <h1 class="heading">Anytime.</h1>
-        <div class="verticalLine w-50 my-2"></div>
-        <div class="about text-white">
+        <div class="heading">
           <h6 class="text-focus-in ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce venenatis odio et
             lectus auctor venenatis.
             Phasellus finibus ligula quis dictum rhoncus.
           </h6>
         </div>
-        <button type="button" class="btn btn-success btn-lg fw-bolder mt-1 create-card rounded-pill">Order your
+        <button type="button" class="btn btn-success btn-lg fw-bolder mt-1 create-card rounded-0">Order your
           card</button>
       </div>
 
       <!--image, signUp and signIn -->
       <div class="col-lg-6 col-md-6 col-sm-12">
-        <div class="" *ngIf="!visible">
+        <div class="" *ngIf="visible">
           <img src="../../../../assets/images/card.png" alt="image" class="img-fluid photo">
         </div>
-        <div class="" *ngIf="visible">
+        <div class="" *ngIf="!visible">
           <app-signup></app-signup>
         </div>
       </div>
