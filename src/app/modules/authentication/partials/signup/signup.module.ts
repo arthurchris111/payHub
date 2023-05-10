@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddressInformationComponent } from './partials/address-information/address-information.component';
+import { PersonalInformationComponent } from './partials/personal-information/personal-information.component';
+import { IdentityCardInformationComponent } from './partials/identity-card-information/identity-card-information.component';
 
 @NgModule({
-  declarations: [SignupComponent],
+  declarations: [SignupComponent, AddressInformationComponent, PersonalInformationComponent, IdentityCardInformationComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   exports: [SignupComponent],
 })
