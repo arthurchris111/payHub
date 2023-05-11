@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
-      <div class="card rounded-0 p-lg-4 shadow-sm border-0">
+      <div class="card rounded-0 p-lg-4 border-0">
         <!-- signup form header-->
         <div class="header">
           <p class="text-white fs-4">Signing Up</p>
@@ -52,7 +52,8 @@
 
             <!-- next signup form -->
             <div class="float-end">
-              <button class="btn d-flex nextform border-0 shadow-none" type="submit">
+              <button class="btn d-flex nextform border-0 shadow-none" type="submit" [routerLink]="['/address']"
+                routerLinkActive="router-link-active">
                 <span class="text-success me-2">Next</span>
                 <span class="material-symbols-outlined text-success">
                   east

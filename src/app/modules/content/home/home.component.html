@@ -11,7 +11,7 @@
   </div>
 
   <div class="container ">
-    <div class="row d-flex justify-content-center align-items-center">
+    <div class="row vh-100 d-flex justify-content-center align-items-center">
       <!-- text -->
       <div class="col-lg-6 col-md-6 col-sm-12 ">
         <h1 class="heading">Smart Payments</h1>
@@ -23,7 +23,8 @@
             Phasellus finibus ligula quis dictum rhoncus.
           </h6>
         </div>
-        <button type="button" class="btn btn-success btn-lg fw-bolder mt-1 create-card rounded-0">Order your
+        <button type="button" *ngIf="visible" class="btn btn-success btn-lg fw-bolder mt-1 create-card rounded-0">Order
+          your
           card</button>
       </div>
 
