@@ -1,7 +1,7 @@
-<div class="container-fluid">
-  <div class="row mt-3">
+<div class="container-fluid" id="image">
+  <div class="row">
     <div class="container-fluid d-flex justify-content-end">
-      <div class="d-flex gap-2">
+      <div class="d-flex gap-2 mt-3">
         <button type="button" class="btn btn-success btn-sm log rounded-0">Login</button>
         <button type="button" class="btn btn-success btn-sm rounded-0" (click)="onclick()">
           Sign up
@@ -11,16 +11,18 @@
   </div>
 
   <div class="container ">
-    <div class="row vh-100 d-flex justify-content-center align-items-center">
+    <div class="row d-flex justify-content-center align-items-center">
       <!-- text -->
       <div class="col-lg-6 col-md-6 col-sm-12 ">
         <h1 class="heading">Smart Payments</h1>
         <h1 class="heading">Anyway,</h1>
         <h1 class="heading">Anytime.</h1>
-        <div class="heading">
-          <h6 class="text-focus-in ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce venenatis odio et
-            lectus auctor venenatis.
-            Phasellus finibus ligula quis dictum rhoncus.
+        <div class="text">
+          <h6 class="text-focus-in ">
+            <span class="fw-bolder">CARD</span> is the digital payment services. With one card you can manage your daily
+            financial and
+            also can get
+            more benefits.
           </h6>
         </div>
         <button type="button" *ngIf="visible" class="btn btn-success btn-lg fw-bolder mt-1 create-card rounded-0">Order
