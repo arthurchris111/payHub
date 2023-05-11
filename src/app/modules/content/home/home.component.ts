@@ -10,14 +10,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ReadMore: boolean = false;
+  // ReadMore: boolean = false;
 
   //hiding info box
-  visible: boolean = true;
+  // visible: boolean = true;
 
   //onclick toggling both
-  onclick() {
-    this.ReadMore = !this.ReadMore; //not equal to condition
-    this.visible = !this.visible;
-  }
+  // onclick() {
+  //   this.ReadMore = !this.ReadMore; //not equal to condition
+  //   this.visible = !this.visible;
+  // }
 }
