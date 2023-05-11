@@ -30,13 +30,21 @@ export class PersonalInformationComponent implements OnInit {
     this.signupForm();
   }
   ReadMore: boolean = false;
-
-  //hiding info box
   visible: boolean = true;
 
-  //onclick toggling both
-  onclick() {
-    this.ReadMore = !this.ReadMore; //not equal to condition
-    this.visible = !this.visible;
+  // onclick() {
+  //   this.ReadMore = !this.ReadMore; //not equal to condition
+  //   this.visible = !this.visible;
+  // }
+
+  onSubmit() {
+    this.submitted = true;
+    this.userSubmitted = true;
+
+    if (this.signup.invalid) {
+      return;
+    } else {
+      this.route.navigate(['address']);
+    }
   }
 }

@@ -8,7 +8,7 @@
           <p class="text-white fs-4">Signing Up</p>
         </div>
         <!-- signup form -->
-        <form [formGroup]="signup">
+        <form [formGroup]="signup" (ngSubmit)="onSubmit()">
           <!-- personal details -->
           <!-- first name -->
           <div class="fieldset">
@@ -16,7 +16,8 @@
               <input type="text" class="form-control  shadow-sm rounded-0" id="floatingInput" placeholder="first name"
                 formControlName="firstName">
               <label for="floatingInput">First name</label>
-              <div class="error" *ngIf="(signup.get('firstName')?.touched)">
+              <div class="error" *ngIf="(signup.get('firstName')?.invalid && submitted) || (signup.get('firstName')?.touched &&
+                userSubmitted)">
                 <small class="text-danger" *ngIf="signup.get('firstName')?.errors?.['required'] ">
                   First name required*
                 </small>
@@ -28,7 +29,8 @@
               <input type="text" class="form-control shadow-none rounded-0" id="floatingInput" placeholder="last name"
                 formControlName="lastName">
               <label for="floatingInput">Last name</label>
-              <div class="error" *ngIf="(signup.get('lastName')?.touched)">
+              <div class="error" *ngIf="(signup.get('lastName')?.invalid && submitted) || (signup.get('lastName')?.touched &&
+                userSubmitted)">
                 <small class="text-danger" *ngIf="signup.get('lastName')?.errors?.['required'] ">
                   Last name required*
                 </small>
@@ -40,7 +42,8 @@
               <input type="number" class="form-control shadow-none rounded-0" id="floatingInput"
                 placeholder="Phone number" formControlName="phone">
               <label for="floatingInput">Phone number</label>
-              <div class="error" *ngIf="(signup.get('phone')?.touched)">
+              <div class="error" *ngIf="(signup.get('phone')?.invalid && submitted) || (signup.get('phone')?.touched &&
+                userSubmitted)">
                 <small class="text-danger" *ngIf="signup.get('phone')?.errors?.['required'] ">
                   Last name required*
                 </small>
@@ -49,12 +52,12 @@
 
             <!-- next signup form -->
             <div class="float-end">
-              <a class="btn d-flex nextform border-0 shadow-none" type="button" (click)="onclick()">
+              <button class="btn d-flex nextform border-0 shadow-none" type="submit">
                 <span class="text-success me-2">Next</span>
                 <span class="material-symbols-outlined text-success">
                   east
                 </span>
-              </a>
+              </button>
             </div>
           </div>
         </form>
