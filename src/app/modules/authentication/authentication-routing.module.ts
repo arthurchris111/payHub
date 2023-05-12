@@ -6,6 +6,7 @@ import { AuthenticationComponent } from './authentication.component';
 import { PersonalInformationComponent } from './partials/signup/partials/personal-information/personal-information.component';
 import { AddressInformationComponent } from './partials/signup/partials/address-information/address-information.component';
 import { IdentityCardInformationComponent } from './partials/signup/partials/identity-card-information/identity-card-information.component';
+import { HomeComponent } from './partials/home/home.component';
 
 const routes: Routes = [
   {
@@ -13,11 +14,9 @@ const routes: Routes = [
     component: AuthenticationComponent,
     children: [
       { path: 'login', component: LoginComponent },
-      // { path: 'signup', component: SignupComponent },
-      // { path: '***', redirectTo: 'login' },
-      { path: 'personal', component: PersonalInformationComponent },
-      { path: 'address', component: AddressInformationComponent },
-      { path: 'identity', component: IdentityCardInformationComponent },
+      { path: 'signup', component: SignupComponent },
+      { path: '', component: HomeComponent },
+      { path: '***', redirectTo: '' },
     ],
   },
 ];

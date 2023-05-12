@@ -1,1 +1,25 @@
+<ng-container *ngIf="section===1">
+  <app-address-information></app-address-information>
+</ng-container>
 
+<ng-container *ngIf="section===2">
+  <app-personal-information></app-personal-information>
+</ng-container>
+
+<ng-container *ngIf="section===3">
+  <app-identity-card-information></app-identity-card-information>
+</ng-container>
+
+<div class="float-end">
+  <button class="btn d-flex nextform border-0 shadow-none" type="button" (click)="nextSection()" *ngIf="section !==3">
+    Next
+  </button>
+
+  <button class="btn d-flex nextform border-0 shadow-none" type="button" (click)="prevSection()">
+    Prev
+  </button>
+
+  <button class="btn d-flex nextform border-0 shadow-none" type="submit" (click)="submit()" *ngIf="section===3">
+    submit
+  </button>
+</div>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './content.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from '../authentication/partials/home/home.component';
 
 const routes: Routes = [
   { path: '', component: ContentComponent },
