@@ -42,9 +42,9 @@
               <input type="number" class="form-control shadow-none rounded-0" id="floatingInput"
                 placeholder="Phone number" formControlName="phone">
               <label for="floatingInput">Phone number</label>
-              <div class="error" *ngIf="(signup.get('phone')?.invalid && submitted) || (signup.get('phone')?.touched &&
+              <div class="error" *ngIf="(signup.get('number')?.invalid && submitted) || (signup.get('phone')?.touched &&
                 userSubmitted)">
-                <small class="text-danger" *ngIf="signup.get('phone')?.errors?.['required'] ">
+                <small class="text-danger" *ngIf="signup.get('number')?.errors?.['required'] ">
                   Last name required*
                 </small>
               </div>
