@@ -1,22 +1,33 @@
-<ng-container *ngIf="section===1">
-  <app-address-information></app-address-information>
-</ng-container>
+<div class="">
+  <ng-container *ngIf="section===1">
+    <app-personal-information></app-personal-information>
+  </ng-container>
+</div>
 
-<ng-container *ngIf="section===2">
-  <app-personal-information></app-personal-information>
-</ng-container>
+<div class="">
+  <ng-container *ngIf="section===2" class="fade-in">
+    <app-address-information></app-address-information>
+  </ng-container>
+</div>
 
-<ng-container *ngIf="section===3">
-  <app-identity-card-information></app-identity-card-information>
-</ng-container>
+<div class="">
+  <ng-container *ngIf="section===3">
+    <app-identity-card-information></app-identity-card-information>
+  </ng-container>
+</div>
 
-<div class="float-end">
-  <button class="btn d-flex nextform border-0 shadow-none" type="button" (click)="nextSection()" *ngIf="section !==3">
-    Next
+
+<div class="d-flex justify-content-between">
+  <button class="btn d-flex nextform border-0 shadow-none" type="button" (click)="prevSection()">
+    <span class="material-symbols-outlined">
+      arrow_back
+    </span>
   </button>
 
-  <button class="btn d-flex nextform border-0 shadow-none" type="button" (click)="prevSection()">
-    Prev
+  <button class="btn  nextform border-0 shadow-none" type="button" (click)="nextSection()" *ngIf="section !==3">
+    <span class="material-symbols-outlined">
+      arrow_forward
+    </span>
   </button>
 
   <button class="btn d-flex nextform border-0 shadow-none" type="submit" (click)="submit()" *ngIf="section===3">

@@ -2,18 +2,18 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
-      <div class="card rounded-0 p-lg-4 border-0">
+      <div class="card glassy rounded-0 p-5 border-0 shadow-sm">
         <!-- signup form header-->
-        <div class="header">
+        <!-- <div class="header">
           <p class="text-white fs-4">Signing Up</p>
-        </div>
+        </div> -->
         <!-- signup form -->
-        <form [formGroup]="signup" (ngSubmit)="onSubmit()">
+        <form [formGroup]="signup" (ngSubmit)="onSubmit()" class="">
           <!-- personal details -->
           <!-- first name -->
           <div class="fieldset">
             <div class=" form-floating mb-3">
-              <input type="text" class="form-control  shadow-sm rounded-0" id="floatingInput" placeholder="first name"
+              <input type="text" class="form-control  shadow-none rounded-0" id="floatingInput" placeholder="first name"
                 formControlName="firstName">
               <label for="floatingInput">First name</label>
               <div class="error" *ngIf="(signup.get('firstName')?.invalid && submitted) || (signup.get('firstName')?.touched &&
