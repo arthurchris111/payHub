@@ -21,7 +21,7 @@ export class PersonalInformationComponent implements OnInit {
     this.signup = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      phone: ['', [Validators.required, Validators.minLength(10)]],
+      number: ['', [Validators.required, Validators.minLength(10)]],
     });
   }
 
@@ -29,8 +29,8 @@ export class PersonalInformationComponent implements OnInit {
     this.signup;
     this.signupForm();
   }
-  ReadMore: boolean = false;
-  visible: boolean = true;
+  // ReadMore: boolean = false;
+  // visible: boolean = true;
 
   // onclick() {
   //   this.ReadMore = !this.ReadMore; //not equal to condition
@@ -43,8 +43,9 @@ export class PersonalInformationComponent implements OnInit {
 
     if (this.signup.invalid) {
       return;
-    } else {
-      this.route.navigate(['address']);
     }
+    // else {
+    //   this.route.navigate(['address']);
+    // }
   }
 }
