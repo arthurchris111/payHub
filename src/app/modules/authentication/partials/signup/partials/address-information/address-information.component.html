@@ -1,1 +1,55 @@
-<p>address-information works!</p>
+<!-- <p>registration-form works!</p> -->
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="contents">
+      <div class="card glassy rounded-0 p-5 border-0 shadow-sm">
+        <!-- address form -->
+        <form [formGroup]="address" (ngSubmit)="onSubmit()">
+          <!-- region-->
+          <div class="fieldset">
+            <div class=" form-floating mb-3">
+              <input type="accra" class="form-control  shadow-none rounded-0" id="floatingInput" placeholder="region"
+                formControlName="region">
+              <label for="floatingInput">Region</label>
+              <div class="error"
+                *ngIf="(address.get('region')?.invalid && submitted) || (address.get('region')?.touched)">
+                <small class="text-danger" *ngIf="address.get('region')?.errors?.['required'] ">
+                  Region required*
+                </small>
+              </div>
+            </div>
+
+            <!-- address -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control shadow-none rounded-0" id="floatingInput" placeholder="address"
+                formControlName="address">
+
+              <label for="floatingInput">Address</label>
+              <div class="error"
+                *ngIf="(address.get('address')?.invalid && submitted) || (address.get('address')?.touched)">
+                <small class="text-danger" *ngIf="address.get('address')?.errors?.['required'] ">
+                  Address required*
+                </small>
+              </div>
+
+
+            </div>
+
+            <!-- city -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control shadow-none rounded-0" id="floatingInput" placeholder="city"
+                formControlName="city">
+              <label for="floatingInput">City</label>
+              <div class="error" *ngIf="(address.get('city')?.invalid && submitted) || (address.get('city')?.touched)">
+                <small class="text-danger" *ngIf="address.get('city')?.errors?.['required'] ">
+                  City required*
+                </small>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
