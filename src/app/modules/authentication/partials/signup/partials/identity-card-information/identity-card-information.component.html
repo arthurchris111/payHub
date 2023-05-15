@@ -3,12 +3,10 @@
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
       <div class="card glassy rounded-0 p-lg-5 border-0 shadow-sm">
-        <!-- address form -->
+        <!-- id  form -->
         <form [formGroup]="identityCard" (ngSubmit)="onSubmit()">
-          <!-- region-->
+
           <div class="fieldset">
-
-
             <!-- select id -->
             <div class="mb-3">
               <select class="custom-select p-3 w-100 shadow-none " (change)="changeCard($event)" formControlName="card">
@@ -24,6 +22,19 @@
             </div>
 
             <!-- id number -->
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control shadow-none rounded-0" id="floatingInput"
+                placeholder="Phone number" formControlName="idNumber">
+              <label for="floatingInput">Enter ID number</label>
+              <div class="error"
+                *ngIf="(identityCard.get('idNumber')?.invalid && submitted) || (identityCard.get('idNumber')?.touched)">
+                <small class="text-danger" *ngIf="identityCard.get('idNumber')?.errors?.['required'] ">
+                  ID number required*
+                </small>
+              </div>
+            </div>
+
+            <!-- id picture -->
           </div>
         </form>
       </div>
