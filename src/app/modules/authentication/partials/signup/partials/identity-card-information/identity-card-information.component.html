@@ -1,1 +1,32 @@
-<p>identity-card-information works!</p>
+<!-- <p>registration-form works!</p> -->
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="contents">
+      <div class="card glassy rounded-0 p-lg-5 border-0 shadow-sm">
+        <!-- address form -->
+        <form [formGroup]="identityCard" (ngSubmit)="onSubmit()">
+          <!-- region-->
+          <div class="fieldset">
+
+
+            <!-- select id -->
+            <div class="mb-3">
+              <select class="custom-select p-3 w-100 shadow-none " (change)="changeCard($event)" formControlName="card">
+                <option value="">Select card type</option>
+                <option *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
+              </select>
+              <div class="error"
+                *ngIf="(identityCard.get('card')?.invalid && submitted) || (identityCard.get('card')?.touched)">
+                <small class="text-danger" *ngIf="identityCard.get('card')?.errors?.['required'] ">
+                  ID type required*
+                </small>
+              </div>
+            </div>
+
+            <!-- id number -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
