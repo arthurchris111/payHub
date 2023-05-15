@@ -7,14 +7,28 @@
         <form [formGroup]="address" (ngSubmit)="onSubmit()">
           <!-- region-->
           <div class="fieldset">
-            <div class=" form-floating mb-3">
+            <!-- <div class=" form-floating mb-3">
               <input type="accra" class="form-control  shadow-none rounded-0" id="floatingInput" placeholder="region"
                 formControlName="region">
               <label for="floatingInput">Region</label>
-              <div class="error"
-                *ngIf="(address.get('region')?.invalid && submitted) || (address.get('region')?.touched)">
+              <div class="error" *ngIf="(address.get('region')?.invalid && submitted) || (address.get('region')?.touched)">
                 <small class="text-danger" *ngIf="address.get('region')?.errors?.['required'] ">
                   Region required*
+                </small>
+              </div>
+            </div> -->
+
+            <!-- select region -->
+            <div class="mb-3">
+              <select class="custom-select p-2 w-100 shadow-none " (change)="changeRegion($event)"
+                formControlName="regionName">
+                <option value="">Choose your region</option>
+                <option *ngFor="let region of Regions">{{region}}</option>
+              </select>
+              <div class="error"
+                *ngIf="(address.get('regionName')?.invalid && submitted) || (address.get('regionName')?.touched)">
+                <small class="text-danger" *ngIf="address.get('regionName')?.errors?.['required'] ">
+                  Region Name required*
                 </small>
               </div>
             </div>
@@ -31,8 +45,6 @@
                   Address required*
                 </small>
               </div>
-
-
             </div>
 
             <!-- city -->

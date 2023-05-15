@@ -14,10 +14,11 @@ export class AddressInformationComponent implements OnInit {
   user: any = {};
   userSubmitted: boolean = false;
   isSubmitted: boolean = false;
+  regionName: any;
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
-  regions: any = [
+  Regions: any = [
     'Northern',
     'Ashanti',
     'Western',
@@ -41,6 +42,7 @@ export class AddressInformationComponent implements OnInit {
       region: ['', [Validators.required]],
       address: ['', [Validators.required]],
       city: ['', [Validators.required, Validators.minLength(10)]],
+      regionName: ['', [Validators.required]],
     });
   }
 
@@ -49,9 +51,21 @@ export class AddressInformationComponent implements OnInit {
     this.addressForm();
   }
 
+  changeRegion(e: any) {
+    this.regionName.setValue(e.target.value, {
+      // onlySelf: true,
+    });
+  }
+
+  // access form controls
+  regionNames() {
+    return this.address.get('regionName');
+  }
+
   onSubmit() {
     this.submitted = true;
     this.userSubmitted = true;
+    this.isSubmitted = true;
 
     if (this.address.invalid) {
       return;
