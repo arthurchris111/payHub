@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
-      <div class="card glassy rounded-0 p-5 border-0 shadow-sm">
+      <div class="card glassy rounded-0 p-lg-5 border-0 shadow-sm">
         <!-- address form -->
         <form [formGroup]="address" (ngSubmit)="onSubmit()">
           <!-- region-->
@@ -20,10 +20,10 @@
 
             <!-- select region -->
             <div class="mb-3">
-              <select class="custom-select p-2 w-100 shadow-none " (change)="changeRegion($event)"
+              <select class="custom-select p-3 w-100 shadow-none " (change)="changeRegion($event)"
                 formControlName="regionName">
                 <option value="">Choose your region</option>
-                <option *ngFor="let region of Regions">{{region}}</option>
+                <option *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
               </select>
               <div class="error"
                 *ngIf="(address.get('regionName')?.invalid && submitted) || (address.get('regionName')?.touched)">

@@ -52,15 +52,15 @@ export class AddressInformationComponent implements OnInit {
   }
 
   changeRegion(e: any) {
-    this.regionName.setValue(e.target.value, {
+    this.regionName?.setValue(e.target.value, {
       // onlySelf: true,
     });
   }
 
   // access form controls
-  regionNames() {
-    return this.address.get('regionName');
-  }
+  // regionNames() {
+  //   return this.address.get('regionName');
+  // }
 
   onSubmit() {
     this.submitted = true;
