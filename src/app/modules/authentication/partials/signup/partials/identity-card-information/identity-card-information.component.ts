@@ -23,7 +23,7 @@ export class IdentityCardInformationComponent implements OnInit {
   cardForm(): void {
     this.identityCard = this.formBuilder.group({
       card: ['', [Validators.required]],
-      number: ['', [Validators.required]],
+      idNumber: ['', [Validators.required]],
     });
   }
 
