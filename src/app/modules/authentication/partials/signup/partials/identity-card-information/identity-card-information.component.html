@@ -2,14 +2,15 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
-      <div class="card glassy rounded-0 p-lg-5 border-0 shadow-sm">
+      <div class="px-lg-5">
         <!-- id  form -->
         <form [formGroup]="identityCard" (ngSubmit)="onSubmit()">
 
           <div class="fieldset">
             <!-- select id -->
             <div class="mb-3">
-              <select class="custom-select p-3 w-100 shadow-none " (change)="changeCard($event)" formControlName="card">
+              <select class="custom-select p-3 w-100 shadow-none rounded-4" (change)="changeCard($event)"
+                formControlName="card">
                 <option value="">Select card type</option>
                 <option *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
               </select>
@@ -23,7 +24,7 @@
 
             <!-- id number -->
             <div class="form-floating mb-3">
-              <input type="number" class="form-control shadow-none rounded-0" id="floatingInput"
+              <input type="number" class="form-control shadow-none rounded-4" id="floatingInput"
                 placeholder="Phone number" formControlName="idNumber">
               <label for="floatingInput">Enter ID number</label>
               <div class="error"
@@ -33,7 +34,6 @@
                 </small>
               </div>
             </div>
-
             <!-- id picture -->
 
           </div>

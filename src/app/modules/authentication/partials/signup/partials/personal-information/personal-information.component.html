@@ -2,13 +2,14 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
-      <div class="card glassy rounded-0 p-5 border-0 shadow-sm">
+      <!-- card glassy rounded-0 p-lg-5 border-0 shadow-sm -->
+      <div class="">
         <!-- signup form -->
         <form [formGroup]="signup" (ngSubmit)="onSubmit()">
           <!-- first name -->
           <div class="fieldset">
             <div class=" form-floating mb-3">
-              <input type="text" class="form-control  shadow-none rounded-0" id="floatingInput" placeholder="first name"
+              <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="first name"
                 formControlName="firstName">
               <label for="floatingInput">First name</label>
               <div class="error"
@@ -21,7 +22,7 @@
 
             <!-- last name -->
             <div class="form-floating mb-3">
-              <input type="text" class="form-control shadow-none rounded-0" id="floatingInput" placeholder="last name"
+              <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="last name"
                 formControlName="lastName">
               <label for="floatingInput">Last name</label>
               <div class="error"
@@ -33,8 +34,8 @@
             </div>
 
             <!-- phone number -->
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control shadow-none rounded-0" id="floatingInput"
+            <div class="form-floating">
+              <input type="number" class="form-control shadow-none rounded-4" id="floatingInput"
                 placeholder="Phone number" formControlName="number">
               <label for="floatingInput">Phone number</label>
               <div class="error"
