@@ -19,10 +19,10 @@
   </div>
 
   <div class="container">
-    <div class="row vh-100 d-flex justify-content-center align-items-center">
+    <div class="row d-flex justify-content-between align-items-center">
       <!-- text -->
       <div class="col-lg-6 col-md-6 col-sm-12 mb-0">
-        <h1 class="heading textd">Smart Payments</h1>
+        <h1 class="heading ">Smart Payments</h1>
         <h1 class="heading">Anyway,</h1>
         <h1 class="heading">Anytime.</h1>
         <div class="text">
@@ -39,10 +39,7 @@
 
       <!--image, signUp and signIn -->
       <div class="col-lg-6 col-md-6 col-sm-12 p-0">
-        <!-- <router-outlet></router-outlet> -->
-        <main class="app-content" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
-          <router-outlet #o="outlet"></router-outlet>
-        </main>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
