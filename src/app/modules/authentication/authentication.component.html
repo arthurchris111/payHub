@@ -2,15 +2,15 @@
   <div class="row">
     <div class="container-fluid d-flex justify-content-end">
       <div class="d-flex gap-2 mt-3">
-        <a type="button" class="btn btn-success btn-sm rounded-0" [routerLink]="['/home']"
+        <a type="button" class="btn btn-dark btn-sm rounded-0" [routerLink]="['/home']"
           routerLinkActive="router-link-active">
           Home
         </a>
-        <a type="button" class="btn btn-success btn-sm rounded-0" [routerLink]="['/home/login']"
+        <a type="button" class="btn btn-dark btn-sm rounded-0" [routerLink]="['/home/login']"
           routerLinkActive="router-link-active">
           Login
         </a>
-        <a type="button" class="btn btn-success btn-sm rounded-0" [routerLink]="['/home/signup']"
+        <a type="button" class="btn btn-dark btn-sm rounded-0" [routerLink]="['/home/signup']"
           routerLinkActive="router-link-active">
           Sign up
         </a>
@@ -19,15 +19,17 @@
   </div>
 
   <div class="container">
-    <div class="row d-flex justify-content-between align-items-center">
+    <div class="row vh-100 d-flex justify-content-between align-items-center">
       <!-- text -->
-      <div class="col-lg-6 col-md-6 col-sm-12 mb-0">
+      <div class="col-lg-6 col-md-12 col-sm-12 mb-0">
         <h1 class="heading ">Smart Payments</h1>
         <h1 class="heading">Anyway,</h1>
         <h1 class="heading">Anytime.</h1>
         <div class="text">
           <h6 class="text-focus-in ">
-            <span class="fw-bolder">CARD</span> is the digital payment services. With one card you can manage your daily
+            <span class="fw-bolder text-dark ">VIRTUAL CARD</span> is the digital payment services. With one card you
+            can
+            manage your daily
             financial and
             also can get
             more benefits.
@@ -38,7 +40,7 @@
       </div>
 
       <!--image, signUp and signIn -->
-      <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+      <div class="col-lg-6 col-md-12 col-sm-12 p-0">
         <router-outlet></router-outlet>
       </div>
     </div>

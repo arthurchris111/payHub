@@ -9,7 +9,7 @@
           <div class="fieldset">
             <!-- select id -->
             <div class="mb-3">
-              <select class="custom-select p-3 w-100 shadow-none rounded-4" (change)="changeCard($event)"
+              <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeCard($event)"
                 formControlName="card">
                 <option value="">Select card type</option>
                 <option *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>

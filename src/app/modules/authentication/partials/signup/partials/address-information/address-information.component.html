@@ -9,9 +9,9 @@
           <div class="fieldset">
             <!-- select region -->
             <div class="mb-3">
-              <select class="custom-select p-3 w-100 shadow-none rounded-4" (change)="changeRegion($event)"
+              <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeRegion($event)"
                 formControlName="regionName">
-                <option value="">Choose your region</option>
+                <option value="">Select your region</option>
                 <option *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
               </select>
               <div class="error"

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
   section = 1;
+  identityCard: any;
+  formBuilder: any;
   ngOnInit(): void {}
 
   public nextSection(): void {
@@ -18,6 +21,13 @@ export class SignupComponent implements OnInit {
     if (this.section > 1) {
       this.section = this.section - 1;
     }
+  }
+
+  cardForm(): void {
+    this.identityCard = this.formBuilder.group({
+      card: ['', [Validators.required]],
+      idNumber: ['', [Validators.required]],
+    });
   }
 
   submit(): void {}

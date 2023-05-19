@@ -14,8 +14,16 @@ border-radius: 10px;
 
 #image{
   background-image: url('././assets/images/bg.jpg');
+  height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center
-
+}
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=date]:focus,
+input[type=number]:focus,
+.custom-select {
+  // background-color: #ddd;
+  outline: none;
 }
