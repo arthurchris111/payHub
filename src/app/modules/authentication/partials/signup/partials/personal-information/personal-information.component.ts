@@ -13,7 +13,8 @@ export class PersonalInformationComponent implements OnInit {
   submitted: boolean = false;
   show: boolean = false;
   user: any = {};
-  userSubmitted: boolean = false;
+  // userSubmitted: boolean = false;SSS
+  section = 1;
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
@@ -29,23 +30,30 @@ export class PersonalInformationComponent implements OnInit {
     this.signup;
     this.signupForm();
   }
-  // ReadMore: boolean = false;
-  // visible: boolean = true;
 
-  // onclick() {
-  //   this.ReadMore = !this.ReadMore; //not equal to condition
-  //   this.visible = !this.visible;
-  // }
+  get personal() {
+    return this.signup.invalid;
+  }
 
-  onSubmit() {
+  public nextSection(): void {
     this.submitted = true;
-    this.userSubmitted = true;
-
     if (this.signup.invalid) {
       return;
+    } else if (this.section < 4) {
+      this.section = this.section + 1;
     }
+    console.log(this.signup.value);
+  }
+
+  onSubmit() {
+    // this.submitted = true;
+    // this.userSubmitted = true;
+    // if (this.signup.invalid) {
+    //   return;
+    // }
     // else {
     //   this.route.navigate(['address']);
     // }
+  
   }
 }

@@ -4,49 +4,57 @@
     <div class="contents">
       <!-- card glassy rounded-0 p-lg-5 border-0 shadow-sm -->
       <div class="px-lg-5">
-        <!-- signup form -->
-        <form [formGroup]="signup" (ngSubmit)="onSubmit()">
-          <!-- first name -->
-          <div class="fieldset">
-            <div class=" form-floating mb-3">
-              <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="first name"
-                formControlName="firstName">
-              <label for="floatingInput">First name</label>
-              <div class="error"
-                *ngIf="(signup.get('firstName')?.invalid && submitted) || (signup.get('firstName')?.touched)">
-                <small class="text-danger" *ngIf="signup.get('firstName')?.errors?.['required'] ">
-                  First name required*
-                </small>
+        <ng-container *ngIf="section===1">
+          <form [formGroup]="signup" (ngSubmit)="onSubmit()">
+            <!-- first name -->
+            <div class="fieldset">
+              <div class=" form-floating mb-3">
+                <input type="text" class="form-control shadow-none rounded-4" id="floatingInput"
+                  placeholder="first name" formControlName="firstName">
+                <label for="floatingInput">First name</label>
+                <div class="error"
+                  *ngIf="(signup.get('firstName')?.invalid && submitted) || (signup.get('firstName')?.touched)">
+                  <small class="text-danger" *ngIf="signup.get('firstName')?.errors?.['required']">
+                    First name required*
+                  </small>
+                </div>
               </div>
-            </div>
 
-            <!-- last name -->
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="last name"
-                formControlName="lastName">
-              <label for="floatingInput">Last name</label>
-              <div class="error"
-                *ngIf="(signup.get('lastName')?.invalid && submitted) || (signup.get('lastName')?.touched)">
-                <small class="text-danger" *ngIf="signup.get('lastName')?.errors?.['required'] ">
-                  Last name required*
-                </small>
+              <!-- last name -->
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="last name"
+                  formControlName="lastName">
+                <label for="floatingInput">Last name</label>
+                <div class="error"
+                  *ngIf="(signup.get('lastName')?.invalid && submitted) || (signup.get('lastName')?.touched)">
+                  <small class="text-danger" *ngIf="signup.get('lastName')?.errors?.['required'] ">
+                    Last name required*
+                  </small>
+                </div>
               </div>
-            </div>
 
-            <!-- phone number -->
-            <div class="form-floating">
-              <input type="number" class="form-control shadow-none rounded-4" id="floatingInput"
-                placeholder="Phone number" formControlName="number">
-              <label for="floatingInput">Phone number</label>
-              <div class="error"
-                *ngIf="(signup.get('number')?.invalid && submitted) || (signup.get('number')?.touched)">
-                <small class="text-danger" *ngIf="signup.get('number')?.errors?.['required'] ">
-                  Phone number required*
-                </small>
+              <!-- phone number -->
+              <div class="form-floating">
+                <input type="number" class="form-control shadow-none rounded-4" id="floatingInput"
+                  placeholder="Phone number" formControlName="number">
+                <label for="floatingInput">Phone number</label>
+                <div class="error"
+                  *ngIf="(signup.get('number')?.invalid && submitted) || (signup.get('number')?.touched)">
+                  <small class="text-danger" *ngIf="signup.get('number')?.errors?.['required'] ">
+                    Phone number required*
+                  </small>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </ng-container>
+
+        <!-- button -->
+        <button class="btn  nextform border-0 shadow-none" type="submit" (click)="nextSection()" *ngIf="section !==3">
+          <span class="material-symbols-outlined">
+            arrow_forward
+          </span>
+        </button>
       </div>
     </div>
   </div>
