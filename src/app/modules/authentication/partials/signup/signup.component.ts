@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -8,29 +8,48 @@ import { Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   section = 1;
-  identityCard: any;
-  formBuilder: any;
-  ngOnInit(): void {}
+  userForm!: FormGroup;
+  signup!: FormGroup;
 
-  // public nextSection(): void {
-  //   if (this.section < 4) {
-  //     this.section = this.section + 1;
-  //   }
-  // }
-  // public prevSection(): void {
-  //   if (this.section > 1) {
-  //     this.section = this.section - 1;
-  //   }
-  // }
+  constructor(private FormBuilder: FormBuilder) {}
 
-  // cardForm(): void {
-  //   this.identityCard = this.formBuilder.group({
-  //     card: ['', [Validators.required]],
-  //     idNumber: ['', [Validators.required]],
-  //   });
-  // }
+  ngOnInit(): void {
+    this.userForm = this.FormBuilder.group({
+      // signup
+      signup: this.FormBuilder.group({
+        firstName: ['', [Validators.required]],
+        lastName: ['', [Validators.required]],
+        number: ['', [Validators.required, Validators.minLength(10)]],
+      }),
+      // address
+      address: this.FormBuilder.group({
+        region: ['', [Validators.required]],
+        address: ['', [Validators.required]],
+        city: ['', [Validators.required, Validators.minLength(10)]],
+        regionName: ['', [Validators.required]],
+      }),
+      // identity
+      identityCard: this.FormBuilder.group({
+        card: ['', [Validators.required]],
+        idNumber: ['', [Validators.required]],
+      }),
+    });
+  }
+
+  get personal() {
+    return this.signup.invalid;
+  }
+
+  public nextSection(): void {
+    if (this.section < 4) {
+      this.section = this.section + 1;
+    }
+  }
+  public prevSection(): void {
+    if (this.section > 1) {
+      this.section = this.section - 1;
+    }
+  }
 
   submit(): void {}
-
-  constructor() {}
 }

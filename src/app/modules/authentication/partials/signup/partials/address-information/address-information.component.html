@@ -3,7 +3,7 @@
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
       <div class="px-lg-5">
-        <!-- address form -->
+        <!-- <ng-container *ngIf="section===2"> -->
         <form [formGroup]="address" (ngSubmit)="onSubmit()">
           <!-- region-->
           <div class="fieldset">
@@ -50,6 +50,7 @@
 
           </div>
         </form>
+        <!-- </ng-container> -->
       </div>
     </div>
   </div>

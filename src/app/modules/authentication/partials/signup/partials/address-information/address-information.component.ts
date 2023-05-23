@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-address-information',
@@ -10,13 +11,18 @@ import { Router } from '@angular/router';
 export class AddressInformationComponent implements OnInit {
   address!: FormGroup;
   submitted: boolean = false;
-  show: boolean = false;
-  user: any = {};
-  userSubmitted: boolean = false;
-  isSubmitted: boolean = false;
+  // show: boolean = false;
+  // user: any = {};
+  // userSubmitted: boolean = false;
+  // isSubmitted: boolean = false;
   regionName: any;
-
-  constructor(private formBuilder: FormBuilder, private route: Router) {}
+  // section: number = 1;
+  @Input() formGroupName!: string;
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: Router,
+    private rootFormGroup: FormGroupDirective
+  ) {}
 
   Regions: any = [
     'Northern',
@@ -37,18 +43,21 @@ export class AddressInformationComponent implements OnInit {
     'Western North',
   ];
 
-  addressForm(): void {
-    this.address = this.formBuilder.group({
-      region: ['', [Validators.required]],
-      address: ['', [Validators.required]],
-      city: ['', [Validators.required, Validators.minLength(10)]],
-      regionName: ['', [Validators.required]],
-    });
-  }
+  // addressForm(): void {
+  //   this.address = this.formBuilder.group({
+  //     region: ['', [Validators.required]],
+  //     address: ['', [Validators.required]],
+  //     city: ['', [Validators.required, Validators.minLength(10)]],
+  //     regionName: ['', [Validators.required]],
+  //   });
+  // }
 
   ngOnInit(): void {
-    this.address;
-    this.addressForm();
+    // this.address;
+    // this.addressForm();
+    this.address = this.rootFormGroup.control.get(
+      this.formGroupName
+    ) as FormGroup;
   }
 
   changeRegion(e: any) {
@@ -63,12 +72,11 @@ export class AddressInformationComponent implements OnInit {
   // }
 
   onSubmit() {
-    this.submitted = true;
-    this.userSubmitted = true;
-    this.isSubmitted = true;
-
-    if (this.address.invalid) {
-      return;
-    }
+    // this.submitted = true;
+    // this.userSubmitted = true;
+    // this.isSubmitted = true;
+    // if (this.address.invalid) {
+    //   return;
+    // }
   }
 }
