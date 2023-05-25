@@ -1,8 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { FormGroupDirective } from '@angular/forms';
+import { EventEmitter } from '@angular/core';
+
+import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-personal-information',
@@ -10,50 +18,46 @@ import { FormGroupDirective } from '@angular/forms';
   styleUrls: ['./personal-information.component.scss'],
 })
 export class PersonalInformationComponent implements OnInit {
-  signup!: FormGroup;
+  personal!: FormGroup;
   submitted: boolean = false;
-  // show: boolean = false;
-  // user: any = {};
-  // userSubmitted: boolean = false;SSS
-  // section: number = 1;
-  @Input() formGroupName!: string;
+  show: boolean = false;
+  user: any = {};
+  userSubmitted: boolean = false;
+  section = 1;
+  // @Input() personalForm: any;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: Router,
-    private rootFormGroup: FormGroupDirective
-  ) {}
+  constructor(private formBuilder: FormBuilder, private route: Router) {}
 
-  // signupForm(): void {
-  //   this.signup = this.formBuilder.group({
-  //     firstName: ['', [Validators.required]],
-  //     lastName: ['', [Validators.required]],
-  //     number: ['', [Validators.required, Validators.minLength(10)]],
-  //   });
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log(changes);
   // }
 
-  ngOnInit(): void {
-    // this.signup;
-    // this.signupForm();
-    this.signup = this.rootFormGroup.control.get(
-      this.formGroupName
-    ) as FormGroup;
+  personalForm(): void {
+    this.personal = this.formBuilder.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      number: ['', [Validators.required, Validators.minLength(10)]],
+    });
   }
 
-  // get personal() {
-  //   return this.signup.invalid;
-  // }
+  ngOnInit(): void {
+    this.personal;
+    this.personalForm();
+  }
 
-  // public nextSection(): void {
-  //   this.submitted = true;
-  //   if (this.signup.invalid) {
-  //     // return;
-  //     this.section = this.section + 1;
-  //   } else if (this.section < 4) {
-  //     this.section = this.section + 1;
-  //   }
-  //   console.log(this.signup.value);
-  // }
+  get personalDetails() {
+    return this.personal.invalid;
+  }
+
+  public nextSection(): void {
+    this.submitted = true;
+    if (this.personal.invalid) {
+      return;
+    } else if (this.section < 4) {
+      this.section = this.section + 1;
+    }
+    console.log(this.personal.value);
+  }
 
   onSubmit() {
     // this.submitted = true;
@@ -64,5 +68,6 @@ export class PersonalInformationComponent implements OnInit {
     // else {
     //   this.route.navigate(['address']);
     // }
+    // console.log(this.personal);
   }
 }

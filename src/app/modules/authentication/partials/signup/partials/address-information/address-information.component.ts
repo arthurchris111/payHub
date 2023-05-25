@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-address-information',
@@ -11,18 +10,14 @@ import { FormGroupDirective } from '@angular/forms';
 export class AddressInformationComponent implements OnInit {
   address!: FormGroup;
   submitted: boolean = false;
-  // show: boolean = false;
-  // user: any = {};
-  // userSubmitted: boolean = false;
-  // isSubmitted: boolean = false;
+  show: boolean = false;
+  user: any = {};
+  userSubmitted: boolean = false;
+  isSubmitted: boolean = false;
   regionName: any;
-  // section: number = 1;
-  @Input() formGroupName!: string;
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: Router,
-    private rootFormGroup: FormGroupDirective
-  ) {}
+  section = 1;
+  // @Input() formGroupName!: string;
+  constructor(private formBuilder: FormBuilder, private route: Router) {}
 
   Regions: any = [
     'Northern',
@@ -43,21 +38,21 @@ export class AddressInformationComponent implements OnInit {
     'Western North',
   ];
 
-  // addressForm(): void {
-  //   this.address = this.formBuilder.group({
-  //     region: ['', [Validators.required]],
-  //     address: ['', [Validators.required]],
-  //     city: ['', [Validators.required, Validators.minLength(10)]],
-  //     regionName: ['', [Validators.required]],
-  //   });
-  // }
+  addressForm(): void {
+    this.address = this.formBuilder.group({
+      region: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      city: ['', [Validators.required, Validators.minLength(10)]],
+      regionName: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
-    // this.address;
-    // this.addressForm();
-    this.address = this.rootFormGroup.control.get(
-      this.formGroupName
-    ) as FormGroup;
+    this.address;
+    this.addressForm();
+    // this.address = this.rootFormGroup.control.get(
+    //   this.formGroupName
+    // ) as FormGroup;
   }
 
   changeRegion(e: any) {
@@ -65,6 +60,31 @@ export class AddressInformationComponent implements OnInit {
       // onlySelf: true,
     });
   }
+
+  public nextSection(): void {
+    this.submitted = true;
+    if (this.address.invalid) {
+      return;
+    } else if (this.section < 4) {
+      this.section = this.section + 1;
+    }
+    console.log(this.address.value);
+  }
+
+  public prevSection(): void {
+    this.submitted = true;
+    if (this.address.invalid) {
+      return;
+    } else if (this.section > 1) {
+      this.section = this.section - 1;
+    }
+  }
+
+  // public prevSection(): void {
+  //   if (this.section > 1) {
+  //     this.section = this.section - 1;
+  //   }
+  // }
 
   // access form controls
   // regionNames() {
