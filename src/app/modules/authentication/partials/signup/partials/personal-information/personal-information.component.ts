@@ -56,7 +56,6 @@ export class PersonalInformationComponent implements OnInit {
     } else if (this.section < 4) {
       this.section = this.section + 1;
     }
-    console.log(this.personal.value);
   }
 
   onSubmit() {
