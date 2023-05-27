@@ -21,7 +21,7 @@ export class PersonalInformationComponent implements OnInit {
   personal!: FormGroup;
   submitted: boolean = false;
   show: boolean = false;
-  user: any = {};
+
   userSubmitted: boolean = false;
   section = 1;
   // @Input() personalForm: any;
