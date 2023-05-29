@@ -9,45 +9,11 @@ import { FormControlName } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   section = 1;
-  // userForm!: FormGroup;
-  // personal!: FormGroup;
-  submitted: boolean = false;
 
+  submitted: boolean = false;
   constructor(private FormBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
-    // this.userForm = this.FormBuilder.group({
-    //    signup
-    //   personal: this.FormBuilder.group({
-    //     firstName: ['', [Validators.required]],
-    //     lastName: ['', [Validators.required]],
-    //     number: ['', [Validators.required, Validators.minLength(10)]],
-    //   }),
-    //    address
-    //   address: this.FormBuilder.group({
-    //     region: ['', [Validators.required]],
-    //     address: ['', [Validators.required]],
-    //     city: ['', [Validators.required, Validators.minLength(10)]],
-    //     regionName: ['', [Validators.required]],
-    //   }),
-    //    identity
-    //   identityCard: this.FormBuilder.group({
-    //     card: ['', [Validators.required]],
-    //     idNumber: ['', [Validators.required]],
-    //   }),
-    // });
-  }
-
-  // public nextSection(): void {
-  //   this.submitted = true;
-  //   if (this.personal.invalid) {
-  //     return;
-  //     this.section = this.section + 1;
-  //   } else if (this.section < 4) {
-  //     this.section = this.section + 1;
-  //   }
-  //   console.log(this.personal.value);
-  // }
+  ngOnInit(): void {}
 
   public nextSection(): void {
     if (this.section < 4) {

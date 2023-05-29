@@ -3,56 +3,55 @@
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
       <div class="px-lg-5">
-        <ng-container *ngIf="section===2">
-          <form [formGroup]="address" (ngSubmit)="onSubmit()">
-            <!-- region-->
-            <div class="fieldset">
-              <!-- select region -->
-              <div class="mb-3">
-                <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control"
-                  (change)="changeRegion($event)" formControlName="regionName">
-                  <option value="">Select your region</option>
-                  <option *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
-                </select>
-                <div class="error"
-                  *ngIf="(address.get('regionName')?.invalid && submitted) || (address.get('regionName')?.touched)">
-                  <small class="text-danger" *ngIf="address.get('regionName')?.errors?.['required'] ">
-                    Region Name required*
-                  </small>
-                </div>
-              </div>
-
-              <!-- address -->
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="address"
-                  formControlName="address">
-
-                <label for="floatingInput">Address</label>
-                <div class="error"
-                  *ngIf="(address.get('address')?.invalid && submitted) || (address.get('address')?.touched)">
-                  <small class="text-danger" *ngIf="address.get('address')?.errors?.['required'] ">
-                    Address required*
-                  </small>
-                </div>
-              </div>
-
-              <!-- city -->
-              <div class="form-floating">
-                <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="city"
-                  formControlName="city">
-                <label for="floatingInput">City</label>
-                <div class="error"
-                  *ngIf="(address.get('city')?.invalid && submitted) || (address.get('city')?.touched)">
-                  <small class="text-danger" *ngIf="address.get('city')?.errors?.['required'] ">
-                    City required*
-                  </small>
-                </div>
+        <!-- <ng-container *ngIf="section===2"> -->
+        <form [formGroup]="address" (ngSubmit)="onSubmit()">
+          <!-- region-->
+          <div class="fieldset">
+            <!-- select region -->
+            <div class="mb-3">
+              <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeRegion($event)"
+                formControlName="regionName">
+                <option value="">Select your region</option>
+                <option *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
+              </select>
+              <div class="error"
+                *ngIf="(address.get('regionName')?.invalid && submitted) || (address.get('regionName')?.touched)">
+                <small class="text-danger" *ngIf="address.get('regionName')?.errors?.['required'] ">
+                  Region Name required*
+                </small>
               </div>
             </div>
-          </form>
-        </ng-container>
+
+            <!-- address -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="address"
+                formControlName="address">
+
+              <label for="floatingInput">Address</label>
+              <div class="error"
+                *ngIf="(address.get('address')?.invalid && submitted) || (address.get('address')?.touched)">
+                <small class="text-danger" *ngIf="address.get('address')?.errors?.['required'] ">
+                  Address required*
+                </small>
+              </div>
+            </div>
+
+            <!-- city -->
+            <div class="form-floating">
+              <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="city"
+                formControlName="city">
+              <label for="floatingInput">City</label>
+              <div class="error" *ngIf="(address.get('city')?.invalid && submitted) || (address.get('city')?.touched)">
+                <small class="text-danger" *ngIf="address.get('city')?.errors?.['required'] ">
+                  City required*
+                </small>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- </ng-container> -->
         <!-- button -->
-        <div class="button d-flex justify-content-between">
+        <!-- <div class="button d-flex justify-content-between">
           <button class="btn d-flex nextform border-0 shadow-none" type="submit" (click)="prevSection()">
             <span class="material-symbols-outlined">
               arrow_back
@@ -64,7 +63,7 @@
               arrow_forward
             </span>
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

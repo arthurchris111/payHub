@@ -11,33 +11,32 @@ import { FormGroupDirective } from '@angular/forms';
 export class IdentityCardInformationComponent implements OnInit {
   identityCard!: FormGroup;
   submitted: boolean = false;
-  // show: boolean = false;
-  // user: any = {};
-  // userSubmitted: boolean = false;
-  // isSubmitted: boolean = false;
+  show: boolean = false;
+  user: any = {};
+  userSubmitted: boolean = false;
+  isSubmitted: boolean = false;
   cardName: any;
-  @Input() formGroupName!: string;
+  // @Input() formGroupName!: string;
   constructor(
     private formBuilder: FormBuilder,
-    private route: Router,
-    private rootFormGroup: FormGroupDirective
+    private route: Router // private rootFormGroup: FormGroupDirective
   ) {}
 
   Cards: any = ['Voters ID', 'Ghana card'];
 
-  // cardForm(): void {
-  //   this.identityCard = this.formBuilder.group({
-  //     card: ['', [Validators.required]],
-  //     idNumber: ['', [Validators.required]],
-  //   });
-  // }
+  cardForm(): void {
+    this.identityCard = this.formBuilder.group({
+      card: ['', [Validators.required]],
+      idNumber: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
-    // this.identityCard;
-    // this.cardForm();
-    this.identityCard = this.rootFormGroup.control.get(
-      this.formGroupName
-    ) as FormGroup;
+    this.identityCard;
+    this.cardForm();
+    // this.identityCard = this.rootFormGroup.control.get(
+    //   this.formGroupName
+    // ) as FormGroup;
   }
 
   changeCard(e: any) {
