@@ -34,9 +34,6 @@ export class IdentityCardInformationComponent implements OnInit {
   ngOnInit(): void {
     this.identityCard;
     this.cardForm();
-    // this.identityCard = this.rootFormGroup.control.get(
-    //   this.formGroupName
-    // ) as FormGroup;
   }
 
   changeCard(e: any) {
