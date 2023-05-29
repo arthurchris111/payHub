@@ -24,6 +24,10 @@ export class PersonalInformationComponent implements OnInit {
     });
   }
 
+  toParent() {
+    this.messageEvent.emit(this.personal);
+  }
+
   ngOnInit(): void {
     this.personal;
     this.personalForm();

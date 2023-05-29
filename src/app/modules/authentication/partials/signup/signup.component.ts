@@ -11,9 +11,19 @@ export class SignupComponent implements OnInit {
   section = 1;
 
   submitted: boolean = false;
+  personal: any;
+
   constructor(private FormBuilder: FormBuilder) {}
 
   ngOnInit(): void {}
+
+  receiveMessage($event: any) {
+    this.personal = $event;
+  }
+
+  get personalData() {
+    return this.personal.invalid;
+  }
 
   public nextSection(): void {
     if (this.section < 4) {
