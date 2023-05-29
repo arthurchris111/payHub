@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./personal-information.component.scss'],
 })
 export class PersonalInformationComponent implements OnInit {
-  personal!: FormGroup;
+  personal: FormGroup;
   submitted: boolean = false;
   show: boolean = false;
   userSubmitted: boolean = false;
-  // personal: FormGroup;
+  @Output() messageEvent = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
