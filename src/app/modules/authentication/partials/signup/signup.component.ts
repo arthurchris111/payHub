@@ -9,20 +9,15 @@ import { FormControlName } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   section = 1;
-
+  dataOnButtonClick: string;
   submitted: boolean = false;
-  personal: any;
 
   constructor(private FormBuilder: FormBuilder) {}
 
   ngOnInit(): void {}
 
-  receiveMessage($event: any) {
-    this.personal = $event;
-  }
-
-  get personalData() {
-    return this.personal.invalid;
+  receivedDataHandler(p: any) {
+    this.dataOnButtonClick = p;
   }
 
   public nextSection(): void {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,9 @@ export class PersonalInformationComponent implements OnInit {
   submitted: boolean = false;
   show: boolean = false;
   userSubmitted: boolean = false;
-  @Output() messageEvent = new EventEmitter<any>();
+  section = 1;
+
+  @Output() data = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
@@ -24,8 +26,9 @@ export class PersonalInformationComponent implements OnInit {
     });
   }
 
-  toParent() {
-    this.messageEvent.emit(this.personal);
+  nextSection() {
+    this.data.emit(this.personal);
+    console.log(this.data);
   }
 
   ngOnInit(): void {

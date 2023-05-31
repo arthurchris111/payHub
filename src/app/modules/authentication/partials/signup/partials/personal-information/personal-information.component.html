@@ -9,8 +9,8 @@
           <!-- first name -->
           <div class="fieldset">
             <div class=" form-floating mb-3">
-              <input type="text" (change)="toParent()" class="form-control shadow-none rounded-4" id="floatingInput"
-                placeholder="first name" formControlName="firstName">
+              <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="first name"
+                formControlName="firstName">
               <label for="floatingInput">First name</label>
               <div class="error"
                 *ngIf="( personal.get('firstName')?.invalid && submitted) || (personal.get('firstName')?.touched)">
@@ -22,8 +22,8 @@
 
             <!-- last name -->
             <div class="form-floating mb-3">
-              <input type="text" (change)="toParent()" class=" form-control shadow-none rounded-4" id="floatingInput"
-                placeholder="last name" formControlName="lastName">
+              <input type="text" class=" form-control shadow-none rounded-4" id="floatingInput" placeholder="last name"
+                formControlName="lastName">
               <label for="floatingInput">Last name</label>
               <div class="error"
                 *ngIf="(personal.get('lastName')?.invalid && submitted) || (personal.get('lastName')?.touched)">
@@ -35,7 +35,7 @@
 
             <!-- phone number -->
             <div class="form-floating">
-              <input type="number" (change)="toParent()" class="form-control shadow-none rounded-4" id="floatingInput"
+              <input type="number" class="form-control shadow-none rounded-4" id="floatingInput"
                 placeholder="Phone number" formControlName="number">
               <label for="floatingInput">Phone number</label>
               <div class="error"
@@ -50,6 +50,12 @@
         <!-- </ng-container> -->
 
         <!-- button -->
+        <button class="btn  nextform border-0 shadow-none" type="submit" (click)="nextSection()" *ngIf="section !==3">
+          <span class="material-symbols-outlined">
+            arrow_forward
+          </span>
+        </button>
+
 
       </div>
     </div>
