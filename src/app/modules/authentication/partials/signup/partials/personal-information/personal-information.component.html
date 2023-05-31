@@ -24,8 +24,7 @@
               <input type="text" class=" form-control shadow-none rounded-4" id="floatingInput" placeholder="last name"
                 formControlName="lastName">
               <label for="floatingInput">Last name</label>
-              <div class="error"
-                *ngIf="(personalForm.get('lastName')?.invalid && submitted) || (personalForm.get('lastName')?.touched)">
+              <div class="error" *ngIf="(personalForm.get('lastName')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('lastName')?.errors?.['required'] ">
                   Last name required*
                 </small>
@@ -37,20 +36,21 @@
               <input type="number" class="form-control shadow-none rounded-4" id="floatingInput"
                 placeholder="Phone number" formControlName="number">
               <label for="floatingInput">Phone number</label>
-              <div class="error"
-                *ngIf="(personalForm.get('number')?.invalid && submitted) || (personalForm.get('number')?.touched)">
+              <div class="error" *ngIf="(personalForm.get('number')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('number')?.errors?.['required'] ">
                   Phone number required*
                 </small>
               </div>
             </div>
           </div>
-          <button class="btn  nextform border-0 shadow-none" type="submit" (click)="nextSection()" *ngIf="section !==3">
-            <span class="material-symbols-outlined">
-              arrow_forward
-            </span>
-          </button>
-
+          <div class="next float-end">
+            <button class="btn  nextform border-0 shadow-none" type="submit" (click)="nextSection()"
+              *ngIf="section !==3">
+              <span class="material-symbols-outlined">
+                arrow_forward
+              </span>
+            </button>
+          </div>
         </form>
 
 

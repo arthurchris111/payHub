@@ -14,8 +14,7 @@
                 <option value="">Select your region</option>
                 <option *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
               </select>
-              <div class="error"
-                *ngIf="(address.get('regionName')?.invalid && submitted) || (address.get('regionName')?.touched)">
+              <div class="error" *ngIf="(address.get('regionName')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="address.get('regionName')?.errors?.['required'] ">
                   Region Name required*
                 </small>
@@ -27,8 +26,7 @@
                 formControlName="address">
 
               <label for="floatingInput">Address</label>
-              <div class="error"
-                *ngIf="(address.get('address')?.invalid && submitted) || (address.get('address')?.touched)">
+              <div class="error" *ngIf="(address.get('address')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="address.get('address')?.errors?.['required'] ">
                   Address required*
                 </small>
@@ -40,7 +38,7 @@
               <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="city"
                 formControlName="city">
               <label for="floatingInput">City</label>
-              <div class="error" *ngIf="(address.get('city')?.invalid && submitted) || (address.get('city')?.touched)">
+              <div class="error" *ngIf="(address.get('city')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="address.get('city')?.errors?.['required'] ">
                   City required*
                 </small>

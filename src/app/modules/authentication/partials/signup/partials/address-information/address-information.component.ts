@@ -39,7 +39,7 @@ export class AddressInformationComponent implements OnInit {
     'Western North',
   ];
 
-  addressForm(): void {
+  buildAddressForm(): void {
     this.address = this.formBuilder.group({
       region: ['', [Validators.required]],
       address: ['', [Validators.required]],
@@ -48,19 +48,26 @@ export class AddressInformationComponent implements OnInit {
     });
   }
 
+  changeRegion(e: any) {
+    this.regionName?.setValue(e.target.value, {
+      onlySelf: true,
+    });
+  }
+
   ngOnInit(): void {
     this.address;
-    this.addressForm();
+    this.buildAddressForm();
   }
 
   prevSection(): void {
     this.prev.emit();
   }
 
-  changeRegion(e: any) {
-    this.regionName?.setValue(e.target.value, {
-      onlySelf: true,
-    });
+  nextSection() {
+    this.submitted = true;
+    if (this.address.invalid) return;
+    // Track data
+    this.next.emit(this.buildAddressForm);
   }
 
   onSubmit() {}
