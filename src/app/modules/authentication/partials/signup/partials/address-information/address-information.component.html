@@ -4,11 +4,11 @@
     <div class="contents">
       <div class="px-lg-5">
         <!-- <ng-container *ngIf="section===2"> -->
-        <form [formGroup]="address">
+        <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
           <!-- region-->
           <div class="fieldset">
             <!-- select region -->
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeRegion($event)"
                 formControlName="regionName">
                 <option value="">Select your region</option>
@@ -19,15 +19,15 @@
                   Region Name required*
                 </small>
               </div>
-            </div>
+            </div> -->
 
             <div class="form-floating mb-3">
               <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="address"
                 formControlName="address">
 
               <label for="floatingInput">Address</label>
-              <div class="error" *ngIf="(address.get('address')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="address.get('address')?.errors?.['required'] ">
+              <div class="error" *ngIf="(addressForm.get('address')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="addressForm.get('address')?.errors?.['required'] ">
                   Address required*
                 </small>
               </div>
@@ -38,8 +38,8 @@
               <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="city"
                 formControlName="city">
               <label for="floatingInput">City</label>
-              <div class="error" *ngIf="(address.get('city')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="address.get('city')?.errors?.['required'] ">
+              <div class="error" *ngIf="(addressForm.get('city')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="addressForm.get('city')?.errors?.['required'] ">
                   City required*
                 </small>
               </div>
@@ -55,7 +55,7 @@
             </span>
           </button>
 
-          <button class="btn  nextform border-0 shadow-none" type="submit" (click)="onSubmit()">
+          <button class="btn  nextform border-0 shadow-none" type="submit" (click)="nextSection()" *ngIf="section !==3">
             <span class="material-symbols-outlined">
               arrow_forward
             </span>

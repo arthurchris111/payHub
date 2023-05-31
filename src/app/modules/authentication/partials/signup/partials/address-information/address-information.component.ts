@@ -8,16 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./address-information.component.scss'],
 })
 export class AddressInformationComponent implements OnInit {
-  address!: FormGroup;
+  addressForm: FormGroup;
   submitted: boolean = false;
   show: boolean = false;
-  user: any = {};
-  userSubmitted: boolean = false;
-  isSubmitted: boolean = false;
+  // user: any = {};
+  // userSubmitted: boolean = false;
+  // isSubmitted: boolean = false;
   regionName: any;
   @Output() next = new EventEmitter();
   @Output() prev = new EventEmitter();
-  // section = 1;
+  section = 2;
+
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
   Regions: any = [
@@ -40,10 +41,10 @@ export class AddressInformationComponent implements OnInit {
   ];
 
   buildAddressForm(): void {
-    this.address = this.formBuilder.group({
+    this.addressForm = this.formBuilder.group({
       region: ['', [Validators.required]],
       address: ['', [Validators.required]],
-      city: ['', [Validators.required, Validators.minLength(10)]],
+      city: ['', [Validators.required, Validators.required]],
       regionName: ['', [Validators.required]],
     });
   }
@@ -55,8 +56,12 @@ export class AddressInformationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.address;
+    // this.address;
     this.buildAddressForm();
+  }
+
+  get formControl(): any {
+    return this.addressForm.controls;
   }
 
   prevSection(): void {
@@ -64,10 +69,11 @@ export class AddressInformationComponent implements OnInit {
   }
 
   nextSection() {
+    debugger;
     this.submitted = true;
-    if (this.address.invalid) return;
-    // Track data
-    this.next.emit(this.buildAddressForm);
+    if (this.addressForm.invalid) return;
+
+    this.next.emit(this.addressForm);
   }
 
   onSubmit() {}

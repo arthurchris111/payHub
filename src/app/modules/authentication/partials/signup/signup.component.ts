@@ -9,8 +9,8 @@ import { FormControlName } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   section = 1;
-  dataOnButtonClick: string;
-  submitted: boolean = false;
+  // dataOnButtonClick: string;
+  // submitted: boolean = false;
 
   constructor(private FormBuilder: FormBuilder) {}
 

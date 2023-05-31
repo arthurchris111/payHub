@@ -13,6 +13,7 @@ export class PersonalInformationComponent implements OnInit {
   show: boolean = false;
   userSubmitted: boolean = false;
   section = 1;
+
   @Output() next = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
@@ -21,8 +22,12 @@ export class PersonalInformationComponent implements OnInit {
     this.personalForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      number: ['', [Validators.required, Validators.minLength(10)]],
+      number: ['', [Validators.required, Validators.required]],
     });
+  }
+
+  get formControl(): any {
+    return this.personalForm.controls;
   }
 
   nextSection() {
@@ -38,10 +43,6 @@ export class PersonalInformationComponent implements OnInit {
     //   firstName: 'pioerpuiewopriewp',
     //   lastName: 'oiuioeferwnfkrn',
     // });
-  }
-
-  get formControl(): any {
-    return this.personalForm.controls;
   }
 
   onSubmit() {}
