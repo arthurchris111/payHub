@@ -16,9 +16,9 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  receivedDataHandler(p: any) {
-    this.dataOnButtonClick = p;
-  }
+  // receivedDataHandler(p: any) {
+  //   this.dataOnButtonClick = p;
+  // }
 
   public nextSection(): void {
     if (this.section < 4) {

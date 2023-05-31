@@ -5,16 +5,15 @@
       <!-- card glassy rounded-0 p-lg-5 border-0 shadow-sm -->
       <div class="px-lg-5">
         <!-- <ng-container *ngIf="section===1"> -->
-        <form [formGroup]="personal" (ngSubmit)="onSubmit()">
+        <form [formGroup]="personalForm" (ngSubmit)="onSubmit()">
           <!-- first name -->
           <div class="fieldset">
             <div class=" form-floating mb-3">
               <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="first name"
                 formControlName="firstName">
               <label for="floatingInput">First name</label>
-              <div class="error"
-                *ngIf="( personal.get('firstName')?.invalid && submitted) || (personal.get('firstName')?.touched)">
-                <small class="text-danger" *ngIf=" personal.get('firstName')?.errors?.['required']">
+              <div class="error" *ngIf="submitted && personalForm.get('firstName')?.invalid">
+                <small class="text-danger" *ngIf=" personalForm.get('firstName')?.errors?.['required']">
                   First name required*
                 </small>
               </div>
@@ -26,8 +25,8 @@
                 formControlName="lastName">
               <label for="floatingInput">Last name</label>
               <div class="error"
-                *ngIf="(personal.get('lastName')?.invalid && submitted) || (personal.get('lastName')?.touched)">
-                <small class="text-danger" *ngIf="personal.get('lastName')?.errors?.['required'] ">
+                *ngIf="(personalForm.get('lastName')?.invalid && submitted) || (personalForm.get('lastName')?.touched)">
+                <small class="text-danger" *ngIf="personalForm.get('lastName')?.errors?.['required'] ">
                   Last name required*
                 </small>
               </div>
@@ -39,22 +38,20 @@
                 placeholder="Phone number" formControlName="number">
               <label for="floatingInput">Phone number</label>
               <div class="error"
-                *ngIf="(personal.get('number')?.invalid && submitted) || (personal.get('number')?.touched)">
-                <small class="text-danger" *ngIf="personal.get('number')?.errors?.['required'] ">
+                *ngIf="(personalForm.get('number')?.invalid && submitted) || (personalForm.get('number')?.touched)">
+                <small class="text-danger" *ngIf="personalForm.get('number')?.errors?.['required'] ">
                   Phone number required*
                 </small>
               </div>
             </div>
           </div>
-        </form>
-        <!-- </ng-container> -->
+          <button class="btn  nextform border-0 shadow-none" type="submit" (click)="nextSection()" *ngIf="section !==3">
+            <span class="material-symbols-outlined">
+              arrow_forward
+            </span>
+          </button>
 
-        <!-- button -->
-        <button class="btn  nextform border-0 shadow-none" type="submit" (click)="nextSection()" *ngIf="section !==3">
-          <span class="material-symbols-outlined">
-            arrow_forward
-          </span>
-        </button>
+        </form>
 
 
       </div>

@@ -1,35 +1,34 @@
 <!-- <ng-container [formGroup]="userForm"> -->
 
 <ng-container *ngIf="section===1">
-  <app-personal-information (data)="receivedDataHandler($event)"></app-personal-information>
+  <app-personal-information (next)="nextSection()"></app-personal-information>
 </ng-container>
 
 <ng-container *ngIf="section===2">
-  <app-address-information></app-address-information>
+  <app-address-information (next)="nextSection()" (prev)="prevSection()"></app-address-information>
 </ng-container>
 
 <ng-container *ngIf="section===3">
-  <app-identity-card-information></app-identity-card-information>
+  <app-identity-card-information (next)="submit()" (prev)="prevSection()"></app-identity-card-information>
 </ng-container>
 
 <!-- prev button -->
-<div class="d-flex justify-content-between px-lg-5 ">
+<!-- <div class="d-flex justify-content-between px-lg-5 ">
   <button class="btn d-flex nextform border-0 shadow-none" type="submit" (click)="prevSection()">
     <span class="material-symbols-outlined">
       arrow_back
     </span>
   </button>
 
-  <!-- next button -->
   <button class="btn  nextform border-0 shadow-none" type="submit" (click)="nextSection()" *ngIf="section !==3">
     <span class="material-symbols-outlined">
       arrow_forward
     </span>
-  </button>
+  </button> -->
 
-  <!-- submit button -->
-  <button class="btn btn-sm d-flex nextform border-0 shadow-none" type="submit" (click)="submit()" *ngIf="section===3">
-    submit
-  </button>
-  <!-- </div>
+<!-- submit button -->
+<button class="btn btn-sm d-flex nextform border-0 shadow-none" type="submit" (click)="submit()" *ngIf="section===3">
+  submit
+</button>
+<!-- </div>
 <!-- </ng-container> -->

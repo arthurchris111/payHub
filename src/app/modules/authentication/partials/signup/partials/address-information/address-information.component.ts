@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -15,6 +15,8 @@ export class AddressInformationComponent implements OnInit {
   userSubmitted: boolean = false;
   isSubmitted: boolean = false;
   regionName: any;
+  @Output() next = new EventEmitter();
+  @Output() prev = new EventEmitter();
   // section = 1;
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
@@ -49,6 +51,10 @@ export class AddressInformationComponent implements OnInit {
   ngOnInit(): void {
     this.address;
     this.addressForm();
+  }
+
+  prevSection(): void {
+    this.prev.emit();
   }
 
   changeRegion(e: any) {

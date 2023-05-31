@@ -8,18 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./personal-information.component.scss'],
 })
 export class PersonalInformationComponent implements OnInit {
-  personal: FormGroup;
+  personalForm: FormGroup;
   submitted: boolean = false;
   show: boolean = false;
   userSubmitted: boolean = false;
   section = 1;
-
-  @Output() data = new EventEmitter();
+  @Output() next = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
-  personalForm(): void {
-    this.personal = this.formBuilder.group({
+  buildPersonalForm(): void {
+    this.personalForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       number: ['', [Validators.required, Validators.minLength(10)]],
@@ -27,13 +26,22 @@ export class PersonalInformationComponent implements OnInit {
   }
 
   nextSection() {
-    this.data.emit(this.personal);
-    console.log(this.data);
+    this.submitted = true;
+    if (this.personalForm.invalid) return;
+    // Track data
+    this.next.emit(this.personalForm);
   }
 
   ngOnInit(): void {
-    this.personal;
-    this.personalForm();
+    this.buildPersonalForm();
+    // this.personalForm.patchValue({
+    //   firstName: 'pioerpuiewopriewp',
+    //   lastName: 'oiuioeferwnfkrn',
+    // });
+  }
+
+  get formControl(): any {
+    return this.personalForm.controls;
   }
 
   onSubmit() {}
