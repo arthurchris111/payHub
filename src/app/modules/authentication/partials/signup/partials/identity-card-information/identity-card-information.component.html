@@ -24,7 +24,7 @@
             <div class="form-item mb-2">
               <input type="number" autocomplete="off" required class="form-control rounded-0 shadow-none"
                 formControlName="idNumber">
-              <label for="text">Address</label>
+              <label for="text">ID number</label>
               <div class="error" *ngIf="(identityCard.get('idNumber')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('idNumber')?.errors?.['required'] ">
                   ID number required*
@@ -40,9 +40,9 @@
                 </span>
               </button>
 
-              <button class="btn btn-sm d-flex nextform border-0 shadow-none" type="submit" (click)="onSubmit()"
-                *ngIf="section===3">
-                submit
+              <button class="btn btn-primary btn-sm d-flex nextform border-0 shadow-none rounded-0" type="submit"
+                (click)="onSubmit()">
+                SUBMIT
               </button>
             </div>
           </div>
