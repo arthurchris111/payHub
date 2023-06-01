@@ -2,21 +2,9 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
-      <!-- card glassy rounded-0 p-lg-5 border-0 shadow-sm -->
       <div class="px-lg-5">
-        <!-- <ng-container *ngIf="section===1"> -->
         <form [formGroup]="personalForm" (ngSubmit)="onSubmit()">
           <div class="fieldset">
-            <!-- <div class=" form-floating mb-3">
-              <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="first name"
-                formControlName="firstName">
-              <label for="floatingInput">First name</label>
-              <div class="error" *ngIf="submitted && personalForm.get('firstName')?.invalid">
-                <small class="text-danger" *ngIf=" personalForm.get('firstName')?.errors?.['required']">
-                  First name required*
-                </small>
-              </div>
-            </div> -->
             <!-- first name -->
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" required class="form-control rounded-0 shadow-none"

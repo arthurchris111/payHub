@@ -9,6 +9,7 @@ import { AddressInformationComponent } from './partials/signup/partials/address-
 import { IdentityCardInformationComponent } from './partials/signup/partials/identity-card-information/identity-card-information.component';
 import { PersonalInformationComponent } from './partials/signup/partials/personal-information/personal-information.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ComponentModule } from 'src/app/component/component.module';
 
 const component = [
   HomeComponent,
@@ -25,6 +26,7 @@ const component = [
     AuthenticationRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    ComponentModule,
   ],
 })
 export class AuthenticationModule {}
