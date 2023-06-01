@@ -3,13 +3,11 @@
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
       <div class="px-lg-5">
-        <!-- id  form -->
         <form [formGroup]="identityCard">
-
           <div class="fieldset">
             <!-- select id -->
-            <div class="mb-3">
-              <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeCard($event)"
+            <div class="form-item mb-3">
+              <select class="custom-select p-3 w-100 shadow-none rounded-0 form-control" (change)="changeCard($event)"
                 formControlName="card">
                 <option value="">Select card type</option>
                 <option *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
@@ -23,19 +21,30 @@
             </div>
 
             <!-- id number -->
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control shadow-none rounded-4" id="floatingInput"
-                placeholder="Phone number" formControlName="idNumber">
-              <label for="floatingInput">Enter ID number</label>
-              <div class="error"
-                *ngIf="(identityCard.get('idNumber')?.invalid && submitted) || (identityCard.get('idNumber')?.touched)">
+            <div class="form-item mb-2">
+              <input type="number" autocomplete="off" required class="form-control rounded-0 shadow-none"
+                formControlName="idNumber">
+              <label for="text">Address</label>
+              <div class="error" *ngIf="(identityCard.get('idNumber')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('idNumber')?.errors?.['required'] ">
                   ID number required*
                 </small>
               </div>
             </div>
-            <!-- id picture -->
 
+            <!-- button -->
+            <div class="button d-flex justify-content-between">
+              <button class="btn d-flex nextform border-0 shadow-none p-0" type="button" (click)="prevSection()">
+                <span class="material-symbols-outlined">
+                  arrow_back
+                </span>
+              </button>
+
+              <button class="btn btn-sm d-flex nextform border-0 shadow-none" type="submit" (click)="onSubmit()"
+                *ngIf="section===3">
+                submit
+              </button>
+            </div>
           </div>
         </form>
       </div>

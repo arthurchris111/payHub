@@ -21,39 +21,39 @@ export class AddressInformationComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
-  // Regions: any = [
-  //   'Northern',
-  //   'Ashanti',
-  //   'Western',
-  //   'Volta',
-  //   'Eastern',
-  //   'Upper West',
-  //   'Central',
-  //   'Upper East',
-  //   'Greater Accra',
-  //   'Savannah',
-  //   'North East',
-  //   'Bono East',
-  //   'Oti',
-  //   'Ahafo',
-  //   'Bono',
-  //   'Western North',
-  // ];
+  Regions: any = [
+    'Northern',
+    'Ashanti',
+    'Western',
+    'Volta',
+    'Eastern',
+    'Upper West',
+    'Central',
+    'Upper East',
+    'Greater Accra',
+    'Savannah',
+    'North East',
+    'Bono East',
+    'Oti',
+    'Ahafo',
+    'Bono',
+    'Western North',
+  ];
 
   buildAddressForm(): void {
     this.addressForm = this.formBuilder.group({
-      // region: ['', [Validators.required]],
+      region: ['', [Validators.required]],
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],
-      // regionName: ['', [Validators.required]],
+      regionName: ['', [Validators.required]],
     });
   }
 
-  // changeRegion(e: any) {
-  //   this.regionName?.setValue(e.target.value, {
-  //     onlySelf: true,
-  //   });
-  // }
+  changeRegion(e: any) {
+    this.regionName?.setValue(e.target.value, {
+      onlySelf: true,
+    });
+  }
 
   ngOnInit(): void {
     // this.address;
@@ -69,9 +69,8 @@ export class AddressInformationComponent implements OnInit {
   }
 
   nextSection() {
-    // debugger;
     this.submitted = true;
-    if (this.addressForm.invalid) return;
+    // if (this.addressForm.invalid) return;
 
     this.next.emit(this.addressForm);
   }

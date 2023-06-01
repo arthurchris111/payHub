@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormGroupDirective } from '@angular/forms';
@@ -16,7 +16,9 @@ export class IdentityCardInformationComponent implements OnInit {
   userSubmitted: boolean = false;
   isSubmitted: boolean = false;
   cardName: any;
-  // @Input() formGroupName!: string;
+  section = 3;
+  @Output() prev = new EventEmitter();
+
   constructor(
     private formBuilder: FormBuilder,
     private route: Router // private rootFormGroup: FormGroupDirective
@@ -40,12 +42,9 @@ export class IdentityCardInformationComponent implements OnInit {
     this.cardName?.setValue(e.target.value, {});
   }
 
-  onSubmit() {
-    // this.submitted = true;
-    // this.userSubmitted = true;
-    // this.isSubmitted = true;
-    // if (this.identityCard.invalid) {
-    //   return;
-    // }
+  prevSection(): void {
+    this.prev.emit();
   }
+
+  onSubmit() {}
 }

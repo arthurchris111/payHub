@@ -6,9 +6,8 @@
       <div class="px-lg-5">
         <!-- <ng-container *ngIf="section===1"> -->
         <form [formGroup]="personalForm" (ngSubmit)="onSubmit()">
-          <!-- first name -->
           <div class="fieldset">
-            <div class=" form-floating mb-3">
+            <!-- <div class=" form-floating mb-3">
               <input type="text" class="form-control shadow-none rounded-4" id="floatingInput" placeholder="first name"
                 formControlName="firstName">
               <label for="floatingInput">First name</label>
@@ -17,13 +16,24 @@
                   First name required*
                 </small>
               </div>
+            </div> -->
+            <!-- first name -->
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" required class="form-control rounded-0 shadow-none"
+                formControlName="firstName">
+              <label for="text">First name</label>
+              <div class="error" *ngIf="(personalForm.get('firstName')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="personalForm.get('firstName')?.errors?.['required'] ">
+                  First name required*
+                </small>
+              </div>
             </div>
 
             <!-- last name -->
-            <div class="form-floating mb-3">
-              <input type="text" class=" form-control shadow-none rounded-4" id="floatingInput" placeholder="last name"
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" required class="form-control rounded-0 shadow-none"
                 formControlName="lastName">
-              <label for="floatingInput">Last name</label>
+              <label for="text">Last name</label>
               <div class="error" *ngIf="(personalForm.get('lastName')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('lastName')?.errors?.['required'] ">
                   Last name required*
@@ -32,10 +42,10 @@
             </div>
 
             <!-- phone number -->
-            <div class="form-floating">
-              <input type="number" class="form-control shadow-none rounded-4" id="floatingInput"
-                placeholder="Phone number" formControlName="number">
-              <label for="floatingInput">Phone number</label>
+            <div class="form-item mb-2">
+              <input type="number" autocomplete="off" required class="form-control rounded-0 shadow-none"
+                formControlName="number">
+              <label for="text">Phone number</label>
               <div class="error" *ngIf="(personalForm.get('number')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('number')?.errors?.['required'] ">
                   Phone number required*
@@ -43,32 +53,17 @@
               </div>
             </div>
           </div>
+
+          <!-- next section button -->
           <div class="next float-end">
-            <button class="btn  nextform border-0 shadow-none" type="submit" (click)="nextSection()"
+            <button class="btn  nextform border-0 shadow-none p-0" type="submit" (click)="nextSection()"
               *ngIf="section !==3">
               <span class="material-symbols-outlined">
                 arrow_forward
               </span>
             </button>
           </div>
-
-          <!--  -->
-          <div class="form-item mb-3">
-            <input type="text" id="password" class=" form-control shadow-none rounded-4" formControlName="lastName">
-            <label for="password">Last name</label>
-            <div class="error" *ngIf="(personalForm.get('lastName')?.invalid && submitted)">
-              <small class="text-danger" *ngIf="personalForm.get('lastName')?.errors?.['required'] ">
-                Last name required*
-              </small>
-            </div>
-          </div>
-          <div class="form-item">
-            <input type="password" id="password" autocomplete="off" required class="form-control shadow-none">
-            <label for="password">Password</label>
-          </div>
         </form>
-
-
       </div>
     </div>
   </div>
