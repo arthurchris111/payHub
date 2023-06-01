@@ -22,7 +22,7 @@ export class PersonalInformationComponent implements OnInit {
     this.personalForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      number: ['', [Validators.required, Validators.required]],
+      number: ['', [Validators.required]],
     });
   }
 

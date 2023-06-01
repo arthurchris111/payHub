@@ -51,6 +51,21 @@
               </span>
             </button>
           </div>
+
+          <!--  -->
+          <div class="form-item mb-3">
+            <input type="text" id="password" class=" form-control shadow-none rounded-4" formControlName="lastName">
+            <label for="password">Last name</label>
+            <div class="error" *ngIf="(personalForm.get('lastName')?.invalid && submitted)">
+              <small class="text-danger" *ngIf="personalForm.get('lastName')?.errors?.['required'] ">
+                Last name required*
+              </small>
+            </div>
+          </div>
+          <div class="form-item">
+            <input type="password" id="password" autocomplete="off" required class="form-control shadow-none">
+            <label for="password">Password</label>
+          </div>
         </form>
 
 

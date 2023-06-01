@@ -14,8 +14,8 @@
                 <option value="">Select your region</option>
                 <option *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
               </select>
-              <div class="error" *ngIf="(address.get('regionName')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="address.get('regionName')?.errors?.['required'] ">
+              <div class="error" *ngIf="(addressForm.get('regionName')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="addressForm.get('regionName')?.errors?.['required'] ">
                   Region Name required*
                 </small>
               </div>
