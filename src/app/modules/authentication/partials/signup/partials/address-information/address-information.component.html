@@ -19,6 +19,18 @@
               </div>
             </div>
 
+            <!-- city -->
+            <div class="form-item mb-2">
+              <input type="number" autocomplete="off" required class="form-control rounded-0 shadow-none"
+                formControlName="city">
+              <label for="text">City</label>
+              <div class="error" *ngIf="(addressForm.get('city')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="addressForm.get('city')?.errors?.['required'] ">
+                  City required*
+                </small>
+              </div>
+            </div>
+
             <!-- address -->
             <div class="form-item mb-2">
               <input type="text" autocomplete="off" required class="form-control rounded-0 shadow-none"
@@ -31,29 +43,17 @@
               </div>
             </div>
 
-            <!-- city -->
-            <div class="form-item mb-2">
-              <input type="number" autocomplete="off" required class="form-control rounded-0 shadow-none"
-                formControlName="city">
-              <label for="text">Address</label>
-              <div class="error" *ngIf="(addressForm.get('city')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="addressForm.get('city')?.errors?.['required'] ">
-                  City required*
-                </small>
-              </div>
-            </div>
             <!-- button -->
             <div class="button d-flex justify-content-between">
               <button class="btn d-flex nextform border-0 shadow-none p-0" type="button" (click)="prevSection()">
-                <button type="button" class="btn prevForm  text-white btn-sm">
-                  Previous
-                </button>
+                <button type="button" class="btn prevForm  text-white btn-sm">Previous</button>
+                <!-- <i class="fa-solid fa-arrow-left-long fa-beat-fade"></i> -->
               </button>
 
               <button class="btn btn-sm  border-0 shadow-none p-0" type="button" (click)="nextSection()"
                 *ngIf="section !==3">
-                <button type="button" class="btn nextForm  text-white btn-sm px-3">Next
-                </button>
+                <button type="button" class="btn nextForm  text-white btn-sm px-3">Next</button>
+                <!-- <i class="fa-solid fa-arrow-right-long fa-beat-fade"></i> -->
               </button>
             </div>
           </div>
