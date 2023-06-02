@@ -5,18 +5,23 @@
 }
 
 .text-focus-in{
-  color:  #0B2230;
+  // color:  #0B2230;
+  color: black;
 
 }
 
 .btn{
-  background-color: #275867;}
-
-
-.heading{
-  color: #275867;
+  background-color: #275867;
 }
 
+.heading{
+  // color: #5c2767;
+  color: black;
+}
+
+.vitualCard{
+  color: rgb(255, 0, 221);
+}
 
 .text-focus-in {
 	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
