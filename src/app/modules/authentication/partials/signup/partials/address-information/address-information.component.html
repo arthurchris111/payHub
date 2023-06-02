@@ -45,16 +45,15 @@
             <!-- button -->
             <div class="button d-flex justify-content-between">
               <button class="btn d-flex nextform border-0 shadow-none p-0" type="button" (click)="prevSection()">
-                <span class="material-symbols-outlined">
-                  arrow_back
-                </span>
+                <button type="button" class="btn prevForm  text-white btn-sm">
+                  Previous
+                </button>
               </button>
 
-              <button class="btn  nextform border-0 shadow-none p-0" type="submit" (click)="nextSection()"
+              <button class="btn btn-sm  border-0 shadow-none p-0" type="button" (click)="nextSection()"
                 *ngIf="section !==3">
-                <span class="material-symbols-outlined">
-                  arrow_forward
-                </span>
+                <button type="button" class="btn nextForm  text-white btn-sm px-3">Next
+                </button>
               </button>
             </div>
           </div>

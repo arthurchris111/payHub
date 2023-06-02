@@ -54,11 +54,23 @@ input[type=number]:focus,
   color: #999;
   transition: all .2s ease
 }
+
 .form-item input:focus + label,
 .form-item input:valid + label{
   font-size: 11px;
-  top: -5px
+  top: -5px 
 }
+
 .form-item input:focus + label{
   color: #28485c;
+}
+
+// next button
+.nextForm{
+  background-color: #76d2db!important;
+}
+
+// prev button
+.prevForm{
+  background-color:#5ca6ad!important ;
 }
