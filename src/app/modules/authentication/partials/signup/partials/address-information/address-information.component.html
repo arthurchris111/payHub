@@ -9,11 +9,11 @@
             <div class="form-item mb-2">
               <select class="custom-select p-3 w-100 shadow-none rounded-0 form-control" (change)="changeRegion($event)"
                 formControlName="regionName">
-                <option value="">Select your region</option>
-                <option *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
+                <option value="" class="select" selected disabled>Select your region</option>
+                <option class="text-dark" *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
               </select>
               <div class="error" *ngIf="(addressForm.get('regionName')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="addressForm.get('regionName')?.errors?.['required'] ">
+                <small class="" *ngIf="addressForm.get('regionName')?.errors?.['required'] ">
                   Region Name required*
                 </small>
               </div>
@@ -21,7 +21,7 @@
 
             <!-- city -->
             <div class="form-item mb-2">
-              <input type="number" autocomplete="off" required class="form-control rounded-0 shadow-none"
+              <input type="text" autocomplete="off" required class="form-control rounded-0 shadow-none"
                 formControlName="city">
               <label for="text">City</label>
               <div class="error" *ngIf="(addressForm.get('city')?.invalid && submitted)">
