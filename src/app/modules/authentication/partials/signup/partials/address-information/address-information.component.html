@@ -36,8 +36,8 @@
               <input type="text" autocomplete="off" required class="form-control rounded-0 shadow-none"
                 formControlName="address">
               <label for="text">Address</label>
-              <div class="error" *ngIf="(addressForm.get('number')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="addressForm.get('number')?.errors?.['required'] ">
+              <div class="error" *ngIf="(addressForm.get('address')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="addressForm.get('address')?.errors?.['required'] ">
                   Address required*
                 </small>
               </div>
