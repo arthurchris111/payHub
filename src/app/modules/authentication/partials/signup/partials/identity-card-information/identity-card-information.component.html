@@ -5,6 +5,11 @@
       <div class="px-lg-5">
         <form [formGroup]="identityCard">
           <div class="fieldset">
+            <!-- avatar image -->
+            <div class="avatar-image">
+              <img [src]="url">
+            </div>
+
             <!-- select id -->
             <div class="form-item mb-3">
               <select class="custom-select p-3 w-100 shadow-none rounded-0 form-control" (change)="changeCard($event)"

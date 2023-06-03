@@ -38,6 +38,9 @@ export class IdentityCardInformationComponent implements OnInit {
     this.cardForm();
   }
 
+  // avatar image
+  url = '';
+
   changeCard(e: any) {
     this.cardName?.setValue(e.target.value, {});
   }
