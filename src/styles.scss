@@ -36,12 +36,13 @@ input[type=number]:focus,
 .form-item label{
   position: absolute;
   cursor: text;
-  z-index: 2;
+  z-index: 9;
   top: 13px;
   left: 10px;
   font-size: 15px;
   // font-weight: bold;
-  background: #fff;
+  background: linear-gradient(180deg,rgba(250,247,239,0) 50%,rgb(255,255,255) 50%);;
+// linear-gradient(180deg,rgba(250,247,239,0) 50%,rgb(255,255,255) 50%);
   padding: 0 10px;
   color: #999;
   transition: all .2s ease

@@ -6,9 +6,9 @@
         <form [formGroup]="identityCard">
           <div class="fieldset">
             <!-- avatar image -->
-            <div class="avatar-image text-center">
+            <div class="avatar-image">
+              <img [src]="url" class="profile "> <br>
               <input type="file" (change)="onSelectFile($event)">
-              <img [src]="url" class="profile">
             </div>
 
             <!-- select id -->

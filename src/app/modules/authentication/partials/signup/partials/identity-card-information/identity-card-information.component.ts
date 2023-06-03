@@ -24,25 +24,27 @@ export class IdentityCardInformationComponent implements OnInit {
     private route: Router // private rootFormGroup: FormGroupDirective
   ) {}
 
+  // id type array
   Cards: any = ['Voters ID', 'Ghana card'];
 
-  cardForm(): void {
+  // build card form
+  buildCardForm(): void {
     this.identityCard = this.formBuilder.group({
       card: ['', [Validators.required]],
       idNumber: ['', [Validators.required]],
+      file: ['', [Validators.required]],
     });
   }
 
   ngOnInit(): void {
     this.identityCard;
-    this.cardForm();
+    this.buildCardForm();
   }
 
   // change card type
-   changeCard(e: any) {
+  changeCard(e: any) {
     this.cardName?.setValue(e.target.value, {});
   }
-
 
   // avatar image
   url = '../../../../../../../assets/images/profile-user.png';
@@ -58,7 +60,7 @@ export class IdentityCardInformationComponent implements OnInit {
     }
   }
 
- 
+  //  next form
   prevSection(): void {
     this.prev.emit();
   }
