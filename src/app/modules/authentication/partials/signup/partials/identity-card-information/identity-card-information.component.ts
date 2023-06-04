@@ -39,7 +39,7 @@ export class IdentityCardInformationComponent implements OnInit {
   }
 
   // avatar image
-  url = '';
+  url = '../../../../../../../assets/images/profile-user.png';
 
   changeCard(e: any) {
     this.cardName?.setValue(e.target.value, {});
