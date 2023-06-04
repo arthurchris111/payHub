@@ -38,6 +38,12 @@ export class IdentityCardInformationComponent implements OnInit {
     this.cardForm();
   }
 
+  
+   changeCard(e: any) {
+    this.cardName?.setValue(e.target.value, {});
+  }
+
+
   // avatar image
   url = '../../../../../../../assets/images/profile-user.png';
 
@@ -52,10 +58,7 @@ export class IdentityCardInformationComponent implements OnInit {
     }
   }
 
-  changeCard(e: any) {
-    this.cardName?.setValue(e.target.value, {});
-  }
-
+ 
   prevSection(): void {
     this.prev.emit();
   }
