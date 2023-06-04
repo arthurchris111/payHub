@@ -41,6 +41,17 @@ export class IdentityCardInformationComponent implements OnInit {
   // avatar image
   url = '../../../../../../../assets/images/profile-user.png';
 
+  // change avatar image
+  onSelectFile(e: any) {
+    if (e.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      };
+    }
+  }
+
   changeCard(e: any) {
     this.cardName?.setValue(e.target.value, {});
   }
