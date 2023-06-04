@@ -38,7 +38,7 @@ export class IdentityCardInformationComponent implements OnInit {
     this.cardForm();
   }
 
-  
+  // change card type
    changeCard(e: any) {
     this.cardName?.setValue(e.target.value, {});
   }
