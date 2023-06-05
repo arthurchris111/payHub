@@ -51,7 +51,7 @@ export class AddressInformationComponent implements OnInit {
 
   changeRegion(e: any) {
     this.regionName?.setValue(e.target.value, {
-      onlySelf: true,
+      // onlySelf: true,
     });
   }
 

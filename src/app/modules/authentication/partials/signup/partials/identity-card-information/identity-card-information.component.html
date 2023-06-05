@@ -6,9 +6,15 @@
         <form [formGroup]="identityCard">
           <div class="fieldset">
             <!-- avatar image -->
-            <div class="avatar-image">
-              <img [src]="url" class="profile "> <br>
-              <input type="file" (change)="onSelectFile($event)">
+            <div class="avatar-image text-center mb-3">
+              <img [src]="url" class="profile rounded-pill">
+              <input type="file" (change)="onSelectFile($event)" class="form-control shadow-none rounded-0"
+                formControlName="profilePicture">
+              <div class="error" *ngIf="(identityCard.get('profilePicture')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="identityCard.get('card')?.errors?.['required'] ">
+                  ID type required*
+                </small>
+              </div>
             </div>
 
             <!-- select id -->
@@ -18,8 +24,7 @@
                 <option value="">Select card type</option>
                 <option *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
               </select>
-              <div class="error"
-                *ngIf="(identityCard.get('card')?.invalid && submitted) || (identityCard.get('card')?.touched)">
+              <div class="error" *ngIf="(identityCard.get('card')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('card')?.errors?.['required'] ">
                   ID type required*
                 </small>

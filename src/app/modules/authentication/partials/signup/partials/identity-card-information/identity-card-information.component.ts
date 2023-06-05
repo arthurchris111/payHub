@@ -32,7 +32,7 @@ export class IdentityCardInformationComponent implements OnInit {
     this.identityCard = this.formBuilder.group({
       card: ['', [Validators.required]],
       idNumber: ['', [Validators.required]],
-      file: ['', [Validators.required]],
+      profilePicture: ['', [Validators.required]],
     });
   }
 
