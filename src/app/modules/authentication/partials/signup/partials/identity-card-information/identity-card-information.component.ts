@@ -33,6 +33,7 @@ export class IdentityCardInformationComponent implements OnInit {
       card: ['', [Validators.required]],
       idNumber: ['', [Validators.required]],
       profilePicture: ['', [Validators.required]],
+      cardImage: ['', [Validators.required]],
     });
   }
 
@@ -47,7 +48,8 @@ export class IdentityCardInformationComponent implements OnInit {
   }
 
   // avatar image
-  url = '../../../../../../../assets/images/profile-user.png';
+  // url = '../../../../../../../assets/images/profile-user.png';
+  url = '../../../../../../../assets/images/profile-picture.png';
 
   // change avatar image
   onSelectFile(e: any) {
