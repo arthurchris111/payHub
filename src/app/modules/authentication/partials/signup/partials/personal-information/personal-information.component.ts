@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-personal-information',
   templateUrl: './personal-information.component.html',
@@ -35,7 +35,7 @@ export class PersonalInformationComponent implements OnInit {
   // next form
   nextSection() {
     this.submitted = true;
-    // if (this.personalForm.invalid) return;
+    if (this.personalForm.invalid) return;
 
     // Track data
     this.next.emit(this.personalForm);
