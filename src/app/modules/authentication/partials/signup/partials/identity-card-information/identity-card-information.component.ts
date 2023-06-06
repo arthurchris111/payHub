@@ -17,6 +17,8 @@ export class IdentityCardInformationComponent implements OnInit {
   isSubmitted: boolean = false;
   cardName: any;
   section = 3;
+  image: null;
+
   @Output() prev = new EventEmitter();
 
   constructor(
@@ -60,6 +62,11 @@ export class IdentityCardInformationComponent implements OnInit {
         this.url = event.target.result;
       };
     }
+  }
+
+  // upload id image
+  onFileChanged(event: any) {
+    this.image = event.target.files[0];
   }
 
   //  next form

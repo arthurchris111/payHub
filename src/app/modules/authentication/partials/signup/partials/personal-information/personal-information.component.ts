@@ -18,6 +18,7 @@ export class PersonalInformationComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
+  // personal form
   buildPersonalForm(): void {
     this.personalForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
@@ -26,10 +27,12 @@ export class PersonalInformationComponent implements OnInit {
     });
   }
 
+  // get form controls
   get formControl(): any {
     return this.personalForm.controls;
   }
 
+  // next form
   nextSection() {
     this.submitted = true;
     // if (this.personalForm.invalid) return;

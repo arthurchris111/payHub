@@ -7,7 +7,7 @@
           <div class="fieldset">
             <!-- select region -->
             <div class="form-item mb-2">
-              <select class="custom-select p-3 w-100 shadow-none rounded-0 form-control" (change)="changeRegion($event)"
+              <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeRegion($event)"
                 formControlName="regionName">
                 <input type="text" autocomplete="off" required class="form-control rounded-0 shadow-none"
                   formControlName="city">
@@ -23,7 +23,7 @@
 
             <!-- city -->
             <div class="form-item mb-2">
-              <input type="text" autocomplete="off" required class="form-control rounded-0 shadow-none"
+              <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none"
                 formControlName="city">
               <label for="text">City</label>
               <div class="error" *ngIf="(addressForm.get('city')?.invalid && submitted)">
@@ -35,7 +35,7 @@
 
             <!-- address -->
             <div class="form-item mb-2">
-              <input type="text" autocomplete="off" required class="form-control rounded-0 shadow-none"
+              <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none"
                 formControlName="address">
               <label for="text">Address</label>
               <div class="error" *ngIf="(addressForm.get('address')?.invalid && submitted)">
