@@ -35,7 +35,7 @@ export class PersonalInformationComponent implements OnInit {
   // next form
   nextSection() {
     this.submitted = true;
-    if (this.personalForm.invalid) return;
+    // if (this.personalForm.invalid) return;
 
     // Track data
     this.next.emit(this.personalForm);

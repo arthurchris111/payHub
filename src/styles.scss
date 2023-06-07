@@ -7,10 +7,11 @@
 #image{
   background-image: url('././assets/images/bg.jpg');
   height: 100%;
-  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center
+  background-size: cover;
 }
+
 input[type=text]:focus,
 input[type=password]:focus,
 input[type=date]:focus,
