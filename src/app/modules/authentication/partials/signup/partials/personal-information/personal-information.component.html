@@ -7,8 +7,7 @@
           <div class="fieldset">
             <!-- first name -->
             <label for="text">First name</label>
-            <div class="form-item mb-3 d-flex">
-
+            <div class="form-item mb-3">
 
               <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none "
                 formControlName="firstName">
@@ -41,7 +40,10 @@
 
               <div class="error" *ngIf="(personalForm.get('number')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('number')?.errors?.['required'] ">
-                  Phone number required*
+                  Phone number required (must not be less than 10 digits)*
+                </small>
+                <small class="text-danger" *ngIf="personalForm.get('number')?.errors?.['pattern']">
+                  Phone number required (must not be less than 10 digits)*
                 </small>
               </div>
             </div>

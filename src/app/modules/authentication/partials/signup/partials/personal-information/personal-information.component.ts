@@ -23,7 +23,7 @@ export class PersonalInformationComponent implements OnInit {
     this.personalForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      number: ['', [Validators.required]],
+      number: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
     });
   }
 
@@ -35,7 +35,7 @@ export class PersonalInformationComponent implements OnInit {
   // next form
   nextSection() {
     this.submitted = true;
-    // if (this.personalForm.invalid) return;
+    if (this.personalForm.invalid) return;
 
     // Track data
     this.next.emit(this.personalForm);

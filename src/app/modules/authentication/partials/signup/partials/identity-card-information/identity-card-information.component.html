@@ -2,15 +2,16 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="contents">
-      <div class="px-lg-5">
+      <div class="px-lg-5 ">
         <form [formGroup]="identityCard">
           <div class="fieldset">
             <!-- avatar image -->
+            <label class="">Upload selfie</label>
             <div class="avatar-image text-center mb-3 text-center">
               <label for="imageUpload" class="btn btn-outlined border-0 ">
                 <img [src]="url" class="profile shadow-sm ">
               </label>
-              <label class="">Upload selfie</label>
+
               <input type="file" (change)="onSelectFile($event)" class=" shadow-none rounded-4"
                 formControlName="profilePicture" id="imageUpload" accept="image/*" style="display: none">
 
@@ -36,6 +37,19 @@
               </div>
             </div>
 
+            <!-- id number -->
+            <label for="text">ID number</label>
+            <div class="form-item mb-2">
+              <input type="number" autocomplete="off" required class="form-control rounded-4 shadow-none"
+                formControlName="idNumber">
+
+              <div class="error" *ngIf="(identityCard.get('idNumber')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="identityCard.get('idNumber')?.errors?.['required'] ">
+                  ID number required*
+                </small>
+              </div>
+            </div>
+
             <!-- upload id image -->
             <label for="">Upload ID image</label>
             <div class="avatar-image text-center mb-3 text-center">
@@ -43,18 +57,6 @@
               <div class="error" *ngIf="(identityCard.get('cardImage')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('cardImage')?.errors?.['required'] ">
                   Card image required*
-                </small>
-              </div>
-            </div>
-
-            <!-- id number -->
-            <div class="form-item mb-2">
-              <input type="number" autocomplete="off" required class="form-control rounded-4 shadow-none"
-                formControlName="idNumber">
-              <label for="text">ID number</label>
-              <div class="error" *ngIf="(identityCard.get('idNumber')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="identityCard.get('idNumber')?.errors?.['required'] ">
-                  ID number required*
                 </small>
               </div>
             </div>
