@@ -8,7 +8,7 @@
             <!-- avatar image -->
             <div class="avatar-image text-center mb-3 text-center">
               <label for="imageUpload" class="btn btn-outlined border-0 ">
-                <img [src]="url" class="profile ">
+                <img [src]="url" class="profile shadow-sm ">
               </label>
               <h6 class="upload">Upload Picture</h6>
               <input type="file" (change)="onSelectFile($event)" class=" shadow-none rounded-4"
@@ -38,7 +38,8 @@
             <!-- upload id image -->
             <div class="avatar-image text-center mb-3 text-center">
               <input type="file" (change)="onFileChanged($event)" class=" shadow-none rounded-4 form-control"
-                formControlName="cardImage" id="cardImage" accept="image/*">
+                id="getFile" style="display:none">
+              formControlName="cardImage" id="cardImage" accept="image/*">
               <div class="error" *ngIf="(identityCard.get('cardImage')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('cardImage')?.errors?.['required'] ">
                   Card image required*
