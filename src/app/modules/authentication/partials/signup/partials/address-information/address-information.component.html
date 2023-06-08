@@ -6,6 +6,7 @@
         <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
           <div class="fieldset">
             <!-- select region -->
+
             <label for="text">Select your region</label>
             <div class="form-item mb-2">
               <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeRegion($event)"
@@ -13,6 +14,9 @@
                 <!-- <option value="" class="select" disabled="">Select your region</option> -->
                 <option class="text-dark" *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
               </select>
+              <span class="material-symbols-outlined  float-end">
+                expand_more
+              </span>
               <div class="error" *ngIf="(addressForm.get('regionName')?.invalid && submitted)">
                 <small class="" *ngIf="addressForm.get('regionName')?.errors?.['required'] ">
                   Region Name required*
