@@ -19,7 +19,7 @@
               </span>
               <div class="error" *ngIf="(addressForm.get('regionName')?.invalid && submitted)">
                 <small class="" *ngIf="addressForm.get('regionName')?.errors?.['required'] ">
-                  Region Name required*
+                  Region Name required
                 </small>
               </div>
             </div>
@@ -32,7 +32,7 @@
 
               <div class="error" *ngIf="(addressForm.get('city')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="addressForm.get('city')?.errors?.['required'] ">
-                  City required*
+                  City required
                 </small>
               </div>
             </div>
@@ -45,7 +45,7 @@
 
               <div class="error" *ngIf="(addressForm.get('address')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="addressForm.get('address')?.errors?.['required'] ">
-                  Address required*
+                  Address name required
                 </small>
               </div>
             </div>
@@ -54,13 +54,11 @@
             <div class="button d-flex justify-content-between">
               <button class="btn d-flex nextform border-0 shadow-none p-0" type="button" (click)="prevSection()">
                 <button type="button" class="btn prevForm  text-white btn-sm">Previous</button>
-                <!-- <i class="fa-solid fa-arrow-left-long fa-beat-fade"></i> -->
               </button>
 
               <button class="btn btn-sm  border-0 shadow-none p-0" type="button" (click)="nextSection()"
                 *ngIf="section !==3">
                 <button type="button" class="btn nextForm  text-white btn-sm px-3">Next</button>
-                <!-- <i class="fa-solid fa-arrow-right-long fa-beat-fade"></i> -->
               </button>
             </div>
           </div>

@@ -56,7 +56,7 @@
             <!-- upload id image -->
             <label for="">Upload ID image</label>
             <div class="avatar-image text-center mb-3 text-center">
-              <input type="file" (change)="onFileChanged($event)" class=" shadow-none rounded-4 form-control">
+              <input type="file" (change)="onFileChanged($event)" class=" shadow-none rounded-3 form-control">
               <div class="error" *ngIf="(identityCard.get('cardImage')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('cardImage')?.errors?.['required'] ">
                   Card image required*
