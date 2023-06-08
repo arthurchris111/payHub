@@ -17,7 +17,7 @@
 
               <div class="error" *ngIf="(identityCard.get('profilePicture')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('card')?.errors?.['required'] ">
-                  Picture required*
+                  Picture required
                 </small>
               </div>
             </div>
@@ -30,9 +30,12 @@
                 <!-- <option value="">Select card type</option> -->
                 <option *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
               </select>
+              <span class="material-symbols-outlined  float-end">
+                expand_more
+              </span>
               <div class="error" *ngIf="(identityCard.get('card')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('card')?.errors?.['required'] ">
-                  ID type required*
+                  ID type required
                 </small>
               </div>
             </div>
@@ -45,7 +48,7 @@
 
               <div class="error" *ngIf="(identityCard.get('idNumber')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('idNumber')?.errors?.['required'] ">
-                  ID number required*
+                  ID number required
                 </small>
               </div>
             </div>

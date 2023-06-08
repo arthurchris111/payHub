@@ -13,7 +13,7 @@
                 formControlName="firstName">
               <div class="error" *ngIf="(personalForm.get('firstName')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('firstName')?.errors?.['required'] ">
-                  First name required*
+                  First name required
                 </small>
               </div>
             </div>
@@ -27,7 +27,7 @@
 
               <div class="error" *ngIf="(personalForm.get('lastName')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('lastName')?.errors?.['required'] ">
-                  Last name required*
+                  Last name required
                 </small>
               </div>
             </div>
@@ -40,10 +40,10 @@
 
               <div class="error" *ngIf="(personalForm.get('number')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('number')?.errors?.['required'] ">
-                  Phone number required (must not be less than 10 digits)*
+                  Phone number required
                 </small>
                 <small class="text-danger" *ngIf="personalForm.get('number')?.errors?.['pattern']">
-                  Phone number required (must not be less than 10 digits)*
+                  Phone number must not be less than 10 digits
                 </small>
               </div>
             </div>
