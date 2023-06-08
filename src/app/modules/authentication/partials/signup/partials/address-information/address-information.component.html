@@ -6,10 +6,11 @@
         <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
           <div class="fieldset">
             <!-- select region -->
+            <label for="text">Select your region</label>
             <div class="form-item mb-2">
               <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeRegion($event)"
                 formControlName="regionName">
-                <option value="" class="select" disabled="">Select your region</option>
+                <!-- <option value="" class="select" disabled="">Select your region</option> -->
                 <option class="text-dark" *ngFor="let region of Regions" [ngValue]="region">{{region}}</option>
               </select>
               <div class="error" *ngIf="(addressForm.get('regionName')?.invalid && submitted)">
@@ -20,10 +21,11 @@
             </div>
 
             <!-- city -->
+            <label for="text">City name</label>
             <div class="form-item mb-2">
               <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none"
                 formControlName="city">
-              <label for="text">City</label>
+
               <div class="error" *ngIf="(addressForm.get('city')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="addressForm.get('city')?.errors?.['required'] ">
                   City required*
@@ -32,10 +34,11 @@
             </div>
 
             <!-- address -->
+            <label for="text">Address name</label>
             <div class="form-item mb-2">
               <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none"
                 formControlName="address">
-              <label for="text">Address</label>
+
               <div class="error" *ngIf="(addressForm.get('address')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="addressForm.get('address')?.errors?.['required'] ">
                   Address required*

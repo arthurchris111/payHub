@@ -10,7 +10,7 @@
               <label for="imageUpload" class="btn btn-outlined border-0 ">
                 <img [src]="url" class="profile shadow-sm ">
               </label>
-              <h6 class="upload">Upload Picture</h6>
+              <label class="">Upload selfie</label>
               <input type="file" (change)="onSelectFile($event)" class=" shadow-none rounded-4"
                 formControlName="profilePicture" id="imageUpload" accept="image/*" style="display: none">
 
@@ -22,10 +22,11 @@
             </div>
 
             <!-- select id -->
+            <label for="">Select card type</label>
             <div class="form-item mb-3">
               <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeCard($event)"
                 formControlName="card">
-                <option value="">Select card type</option>
+                <!-- <option value="">Select card type</option> -->
                 <option *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
               </select>
               <div class="error" *ngIf="(identityCard.get('card')?.invalid && submitted)">
@@ -36,6 +37,7 @@
             </div>
 
             <!-- upload id image -->
+            <label for="">Upload ID image</label>
             <div class="avatar-image text-center mb-3 text-center">
               <input type="file" (change)="onFileChanged($event)" class=" shadow-none rounded-4 form-control">
               <div class="error" *ngIf="(identityCard.get('cardImage')?.invalid && submitted)">

@@ -6,10 +6,12 @@
         <form [formGroup]="personalForm" (ngSubmit)="onSubmit()">
           <div class="fieldset">
             <!-- first name -->
-            <div class="form-item mb-3">
+            <label for="text">First name</label>
+            <div class="form-item mb-3 d-flex">
+
+
               <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none "
                 formControlName="firstName">
-              <label for="text">First name</label>
               <div class="error" *ngIf="(personalForm.get('firstName')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('firstName')?.errors?.['required'] ">
                   First name required*
@@ -19,10 +21,11 @@
 
 
             <!-- last name -->
+            <label for="text">Last name</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none"
                 formControlName="lastName">
-              <label for="text">Last name</label>
+
               <div class="error" *ngIf="(personalForm.get('lastName')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('lastName')?.errors?.['required'] ">
                   Last name required*
@@ -31,10 +34,11 @@
             </div>
 
             <!-- phone number -->
+            <label for="text">Phone number</label>
             <div class="form-item mb-2">
               <input type="number" autocomplete="off" required class="form-control rounded-4 shadow-none"
                 formControlName="number">
-              <label for="text">Phone number</label>
+
               <div class="error" *ngIf="(personalForm.get('number')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('number')?.errors?.['required'] ">
                   Phone number required*
