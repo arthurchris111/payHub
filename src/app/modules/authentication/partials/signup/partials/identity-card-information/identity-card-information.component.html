@@ -7,13 +7,13 @@
           <div class="fieldset">
             <!-- avatar image -->
             <label class="">Upload selfie</label>
-            <div class="avatar-image text-center mb-3 text-center">
-              <label for="imageUpload" class="btn btn-outlined border-0 ">
-                <img [src]="url" class="profile shadow-sm ">
+            <div class="avatar-image text-center mb-3">
+              <label for="imageUpload" class="btn btn-outlined border-0 p-0">
+                <img [src]="url" class="profile shadow-sm">
               </label>
 
               <input type="file" (change)="onSelectFile($event)" class=" shadow-none rounded-4"
-                formControlName="profilePicture" id="imageUpload" accept="image/*" style="display: none">
+                formControlName="profilePicture" id="imageUpload" accept=".png, .jpg, .jpeg" style="display: none">
 
               <div class="error" *ngIf="(identityCard.get('profilePicture')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('card')?.errors?.['required'] ">
@@ -56,7 +56,8 @@
             <!-- upload id image -->
             <label for="">Upload ID image</label>
             <div class="avatar-image text-center mb-3 text-center">
-              <input type="file" (change)="onFileChanged($event)" class=" shadow-none rounded-3 form-control">
+              <input type="file" (change)="onFileChanged($event)" class=" shadow-none rounded-3 form-control"
+                accept=".png, .jpg, .jpeg">
               <div class="error" *ngIf="(identityCard.get('cardImage')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('cardImage')?.errors?.['required'] ">
                   Card image required*

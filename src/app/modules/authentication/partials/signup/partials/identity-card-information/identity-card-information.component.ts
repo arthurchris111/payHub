@@ -21,10 +21,7 @@ export class IdentityCardInformationComponent implements OnInit {
 
   @Output() prev = new EventEmitter();
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: Router // private rootFormGroup: FormGroupDirective
-  ) {}
+  constructor(private formBuilder: FormBuilder, private route: Router) {}
 
   // id type array
   Cards: any = ['Voters ID', 'Ghana card'];
@@ -50,7 +47,6 @@ export class IdentityCardInformationComponent implements OnInit {
   }
 
   // avatar image
-  // url = '../../../../../../../assets/images/profile-user.png';
   url = '../../../../../../../assets/images/profile-picture.png';
 
   // change avatar image

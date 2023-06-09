@@ -2,7 +2,7 @@
 .profile{
   width: 120px;
   height: 120px;
-  border: 2px solid  #275867;
+  border: 2px solid  #999;
 
 }
 
@@ -26,5 +26,6 @@ input[type=number]::-webkit-outer-spin-button {
 // dropdown arrow
 .material-symbols-outlined{
   margin-top: -40px;
-  margin-right: 20px
+  margin-right: 20px;
+  color: #181D6C;
 }
