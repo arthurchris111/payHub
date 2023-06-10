@@ -78,11 +78,15 @@ input[type=number]:focus,
 }
 
 .form-control:focus {
- border-color: #181D6C;
+//  border-color: #181D6C;
+border-color: none;
 }
 
 
 
+btn:focus{
+  outline: none!important;
+}
 
 
 

@@ -2,18 +2,21 @@
   <div class="row buttons">
     <div class="containe d-flex justify-content-end">
       <div class="d-flex gap-2 mt-3">
-        <a type="button" class="btn btn-dark btn-sm rounded-4 px-3" [routerLink]="['/home']"
+        <button type="button" class="btn btn-light btn-sm text-white p-1" [routerLink]="['/home']"
           routerLinkActive="router-link-active">
           Home
-        </a>
-        <a type="button" class="btn btn-dark btn-sm rounded-4 px-3" [routerLink]="['/home/login']"
+        </button>
+        <button type="button" class="btn btn-light btn-sm text-white" [routerLink]="['/home/login']"
           routerLinkActive="router-link-active">
           Login
-        </a>
-        <a type="button" class="btn btn-dark btn-sm rounded-4 px-3 " [routerLink]="['/home/signup']"
+        </button>
+        <button type="button" class="btn btn-light btn-sm text-white" [routerLink]="['/home/signup']"
           routerLinkActive="router-link-active">
           Sign up
-        </a>
+        </button>
+
+        <button type="button" class="btn btn-primary btn-sm">Primary</button>
+
       </div>
     </div>
   </div>
@@ -22,17 +25,15 @@
     <div class="row vh-100 d-flex justify-content-between align-items-center">
       <!-- text -->
       <div class="col-lg-6 col-md-12 col-sm-12 mt-5">
-        <h1 class="heading Payments">Smart Payments</h1>
-        <h1 class="heading">Anyway,</h1>
-        <h1 class="heading">Anytime.</h1>
+        <h1 class="heading fw-bold">Smart Payments</h1>
+        <h1 class="heading fw-bold">Anyway, Anytime.</h1>
         <div class="text">
           <h6 class="text-focus-in fs-6 mb-4 ">
-            <span class="vitualCard fw-bolder">VIRTUAL CARD</span> is the digital payment services. With one card you
+            <span class="vitualCard fw-bolder ">VIRTUAL CARD</span> is the digital payment services. With one card you
             can manage your daily financial and also can get more benefits.
-            Virtual credit card helps you to protect your money when shopping online. PayHub is one of the best
-            virtual credit card that offers a unique card number that only works for the individual merchant.
           </h6>
         </div>
+        <button type="button" class="btn btn-light text-white btn-lg ">Create Card</button>
       </div>
 
       <!--image, signUp and signIn -->
