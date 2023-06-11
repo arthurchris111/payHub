@@ -46,8 +46,9 @@ export class IdentityCardInformationComponent implements OnInit {
     this.cardName?.setValue(e.target.value, {});
   }
 
-  // avatar image
-  url = '../../../../../../../assets/images/profile-picture.png';
+  // upload selfie image
+  url =
+    '../../../../../../../assets/images/blank-profile-picture-973460_1280.png';
 
   // change avatar image
   onSelectFile(e: any) {
