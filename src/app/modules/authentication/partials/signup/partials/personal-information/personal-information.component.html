@@ -10,10 +10,10 @@
             <label for="text">First name</label>
             <div class="form-item mb-3">
 
-              <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none "
+              <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none"
                 formControlName="firstName">
               <div class="error" *ngIf="(personalForm.get('firstName')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="personalForm.get('firstName')?.errors?.['required'] ">
+                <small class="text-danger" *ngIf="personalForm.get('firstName')?.errors?.['required']">
                   First name required
                 </small>
               </div>
