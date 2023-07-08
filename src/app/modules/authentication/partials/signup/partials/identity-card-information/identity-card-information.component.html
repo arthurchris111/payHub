@@ -12,10 +12,8 @@
               <label for="imageUpload" class="btn btn-outlined border-0 p-0">
                 <img [src]="url" class="profile shadow-sm">
               </label>
-
               <input type="file" (change)="onSelectFile($event)" class=" shadow-none rounded-4"
                 formControlName="profilePicture" id="imageUpload" accept=".png, .jpg, .jpeg" style="display: none">
-
               <div class="error" *ngIf="(identityCard.get('profilePicture')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="identityCard.get('card')?.errors?.['required'] ">
                   Picture required
