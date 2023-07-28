@@ -23,7 +23,6 @@
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" required class="form-control rounded-4 shadow-none"
                 formControlName="lastName">
-
               <div class="error" *ngIf="(personalForm.get('lastName')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="personalForm.get('lastName')?.errors?.['required'] ">
                   Last name required
