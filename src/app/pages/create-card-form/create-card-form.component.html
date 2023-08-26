@@ -29,9 +29,8 @@
                     [ngClass]="{'invalid-border':formControl.lastName?.errors && submitted, 'valid-border':formControl.lastName.valid}"
                     class="form-control form-text-field  shadow-none" formControlName="lastName" placeholder="">
                   <div class="error" *ngIf="(cardForm.get('lastName')?.invalid && submitted)">
-                    <small class="text-danger" *ngIf="cardForm.get('lastName')?.errors?.['required'] ">
-                      Last name required
-                    </small>
+                    <small class="text-danger" *ngIf="cardForm.get('lastName')?.errors?.['required'] ">Last name
+                      required</small>
                   </div>
                 </div>
               </div>
@@ -43,9 +42,7 @@
                 [ngClass]="{'invalid-border':formControl.email?.errors && submitted, 'valid-border':formControl.email.valid}"
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
               <div class="error" *ngIf="(cardForm.get('email')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['required'] ">
-                  Email required
-                </small>
+                <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['required'] "> Email required</small>
                 <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['pattern']">
                   Invalid email
                 </small>
