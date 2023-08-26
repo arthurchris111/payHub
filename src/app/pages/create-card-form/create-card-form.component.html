@@ -43,9 +43,7 @@
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
               <div class="error" *ngIf="(cardForm.get('email')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['required'] "> Email required</small>
-                <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['pattern']">
-                  Invalid email
-                </small>
+                <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['pattern']"> Invalid email</small>
               </div>
             </div>
 
