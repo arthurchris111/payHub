@@ -5,10 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./modules/pages.module').then((m) => m.PagesModule),
+      import('./pages/pages.module').then((m) => m.PagesModule),
   },
   {
-    path: 'home',
+    path: 'auth',
     loadChildren: () =>
       import('./modules/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
