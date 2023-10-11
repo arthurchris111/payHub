@@ -3,6 +3,9 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+body{
+    background-color: #111318 !important;
+}
 
 #backgroundImage{
   background-image: url('././assets/images/Shape3.png');
