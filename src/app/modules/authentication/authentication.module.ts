@@ -10,7 +10,6 @@ import { IdentityCardInformationComponent } from './partials/signup/partials/ide
 import { PersonalInformationComponent } from './partials/signup/partials/personal-information/personal-information.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentModule } from 'src/app/component/component.module';
-import { CreateCardFormComponent } from './partials/create-card-form/create-card-form.component';
 
 const component = [
   HomeComponent,
@@ -19,9 +18,10 @@ const component = [
   PersonalInformationComponent,
   IdentityCardInformationComponent,
   AddressInformationComponent,
+  AuthenticationComponent,
 ];
 @NgModule({
-  declarations: [AuthenticationComponent, ...component, CreateCardFormComponent],
+  declarations: [...component],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
