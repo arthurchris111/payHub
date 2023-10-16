@@ -1,1 +1,115 @@
-<p>create-card-form works!</p>
+<div class="container-fluid bg">
+  <div class="container vh-100">
+    <div class="row  d-flex justify-content-center align-items-center pt-10">
+      <div class="col-lg-4">
+        <div class=" mt-5">
+          <div class="head text-light text-center my-5">
+            <h2>Get started</h2>
+            <p>Complete the form to gain instant access <br> to your account and receive your card</p>
+          </div>
+          <form [formGroup]="signup" (ngSubmit)="onSubmit()" class="p-2">
+            <div class="row">
+              <div class="col-lg-6">
+                <label for="email" class="form-label">First Name</label>
+                <div class="form-item mb-3">
+                  <input type="text" autocomplete="off" id="email" name="email" required
+                    class="form-control form-text-field  shadow-none" formControlName="email" placeholder="first name">
+                  <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
+                    <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
+                      First Name required
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <label for="email" class="form-label">Last Name</label>
+                <div class="form-item mb-3">
+                  <input type="text" autocomplete="off" id="email" name="email" required
+                    class="form-control form-text-field  shadow-none" formControlName="email" placeholder="last name">
+                  <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
+                    <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
+                      Last Name required
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <label for="email" class="form-label">Email</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="email" name="email" required
+                class="form-control form-text-field  shadow-none" formControlName="email" placeholder="email">
+              <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
+                  email required
+                </small>
+              </div>
+            </div>
+
+            <label class="form-label" for="username">Username</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="username" name="username" required
+                class="form-control form-text-field  shadow-none" formControlName="username" placeholder="username">
+              <div class="error" *ngIf="(signup.get('username')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="signup.get('username')?.errors?.['required'] ">
+                  username required
+                </small>
+              </div>
+            </div>
+
+            <label class="form-label" for="password">Password</label>
+            <div class="form-item mb-3">
+              <input [type]="show?'text':'password'" id="password" name="password" autocomplete="off" required
+                class="form-control form-text-field  shadow-none " formControlName="password" placeholder="Password">
+              <!-- <span class="togglePassword float-end opacity-75">
+                <span class=" img-fluid" (click)="togglePassword()" aria-hidden="true" *ngIf="!show">
+                  <img src="../../../assets/images/hide.png" width="18" height="18" alt="">
+                </span>
+                <span class="view  img-fluid" (click)="togglePassword()" aria-hidden="true" *ngIf="show">
+                  <img src="../../../assets/images/view.png" width="18" height="18" alt="">
+                </span>
+              </span> -->
+              <div class="error" *ngIf="(signup.get('password')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="signup.get('password')?.errors?.['required'] ">
+                  Password required
+                </small>
+              </div>
+            </div>
+
+            <!-- button -->
+            <button class="btn btn-dark w-100 shadow-none" type="submit">Log In</button>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<div class="footer">
+  <pay-footer></pay-footer>
+</div>

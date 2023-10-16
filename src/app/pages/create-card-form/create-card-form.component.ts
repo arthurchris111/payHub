@@ -1,15 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pay-create-card-form',
   templateUrl: './create-card-form.component.html',
-  styleUrls: ['./create-card-form.component.scss']
+  styleUrls: ['./create-card-form.component.scss'],
 })
 export class CreateCardFormComponent implements OnInit {
+  signup!: FormGroup;
+  show: boolean = false;
+  submitted: boolean = false;
+  isFetching: boolean = false;
+  user: boolean = false;
+  password: any;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private route: Router) {}
 
-  ngOnInit(): void {
+  buildLoginForm(): void {
+    this.signup = this.formBuilder.group({
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+    });
   }
 
+  ngOnInit(): void {
+    this.buildLoginForm();
+    this.password = 'password';
+  }
+
+  togglePassword() {
+    this.show = !this.show;
+    console.log(this.show);
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.isFetching = true;
+  }
 }
