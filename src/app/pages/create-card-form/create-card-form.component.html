@@ -3,7 +3,7 @@
     <div class="row  d-flex justify-content-center align-items-center pt-10">
       <div class="col-lg-4">
         <div class=" mt-5">
-          <div class="text-light my-5 text-center">
+          <div class="text-light my-5">
             <h1>Get started</h1>
             <p class="complete">Complete the form to gain instant access <br> to your account and receive your card</p>
           </div>
@@ -74,12 +74,12 @@
             </div>
 
             <label for="file" class="form-label">Upload ID image</label>
-            <div class="avatar-image text-center mb-3 text-center">
+            <div class="mb-3">
               <input type="file" (change)="onFileChanged($event)" class="shadow-none rounded-3 form-control"
                 accept=".png, .jpg, .jpeg">
               <div class="error" *ngIf="(cardForm.get('cardImage')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('cardImage')?.errors?.['required'] ">
-                  Card image required*
+                  Upload required
                 </small>
               </div>
             </div>
