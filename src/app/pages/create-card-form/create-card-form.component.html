@@ -10,13 +10,14 @@
           <form [formGroup]="signup" (ngSubmit)="onSubmit()" class="p-2">
             <div class="row">
               <div class="col-lg-6">
-                <label for="email" class="form-label">First Name</label>
+                <label for="firstname" class="form-label">First Name</label>
                 <div class="form-item mb-3">
-                  <input type="text" autocomplete="off" id="email" name="email" required
-                    class="form-control form-text-field  shadow-none" formControlName="email" placeholder="first name">
-                  <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
-                    <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
-                      First Name required
+                  <input type="text" autocomplete="off" id="firstname" name="firstName" required
+                    class="form-control form-text-field  shadow-none" formControlName="firstName"
+                    placeholder="first name">
+                  <div class="error" *ngIf="(signup.get('firstName')?.invalid && submitted)">
+                    <small class="text-danger" *ngIf="signup.get('firstName')?.errors?.['required'] ">
+                      First name required
                     </small>
                   </div>
                 </div>
@@ -28,7 +29,7 @@
                     class="form-control form-text-field  shadow-none" formControlName="email" placeholder="last name">
                   <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
-                      Last Name required
+                      Last name required
                     </small>
                   </div>
                 </div>
@@ -46,13 +47,13 @@
               </div>
             </div>
 
-            <label for="email" class="form-label">Email</label>
+            <label for="date" class="form-label">Date Of Birth</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="email" name="email" required
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="email">
               <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
-                  email required
+                  date of birth required
                 </small>
               </div>
             </div>

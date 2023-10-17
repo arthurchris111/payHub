@@ -17,7 +17,7 @@ export class CreateCardFormComponent implements OnInit {
 
   buildLoginForm(): void {
     this.signup = this.formBuilder.group({
-      username: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
