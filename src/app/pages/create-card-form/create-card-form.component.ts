@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class CreateCardFormComponent implements OnInit {
   cardForm!: FormGroup;
-  show: boolean = false;
   submitted: boolean = false;
   isFetching: boolean = false;
   image: any;
@@ -30,6 +29,7 @@ export class CreateCardFormComponent implements OnInit {
       ],
       date: ['', [Validators.required]],
       idNumber: ['', [Validators.required]],
+      cardImage: ['', [Validators.required]],
     });
   }
 
