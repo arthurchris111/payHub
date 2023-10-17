@@ -15,7 +15,7 @@ export class CreateCardFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
-  buildLoginForm(): void {
+  buildCardForm(): void {
     this.cardForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -34,7 +34,7 @@ export class CreateCardFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.buildLoginForm();
+    this.buildCardForm();
   }
 
   // upload id image
@@ -45,5 +45,11 @@ export class CreateCardFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.isFetching = true;
+
+    if (this.cardForm.invalid) {
+      return;
+    }
+
+    console.log(this.cardForm.value);
   }
 }
