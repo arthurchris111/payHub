@@ -10,7 +10,7 @@
           <form [formGroup]="signup" (ngSubmit)="onSubmit()" class="p-2">
             <div class="row">
               <div class="col-lg-6">
-                <label for="firstname" class="form-label">First Name</label>
+                <label for="firstName" class="form-label">First Name</label>
                 <div class="form-item mb-3">
                   <input type="text" autocomplete="off" id="firstname" name="firstName" required
                     class="form-control form-text-field  shadow-none" formControlName="firstName"
@@ -23,12 +23,13 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <label for="email" class="form-label">Last Name</label>
+                <label for="lastName" class="form-label">Last Name</label>
                 <div class="form-item mb-3">
-                  <input type="text" autocomplete="off" id="email" name="email" required
-                    class="form-control form-text-field  shadow-none" formControlName="email" placeholder="last name">
-                  <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
-                    <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
+                  <input type="text" autocomplete="off" id="lastName" name="lastName" required
+                    class="form-control form-text-field  shadow-none" formControlName="lastName"
+                    placeholder="last name">
+                  <div class="error" *ngIf="(signup.get('lastName')?.invalid && submitted)">
+                    <small class="text-danger" *ngIf="signup.get('lastName')?.errors?.['required'] ">
                       Last name required
                     </small>
                   </div>
@@ -42,32 +43,23 @@
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="email">
               <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
-                  email required
+                  Email required
                 </small>
               </div>
             </div>
 
             <label for="date" class="form-label">Date Of Birth</label>
             <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="email" name="email" required
-                class="form-control form-text-field  shadow-none" formControlName="email" placeholder="email">
-              <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
-                  date of birth required
+              <input type="text" autocomplete="off" id="date" name="date" required
+                class="form-control form-text-field  shadow-none" formControlName="date" placeholder="date of birth">
+              <div class="error" *ngIf="(signup.get('date')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="signup.get('date')?.errors?.['required'] ">
+                  Date of birth required
                 </small>
               </div>
             </div>
 
-            <label class="form-label" for="username">Username</label>
-            <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="username" name="username" required
-                class="form-control form-text-field  shadow-none" formControlName="username" placeholder="username">
-              <div class="error" *ngIf="(signup.get('username')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="signup.get('username')?.errors?.['required'] ">
-                  username required
-                </small>
-              </div>
-            </div>
+
 
             <label class="form-label" for="password">Password</label>
             <div class="form-item mb-3">
