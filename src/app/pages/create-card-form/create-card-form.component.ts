@@ -12,8 +12,6 @@ export class CreateCardFormComponent implements OnInit {
   show: boolean = false;
   submitted: boolean = false;
   isFetching: boolean = false;
-  user: boolean = false;
-  password: any;
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
@@ -27,12 +25,6 @@ export class CreateCardFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildLoginForm();
-    this.password = 'password';
-  }
-
-  togglePassword() {
-    this.show = !this.show;
-    console.log(this.show);
   }
 
   onSubmit() {
