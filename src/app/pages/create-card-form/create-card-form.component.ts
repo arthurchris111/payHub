@@ -29,7 +29,7 @@ export class CreateCardFormComponent implements OnInit {
       ],
       date: ['', [Validators.required]],
       idNumber: ['', [Validators.required]],
-      cardImage: ['', [Validators.required]],
+      card: [null, [Validators.required]],
     });
   }
 

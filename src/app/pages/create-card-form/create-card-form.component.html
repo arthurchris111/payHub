@@ -17,7 +17,7 @@
                     placeholder="first name">
                   <div class="error" *ngIf="(cardForm.get('firstName')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="cardForm.get('firstName')?.errors?.['required'] ">
-                      First name required
+                      Required
                     </small>
                   </div>
                 </div>
@@ -30,7 +30,7 @@
                     placeholder="last name">
                   <div class="error" *ngIf="(cardForm.get('lastName')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="cardForm.get('lastName')?.errors?.['required'] ">
-                      Last name required
+                      Required
                     </small>
                   </div>
                 </div>
@@ -43,10 +43,10 @@
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="email">
               <div class="error" *ngIf="(cardForm.get('email')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['required'] ">
-                  Email required
+                  Required
                 </small>
                 <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['pattern']">
-                  Email address is invalid
+                  Invalid email
                 </small>
               </div>
             </div>
@@ -57,7 +57,7 @@
                 class="form-control form-text-field  shadow-none" formControlName="date" placeholder="date of birth">
               <div class="error" *ngIf="(cardForm.get('date')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('date')?.errors?.['required'] ">
-                  Date of birth required
+                  Required
                 </small>
               </div>
             </div>
@@ -68,7 +68,7 @@
                 class="form-control form-text-field  shadow-none" formControlName="idNumber" placeholder="ID number">
               <div class="error" *ngIf="(cardForm.get('idNumber')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('idNumber')?.errors?.['required'] ">
-                  ID number required
+                  Required
                 </small>
               </div>
             </div>
@@ -76,10 +76,10 @@
             <label for="file" class="form-label">Upload ID</label>
             <div class="mb-3">
               <input type="file" (change)="onFileChanged($event)" class="shadow-none rounded-3 form-control"
-                accept=".png, .jpg, .jpeg">
-              <div class="error" *ngIf="(cardForm.get('cardImage')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="cardForm.get('cardImage')?.errors?.['required'] ">
-                  Upload required
+                accept=".png, .jpg, .jpeg" formControlName="card">
+              <div class="error" *ngIf="(cardForm.get('card')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="cardForm.get('card')?.errors?.['required'] ">
+                  Required
                 </small>
               </div>
             </div>
@@ -87,9 +87,8 @@
             <!-- button -->
             <button class="btn btn-dark w-100 shadow-none" type="submit">Continue</button>
             <div class="mt-3 mb-5">
-              <p class="small-font complete">"We respect your privacy. PAYHUB uses your provided information to contact
-                you
-                about relevant content, products, and services."</p>
+              <p class="small-font complete">We respect your privacy. PAYHUB uses your provided information to contact
+                you about relevant content, products, and services.</p>
             </div>
           </form>
         </div>
