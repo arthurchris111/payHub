@@ -59,6 +59,19 @@
               </div>
             </div>
 
+            <label for="date" class="form-label">ID Number</label>
+            <div class="form-item mb-3">
+              <input type="number" autocomplete="off" id="date" name="date" required
+                class="form-control form-text-field  shadow-none" formControlName="idNumber" placeholder="ID number">
+              <div class="error" *ngIf="(signup.get('idNumber')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="signup.get('idNumber')?.errors?.['required'] ">
+                  ID number required
+                </small>
+              </div>
+            </div>
+
+
+
             <!-- button -->
             <button class="btn btn-dark w-100 shadow-none" type="submit">Log In</button>
           </form>

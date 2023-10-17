@@ -21,6 +21,7 @@ export class CreateCardFormComponent implements OnInit {
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required]],
       date: ['', [Validators.required]],
+      idNumber: ['', [Validators.required]],
     });
   }
 
