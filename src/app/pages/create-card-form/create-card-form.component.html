@@ -7,7 +7,7 @@
             <h1>Get started</h1>
             <p class="complete">Complete the form to gain instant access <br> to your account and receive your card</p>
           </div>
-          <form [formGroup]="signup" (ngSubmit)="onSubmit()" class="p-2">
+          <form [formGroup]="cardForm" (ngSubmit)="onSubmit()" class="p-2">
             <div class="row">
               <div class="col-lg-6">
                 <label for="firstName" class="form-label">First Name</label>
@@ -15,8 +15,8 @@
                   <input type="text" autocomplete="off" id="firstname" name="firstName" required
                     class="form-control form-text-field  shadow-none" formControlName="firstName"
                     placeholder="first name">
-                  <div class="error" *ngIf="(signup.get('firstName')?.invalid && submitted)">
-                    <small class="text-danger" *ngIf="signup.get('firstName')?.errors?.['required'] ">
+                  <div class="error" *ngIf="(cardForm.get('firstName')?.invalid && submitted)">
+                    <small class="text-danger" *ngIf="cardForm.get('firstName')?.errors?.['required'] ">
                       First name required
                     </small>
                   </div>
@@ -28,8 +28,8 @@
                   <input type="text" autocomplete="off" id="lastName" name="lastName" required
                     class="form-control form-text-field  shadow-none" formControlName="lastName"
                     placeholder="last name">
-                  <div class="error" *ngIf="(signup.get('lastName')?.invalid && submitted)">
-                    <small class="text-danger" *ngIf="signup.get('lastName')?.errors?.['required'] ">
+                  <div class="error" *ngIf="(cardForm.get('lastName')?.invalid && submitted)">
+                    <small class="text-danger" *ngIf="cardForm.get('lastName')?.errors?.['required'] ">
                       Last name required
                     </small>
                   </div>
@@ -41,9 +41,12 @@
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="email" name="email" required
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="email">
-              <div class="error" *ngIf="(signup.get('email')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="signup.get('email')?.errors?.['required'] ">
+              <div class="error" *ngIf="(cardForm.get('email')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['required'] ">
                   Email required
+                </small>
+                <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['pattern']">
+                  Email address is invalid
                 </small>
               </div>
             </div>
@@ -52,8 +55,8 @@
             <div class="form-item mb-3">
               <input type="date" autocomplete="off" id="date" name="date" required
                 class="form-control form-text-field  shadow-none" formControlName="date" placeholder="date of birth">
-              <div class="error" *ngIf="(signup.get('date')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="signup.get('date')?.errors?.['required'] ">
+              <div class="error" *ngIf="(cardForm.get('date')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="cardForm.get('date')?.errors?.['required'] ">
                   Date of birth required
                 </small>
               </div>
@@ -63,14 +66,23 @@
             <div class="form-item mb-3">
               <input type="number" autocomplete="off" id="date" name="date" required
                 class="form-control form-text-field  shadow-none" formControlName="idNumber" placeholder="ID number">
-              <div class="error" *ngIf="(signup.get('idNumber')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="signup.get('idNumber')?.errors?.['required'] ">
+              <div class="error" *ngIf="(cardForm.get('idNumber')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="cardForm.get('idNumber')?.errors?.['required'] ">
                   ID number required
                 </small>
               </div>
             </div>
 
-
+            <label for="file" class="form-label">Upload ID image</label>
+            <div class="avatar-image text-center mb-3 text-center">
+              <input type="file" (change)="onFileChanged($event)" class="shadow-none rounded-3 form-control"
+                accept=".png, .jpg, .jpeg">
+              <div class="error" *ngIf="(cardForm.get('cardImage')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="cardForm.get('cardImage')?.errors?.['required'] ">
+                  Card image required*
+                </small>
+              </div>
+            </div>
 
             <!-- button -->
             <button class="btn btn-dark w-100 shadow-none" type="submit">Log In</button>

@@ -8,18 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-card-form.component.scss'],
 })
 export class CreateCardFormComponent implements OnInit {
-  signup!: FormGroup;
+  cardForm!: FormGroup;
   show: boolean = false;
   submitted: boolean = false;
   isFetching: boolean = false;
+  image: any;
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
   buildLoginForm(): void {
-    this.signup = this.formBuilder.group({
+    this.cardForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+        ],
+      ],
       date: ['', [Validators.required]],
       idNumber: ['', [Validators.required]],
     });
@@ -27,6 +35,11 @@ export class CreateCardFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildLoginForm();
+  }
+
+  // upload id image
+  onFileChanged(event: any) {
+    this.image = event.target.files[0];
   }
 
   onSubmit() {

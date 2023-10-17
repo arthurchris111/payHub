@@ -8,9 +8,8 @@
   padding-left: 14px;
   padding-right: 14px;
   font-size: 16px;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-
 
 .form-label {
   color: #98a2b3;
@@ -22,18 +21,36 @@
   overflow: visible;
 }
 
-.complete{
-  color: #98a2b3;;
+.complete {
+  color: #98a2b3;
 }
 
-input[type=date] {
-  color: #98a2b3!important;
+input[type="date"] {
+  color: #98a2b3 !important;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   margin: 0;
 }
+
+input[type="file"] {
+  color: #98a2b3 !important;
+  background-color: transparent;
+  border: 1px solid #667085;
+  // border-radius: 8px;
+  // margin-bottom: 24px;
+  // padding-left: 14px;
+  // padding-right: 14px;
+  // font-size: 16px;
+  transition: all 0.2s;
+}
+
+input::file-selector-button {
+  background-color: rgb(129, 129, 129);
+
+}
+
