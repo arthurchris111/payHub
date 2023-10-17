@@ -50,24 +50,11 @@
 
             <label for="date" class="form-label">Date Of Birth</label>
             <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="date" name="date" required
+              <input type="date" autocomplete="off" id="date" name="date" required
                 class="form-control form-text-field  shadow-none" formControlName="date" placeholder="date of birth">
               <div class="error" *ngIf="(signup.get('date')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="signup.get('date')?.errors?.['required'] ">
                   Date of birth required
-                </small>
-              </div>
-            </div>
-
-
-
-            <label class="form-label" for="password">Password</label>
-            <div class="form-item mb-3">
-              <input [type]="show?'text':'password'" id="password" name="password" autocomplete="off" required
-                class="form-control form-text-field  shadow-none " formControlName="password" placeholder="Password">
-              <div class="error" *ngIf="(signup.get('password')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="signup.get('password')?.errors?.['required'] ">
-                  Password required
                 </small>
               </div>
             </div>
