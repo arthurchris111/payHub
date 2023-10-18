@@ -3,13 +3,19 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'pay-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  toggle = document
+    .getElementById('navbarSupportedContent')
+    ?.classList.toggle('show');
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  // click() {
+  // document.getElementById('navbarSupportedContent')?.classList.add('show');
+  //   document.getElementById('navbarSupportedContent')?.classList.remove('show');
+  // }
 }
