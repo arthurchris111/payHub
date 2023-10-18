@@ -12,6 +12,7 @@ export class CreateCardFormComponent implements OnInit {
   submitted: boolean = false;
   isFetching: boolean = false;
   image: any;
+  cardName: any;
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
@@ -29,12 +30,21 @@ export class CreateCardFormComponent implements OnInit {
       ],
       date: ['', [Validators.required]],
       idNumber: ['', [Validators.required]],
-      card: [null, [Validators.required]],
+      cardType: ['', [Validators.required]],
+      uploadCard: [null, [Validators.required]],
     });
   }
 
   ngOnInit(): void {
     this.buildCardForm();
+  }
+
+  // id type array
+  Cards: any = ['Voters ID', 'Ghana card'];
+
+  // change card type
+  changeCard(e: any) {
+    this.cardName?.setValue(e.target.value, {});
   }
 
   // upload id image

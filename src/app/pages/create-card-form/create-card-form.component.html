@@ -62,6 +62,22 @@
               </div>
             </div>
 
+            <label for="cardType" class="form-label">Select card type</label>
+            <div class="form-item mb-3">
+              <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeCard($event)"
+                formControlName="cardType">
+                <option class="p-4" *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
+              </select>
+              <span class="material-symbols-outlined  float-end">
+                expand_more
+              </span>
+              <div class="error" *ngIf="(cardForm.get('cardType')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="cardForm.get('cacardTyperd')?.errors?.['required'] ">
+                  Required
+                </small>
+              </div>
+            </div>
+
             <label for="date" class="form-label">ID Number</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="date" name="date" required
@@ -76,9 +92,9 @@
             <label for="file" class="form-label">Upload ID</label>
             <div class="mb-3">
               <input type="file" (change)="onFileChanged($event)" class="shadow-none rounded-3 form-control"
-                accept=".png, .jpg, .jpeg" formControlName="card">
-              <div class="error" *ngIf="(cardForm.get('card')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="cardForm.get('card')?.errors?.['required'] ">
+                accept=".png, .jpg, .jpeg" formControlName="uploadCard">
+              <div class="error" *ngIf="(cardForm.get('uploadCard')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="cardForm.get('uploadCard')?.errors?.['required'] ">
                   Required
                 </small>
               </div>
