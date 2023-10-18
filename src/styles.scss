@@ -16,125 +16,124 @@ body{
   position: relative;
 }
 
-.buttons{
-  position: absolute;
-  width: 100%;
-  // margin-left: 80%;
-}
+// .buttons{
+//   position: absolute;
+//   width: 100%;
+//   margin-left: 80%;
+// }
 
-input[type=text]:focus,
-input[type=password]:focus,
-input[type=date]:focus,
-input[type=number]:focus,
-.custom-select {
-  // background-color: #ddd;
-  outline: none;
-  border-color:none;
-}
-
-
-.form-item{
-  position: relative;
-  margin-bottom: 15px
-}
-.form-item input{
-  display: block;
-  height: 53px;
-// width:100%;
-  transition: all .2s ease;
-  padding: 0 15px
-}
-
-.form-item label{
-  position: absolute;
-  cursor: text;
-  z-index: 9;
-  top: 15px;
-  left: 10px;
-  font-size: 15px;
-  // font-weight: bold;
-  background: white;
-// linear-gradient(180deg,rgba(250,247,239,0) 50%,rgb(255,255,255) 50%);
-  padding: 0 10px;
-  color: #999;
-  transition: all .2s ease
-}
-
-.form-item input:focus + label,
-.form-item input:valid + label{
-  font-size: 11px;
-  top: -5px
-}
-
-.form-item input:focus + label{
-  color: #28485c;
-}
-
-.form-control:focus {
-//  border-color: #181D6C;
-border-color: none;
-}
+// input[type=text]:focus,
+// input[type=password]:focus,
+// input[type=date]:focus,
+// input[type=number]:focus,
+// .custom-select {
+//   outline: none;
+//   border-color:none;
+// }
 
 
-btn:focus{
-  outline: none!important;
-}
+// .form-item{
+//   position: relative;
+//   margin-bottom: 15px
+// }
+// .form-item input{
+//   display: block;
+//   height: 53px;
+// // width:100%;
+//   transition: all .2s ease;
+//   padding: 0 15px
+// }
+
+// .form-item label{
+//   position: absolute;
+//   cursor: text;
+//   z-index: 9;
+//   top: 15px;
+//   left: 10px;
+//   font-size: 15px;
+//   // font-weight: bold;
+//   background: white;
+// // linear-gradient(180deg,rgba(250,247,239,0) 50%,rgb(255,255,255) 50%);
+//   padding: 0 10px;
+//   color: #999;
+//   transition: all .2s ease
+// }
+
+// .form-item input:focus + label,
+// .form-item input:valid + label{
+//   font-size: 11px;
+//   top: -5px
+// }
+
+// .form-item input:focus + label{
+//   color: #28485c;
+// }
+
+// .form-control:focus {
+// //  border-color: #181D6C;
+// border-color: none;
+// }
+
+
+// btn:focus{
+//   outline: none!important;
+// }
 
 .pt-10 {
   padding-top: 5% !important;
 }
 
-.heading {
-  font-size: 55px;
-  color: #0B2230;
-  font-family: 'Secular One', sans-serif;
-}
+// .heading {
+//   font-size: 55px;
+//   color: #0B2230;
+//   font-family: 'Secular One', sans-serif;
+// }
 
-.text-focus-in {
-  color: #181D6C;
-  font-family: 'Quicksand';
-}
+// .text-focus-in {
+//   color: #181D6C;
+//   font-family: 'Quicksand';
+// }
 
 // .btn{
 //   background-color: #181D6C;
 // }
 
-.heading {
-  color: #181D6C;
-  // font-family: 'Quicksand', sans-serif;
-}
+// .heading {
+//   color: #181D6C;
+//   font-family: 'Quicksand', sans-serif;
+// }
 
-.text-focus-in {
-  -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-}
+// .text-focus-in {
+//   -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+//   animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+// }
 
 
-@-webkit-keyframes text-focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
-    opacity: 0;
-  }
+// @-webkit-keyframes text-focus-in {
+//   0% {
+//     -webkit-filter: blur(12px);
+//     filter: blur(12px);
+//     opacity: 0;
+//   }
 
-  100% {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
+//   100% {
+//     -webkit-filter: blur(0px);
+//     filter: blur(0px);
+//     opacity: 1;
+//   }
+// }
 
-@keyframes text-focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
-    opacity: 0;
-  }
+// @keyframes text-focus-in {
+//   0% {
+//     -webkit-filter: blur(12px);
+//     filter: blur(12px);
+//     opacity: 0;
+//   }
 
-  100% {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
+//   100% {
+//     -webkit-filter: blur(0px);
+//     filter: blur(0px);
+//     opacity: 1;
+//   }
+// }
 
