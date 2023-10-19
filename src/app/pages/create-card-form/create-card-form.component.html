@@ -64,13 +64,10 @@
 
             <label for="cardType" class="form-label">Select card type</label>
             <div class="form-item mb-3">
-              <select class="custom-select p-3 w-100 shadow-none rounded-4 form-control" (change)="changeCard($event)"
-                formControlName="cardType">
-                <option class="p-4" *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
+              <select class="custom-select p-3 w-100 shadow-none form-control form-text-field "
+                (change)="changeCard($event)" formControlName="cardType" placeholder="Select a card type">
+                <option class="p-4 selected bg-dark" *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
               </select>
-              <span class="material-symbols-outlined  float-end">
-                expand_more
-              </span>
               <div class="error" *ngIf="(cardForm.get('cardType')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('cacardTyperd')?.errors?.['required'] ">
                   Required
