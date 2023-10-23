@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  toggle = document
-    .getElementById('navbarSupportedContent')
-    ?.classList.toggle('show');
+  toggleMenu() {
+    document.getElementById('navbarSupportedContent')?.classList.toggle('show');
+  }
 
   constructor() {}
 
