@@ -13,9 +13,4 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  // click() {
-  // document.getElementById('navbarSupportedContent')?.classList.add('show');
-  //   document.getElementById('navbarSupportedContent')?.classList.remove('show');
-  // }
 }
