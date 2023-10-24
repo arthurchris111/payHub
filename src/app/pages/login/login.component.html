@@ -1,34 +1,38 @@
-<p class="text-danger">helloooooooooooooooooooooooooo</p>
-<!-- <div class="container">
-  <div class="row m-0 d-flex justify-content-center align-items-center">
-    <div class="card ">
-      <div class="card-body">
-        <form [formGroup]="login" (ngSubmit)="onSubmit()" class="p-2">
-          <label for="email">Username</label>
+<div class="container mt-5">
+  <div class="centered d-flex justify-content-center align-items-center">
+    <div class="row m-0">
+      <div class="col-lg-5">
+        <form [formGroup]="login" (ngSubmit)="onSubmit()">
+          <label for="email" class="form-label">Email</label>
           <div class="form-item mb-3">
-            <input type="text" autocomplete="off" name="username" id="username" required
-              class="form-control shadow-none" formControlName="username" placeholder="username">
-            <div class="error" *ngIf="(login.get('username')?.invalid && submitted)">
-              <small class="text-danger" *ngIf="login.get('username')?.errors?.['required'] ">
+            <input type="text" autocomplete="off" id="email" name="email" required
+              class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
+            <div class="error" *ngIf="(login.get('email')?.invalid && submitted)">
+              <small class="text-danger" *ngIf="login.get('email')?.errors?.['required'] ">
                 Required
+              </small>
+              <small class="text-danger" *ngIf="login.get('email')?.errors?.['pattern']">
+                Invalid email
               </small>
             </div>
           </div>
 
-          <label for="password">Password</label>
+          <label for="password" class="form-label">Password</label>
           <div class="form-item mb-3">
-            <input [type]="show?'text':'password'" id="password" name="password" autocomplete="off" required
-              class="form-control shadow-none " formControlName="password" placeholder="Password">
+            <input type="text" autocomplete="off" id="password" name="email" required
+              class="form-control form-text-field  shadow-none" formControlName="password" placeholder="">
             <div class="error" *ngIf="(login.get('password')?.invalid && submitted)">
               <small class="text-danger" *ngIf="login.get('password')?.errors?.['required'] ">
                 Required
               </small>
+              <small class="text-danger" *ngIf="login.get('password')?.errors?.['pattern']">
+                Invalid password
+              </small>
             </div>
           </div>
-
           <button class="btn btn-primary w-100 shadow-none" type="submit">Log In</button>
         </form>
       </div>
     </div>
   </div>
-</div> -->
+</div>
