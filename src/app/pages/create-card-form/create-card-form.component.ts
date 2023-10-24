@@ -39,6 +39,10 @@ export class CreateCardFormComponent implements OnInit {
     this.buildCardForm();
   }
 
+  get formControl(): any {
+    return this.cardForm.controls;
+  }
+
   // id type array
   Cards: any = ['Voters ID', 'Ghana card'];
 

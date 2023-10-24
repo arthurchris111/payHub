@@ -1,0 +1,25 @@
+.bg {
+  background-color: #111318 !important;
+}
+
+.fs-30 {
+  font-size: 60px;
+}
+
+@media only screen and (max-width: 992px) {
+  .vitualCard {
+    width: 350px;
+    height: auto;
+  }
+
+  .head-text {
+    font-size: 40px !important;
+  }
+
+  .col-reverse {
+    flex-direction: column-reverse;
+  }
+    .fs-30 {
+      font-size: 45px;
+    }
+}

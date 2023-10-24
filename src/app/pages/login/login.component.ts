@@ -31,6 +31,10 @@ export class LoginComponent implements OnInit {
     this.buildLoginForm();
   }
 
+  get formControl(): any {
+    return this.login.controls;
+  }
+
   onSubmit() {
     this.submitted = true;
 

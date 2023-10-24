@@ -1,14 +1,22 @@
 <div class="container mt-5">
   <div class="row centered d-flex justify-content-center align-items-center">
     <div class="col-lg-4">
+      <!-- <div class="img">
+        <img src="../../../assets/images/login-removebg-preview.png" alt="">
+      </div> -->
+      <div class="text-light">
+        <h1>Welcome</h1>
+        <p class="complete">Login to see your PAYHUB cards</p>
+      </div>
       <form [formGroup]="login" (ngSubmit)="onSubmit()" class="p-2">
         <label for="email" class="form-label">Email</label>
         <div class="form-item mb-3">
-          <input type="text" autocomplete="off" id="email" name="email" required
-            class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
+          <input type="text" autocomplete="off" id="email" name="email"
+            [ngClass]="{'invalid-border':formControl.email?.errors && submitted}"
+            class="form-control form-text-field  shadow-none invalid-border" formControlName="email" placeholder="">
           <div class="error" *ngIf="(login.get('email')?.invalid && submitted)">
             <small class="text-danger" *ngIf="login.get('email')?.errors?.['required'] ">
-              Required
+              Email required
             </small>
             <small class="text-danger" *ngIf="login.get('email')?.errors?.['pattern']">
               Invalid email
@@ -18,11 +26,12 @@
 
         <label for="password" class="form-label">Password</label>
         <div class="form-item mb-3">
-          <input type="password" autocomplete="off" id="password" name="password" required
+          <input type="password" autocomplete="off" id="password" name="password"
+            [ngClass]="{'invalid-border':formControl.password?.errors && submitted}"
             class="form-control form-text-field  shadow-none" formControlName="password" placeholder="">
           <div class="error" *ngIf="(login.get('password')?.invalid && submitted)">
             <small class="text-danger" *ngIf="login.get('password')?.errors?.['required'] ">
-              Required
+              Password required
             </small>
           </div>
         </div>

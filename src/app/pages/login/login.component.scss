@@ -1,6 +1,6 @@
 
 .centered {
-  min-height: 90vh;
+  min-height: 80vh;
 }
 
 .form-text-field {
@@ -23,4 +23,8 @@
   line-height: 1.5em;
   display: block;
   overflow: visible;
+}
+
+.invalid-border {
+  border: .3px solid #ff1d1d !important
 }

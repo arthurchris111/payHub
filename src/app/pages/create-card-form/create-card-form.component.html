@@ -1,6 +1,6 @@
 <div class="container-fluid bg mt-5">
-  <div class="container vh-100">
-    <div class="row  d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row centered d-flex justify-content-center align-items-center">
       <div class="col-lg-4">
         <div class=" mt-5">
           <div class="text-light">
@@ -12,7 +12,8 @@
               <div class="col-lg-6">
                 <label for="firstName" class="form-label">First Name</label>
                 <div class="form-item mb-3">
-                  <input type="text" autocomplete="off" id="firstname" name="firstName" required
+                  <input type="text" autocomplete="off" id="firstname" name="firstName"
+                    [ngClass]="{'invalid-border':formControl.firstName?.errors && submitted}"
                     class="form-control form-text-field shadow-none" formControlName="firstName" placeholder="">
                   <div class="error" *ngIf="(cardForm.get('firstName')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="cardForm.get('firstName')?.errors?.['required'] ">
@@ -24,7 +25,8 @@
               <div class="col-lg-6">
                 <label for="lastName" class="form-label">Last Name</label>
                 <div class="form-item mb-3">
-                  <input type="text" autocomplete="off" id="lastName" name="lastName" required
+                  <input type="text" autocomplete="off" id="lastName" name="lastName"
+                    [ngClass]="{'invalid-border':formControl.lastName?.errors && submitted}"
                     class="form-control form-text-field  shadow-none" formControlName="lastName" placeholder="">
                   <div class="error" *ngIf="(cardForm.get('lastName')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="cardForm.get('lastName')?.errors?.['required'] ">
@@ -37,7 +39,8 @@
 
             <label for="email" class="form-label">Email</label>
             <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="email" name="email" required
+              <input type="text" autocomplete="off" id="email" name="email"
+                [ngClass]="{'invalid-border':formControl.email?.errors && submitted}"
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
               <div class="error" *ngIf="(cardForm.get('email')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['required'] ">
@@ -51,7 +54,8 @@
 
             <label for="date" class="form-label">Date Of Birth</label>
             <div class="form-item mb-3">
-              <input type="date" autocomplete="off" id="date" name="date" required
+              <input type="date" autocomplete="off" id="date" name="date"
+                [ngClass]="{'invalid-border':formControl.date?.errors && submitted}"
                 class="form-control form-text-field  shadow-none" formControlName="date" placeholder="">
               <div class="error" *ngIf="(cardForm.get('date')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('date')?.errors?.['required'] ">
@@ -63,11 +67,12 @@
             <label for="cardType" class="form-label">Select card type</label>
             <div class="form-item mb-3">
               <select class="custom-select p-3 w-100 shadow-none form-control form-text-field "
-                (change)="changeCard($event)" formControlName="cardType" placeholder="Select a card type">
+                [ngClass]="{'invalid-border':formControl.cardType?.errors && submitted}" (change)="changeCard($event)"
+                formControlName="cardType" placeholder="Select a card type">
                 <option class="p-4 selected bg-dark" *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
               </select>
               <div class="error" *ngIf="(cardForm.get('cardType')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="cardForm.get('cacardTyperd')?.errors?.['required'] ">
+                <small class="text-danger" *ngIf="cardForm.get('cardType')?.errors?.['required'] ">
                   Required
                 </small>
               </div>
