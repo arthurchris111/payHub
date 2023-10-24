@@ -17,7 +17,7 @@
                     class="form-control form-text-field shadow-none" formControlName="firstName" placeholder="">
                   <div class="error" *ngIf="(cardForm.get('firstName')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="cardForm.get('firstName')?.errors?.['required'] ">
-                      Required
+                      First name required
                     </small>
                   </div>
                 </div>
@@ -30,7 +30,7 @@
                     class="form-control form-text-field  shadow-none" formControlName="lastName" placeholder="">
                   <div class="error" *ngIf="(cardForm.get('lastName')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="cardForm.get('lastName')?.errors?.['required'] ">
-                      Required
+                      Last name required
                     </small>
                   </div>
                 </div>
@@ -44,7 +44,7 @@
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
               <div class="error" *ngIf="(cardForm.get('email')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['required'] ">
-                  Required
+                  Email required
                 </small>
                 <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['pattern']">
                   Invalid email
@@ -59,7 +59,7 @@
                 class="form-control form-text-field  shadow-none" formControlName="date" placeholder="">
               <div class="error" *ngIf="(cardForm.get('date')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('date')?.errors?.['required'] ">
-                  Required
+                  Date of birth required
                 </small>
               </div>
             </div>
@@ -73,7 +73,7 @@
               </select>
               <div class="error" *ngIf="(cardForm.get('cardType')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('cardType')?.errors?.['required'] ">
-                  Required
+                  Card type required
                 </small>
               </div>
             </div>
@@ -85,7 +85,7 @@
                 class="form-control form-text-field  shadow-none" formControlName="idNumber" placeholder="">
               <div class="error" *ngIf="(cardForm.get('idNumber')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('idNumber')?.errors?.['required'] ">
-                  Required
+                  ID number required
                 </small>
               </div>
             </div>
@@ -97,7 +97,7 @@
                 [ngClass]="{'invalid-border':formControl.uploadCard?.errors && submitted}">
               <div class="error" *ngIf="(cardForm.get('uploadCard')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('uploadCard')?.errors?.['required'] ">
-                  Required
+                  ID upload required
                 </small>
               </div>
             </div>
