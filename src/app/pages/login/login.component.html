@@ -12,7 +12,7 @@
         <label for="email" class="form-label">Email</label>
         <div class="form-item mb-3">
           <input type="text" autocomplete="off" id="email" name="email"
-            [ngClass]="{'invalid-border':formControl.email?.errors && submitted}"
+            [ngClass]="{'invalid-border':formControl.email?.errors && submitted, 'valid-border':formControl.email.touched}"
             class="form-control form-text-field  shadow-none invalid-border" formControlName="email" placeholder="">
           <div class="error" *ngIf="(login.get('email')?.invalid && submitted)">
             <small class="text-danger" *ngIf="login.get('email')?.errors?.['required'] ">

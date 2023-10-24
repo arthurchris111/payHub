@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
 
 body{
     background-color: #111318 !important;
@@ -12,28 +12,6 @@ body{
   padding-top: 5% !important;
 }
 
-.form-text-field {
-  height: 40px;
-  color: #fff;
-  background-color: transparent;
-  border: 1px solid #667085;
-  border-radius: 8px;
-  // margin-bottom: 24px;
-  padding-left: 14px;
-  padding-right: 14px;
-  font-size: 16px;
-  transition: all 0.2s;
-}
-
-.form-label {
-  color: #98a2b3;
-  margin-bottom: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.5em;
-  display: block;
-  overflow: visible;
-}
 
 .complete {
   color: #98a2b3;
@@ -73,7 +51,11 @@ input::file-selector-button {
 
 
 .invalid-border {
-  border: 0.5px solid #ff1d1d !important;
+  border: 0.1px solid #ff1d1d !important;
+}
+
+.valid-border {
+  border: 0.1px solid #06f34d !important;
 }
 
 .account {
