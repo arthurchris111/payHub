@@ -9,10 +9,10 @@ import { PersonalInformationComponent } from './partials/signup/partials/persona
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentModule } from 'src/app/component/component.module';
 import { LayoutModule } from 'src/app/layout/layout.module';
-import { LoginComponent } from './partials/login/login.component';
+// import { LoginComponent } from './partials/login/login.component';
 
 const component = [
-  LoginComponent,
+  // LoginComponent,
   SignupComponent,
   PersonalInformationComponent,
   IdentityCardInformationComponent,
