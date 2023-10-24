@@ -1,12 +1,34 @@
-<div class="d-grid gap-2 col-lg-7 col-md-12 col-sm-12 mx-auto ">
-  <!-- scale-in-center -->
-  <button class="btn btn-primary button" type="button">
-    <i class="fa-brands fa-facebook"></i>
-    Continue with Facebook</button>
-  <button class="btn btn-danger google" type="button">
-    <i class="fa-brands fa-google"></i>
-    Continue with Google</button>
-  <button class="btn btn-primary button" type="button">
-    <i class="fa-brands fa-twitter"></i>
-    Continue with Twitter</button>
-</div>
+<p class="text-danger">helloooooooooooooooooooooooooo</p>
+<!-- <div class="container">
+  <div class="row m-0 d-flex justify-content-center align-items-center">
+    <div class="card ">
+      <div class="card-body">
+        <form [formGroup]="login" (ngSubmit)="onSubmit()" class="p-2">
+          <label for="email">Username</label>
+          <div class="form-item mb-3">
+            <input type="text" autocomplete="off" name="username" id="username" required
+              class="form-control shadow-none" formControlName="username" placeholder="username">
+            <div class="error" *ngIf="(login.get('username')?.invalid && submitted)">
+              <small class="text-danger" *ngIf="login.get('username')?.errors?.['required'] ">
+                Required
+              </small>
+            </div>
+          </div>
+
+          <label for="password">Password</label>
+          <div class="form-item mb-3">
+            <input [type]="show?'text':'password'" id="password" name="password" autocomplete="off" required
+              class="form-control shadow-none " formControlName="password" placeholder="Password">
+            <div class="error" *ngIf="(login.get('password')?.invalid && submitted)">
+              <small class="text-danger" *ngIf="login.get('password')?.errors?.['required'] ">
+                Required
+              </small>
+            </div>
+          </div>
+
+          <button class="btn btn-primary w-100 shadow-none" type="submit">Log In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->

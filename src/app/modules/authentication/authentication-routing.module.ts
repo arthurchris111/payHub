@@ -3,7 +3,7 @@ import { LoginComponent } from './partials/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationComponent } from './authentication.component';
-import { HomeComponent } from './partials/home/home.component';
+// import { HomeComponent } from './partials/home/home.component';
 
 const routes: Routes = [
   {
@@ -12,8 +12,8 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
-      { path: '', component: HomeComponent },
-      { path: '***', redirectTo: '' },
+      // { path: '', component: HomeComponent },
+      // { path: '***', redirectTo: '' },
     ],
   },
 ];
