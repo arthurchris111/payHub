@@ -13,8 +13,7 @@
                 <label for="firstName" class="form-label">First Name</label>
                 <div class="form-item mb-3">
                   <input type="text" autocomplete="off" id="firstname" name="firstName" required
-                    class="form-control form-text-field  shadow-none" formControlName="firstName"
-                    placeholder="first name">
+                    class="form-control form-text-field shadow-none" formControlName="firstName" placeholder="">
                   <div class="error" *ngIf="(cardForm.get('firstName')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="cardForm.get('firstName')?.errors?.['required'] ">
                       Required
@@ -26,8 +25,7 @@
                 <label for="lastName" class="form-label">Last Name</label>
                 <div class="form-item mb-3">
                   <input type="text" autocomplete="off" id="lastName" name="lastName" required
-                    class="form-control form-text-field  shadow-none" formControlName="lastName"
-                    placeholder="last name">
+                    class="form-control form-text-field  shadow-none" formControlName="lastName" placeholder="">
                   <div class="error" *ngIf="(cardForm.get('lastName')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="cardForm.get('lastName')?.errors?.['required'] ">
                       Required
@@ -40,7 +38,7 @@
             <label for="email" class="form-label">Email</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="email" name="email" required
-                class="form-control form-text-field  shadow-none" formControlName="email" placeholder="email">
+                class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
               <div class="error" *ngIf="(cardForm.get('email')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('email')?.errors?.['required'] ">
                   Required
@@ -54,7 +52,7 @@
             <label for="date" class="form-label">Date Of Birth</label>
             <div class="form-item mb-3">
               <input type="date" autocomplete="off" id="date" name="date" required
-                class="form-control form-text-field  shadow-none" formControlName="date" placeholder="date of birth">
+                class="form-control form-text-field  shadow-none" formControlName="date" placeholder="">
               <div class="error" *ngIf="(cardForm.get('date')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('date')?.errors?.['required'] ">
                   Required
@@ -78,7 +76,7 @@
             <label for="date" class="form-label">ID Number</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="date" name="date" required
-                class="form-control form-text-field  shadow-none" formControlName="idNumber" placeholder="ID number">
+                class="form-control form-text-field  shadow-none" formControlName="idNumber" placeholder="">
               <div class="error" *ngIf="(cardForm.get('idNumber')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('idNumber')?.errors?.['required'] ">
                   Required
@@ -100,15 +98,18 @@
             <!-- button -->
             <button class="btn btn-dark w-100 shadow-none rounded-pill" type="submit">Continue</button>
             <div class="mt-3 mb-5">
-              <p class="small-font complete">We respect your privacy. PAYHUB uses your provided information to contact
-                you about relevant content, products, and services.</p>
+              <div class="d-flex justify-content-start">
+                <p class="account"> Already have an account?
+                  <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active"
+                    class="text-decoration-none text-light fw-bold signUp">Login</a>
+                </p>
+              </div>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 <div class="container">
   <pay-footer></pay-footer>
