@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +9,31 @@ import { FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   login!: FormGroup;
-  show: boolean = false;
   submitted: boolean = false;
-  formBuilder: any;
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(private formBuilder: FormBuilder, private route: Router) {}
 
   buildLoginForm(): void {
     this.login = this.formBuilder.group({
-      username: ['', [Validators.required]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+        ],
+      ],
       password: ['', [Validators.required]],
     });
   }
 
+  ngOnInit(): void {
+    this.buildLoginForm();
+  }
+
   onSubmit() {
     this.submitted = true;
+
     console.log(this.login.value);
   }
 }
