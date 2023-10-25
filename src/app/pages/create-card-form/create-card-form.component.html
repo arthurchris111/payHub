@@ -67,8 +67,8 @@
             <label for="cardType" class="form-label">Select card type</label>
             <div class="form-item mb-3">
               <select class="custom-select p-3 w-100 shadow-none form-control form-text-field "
-                [ngClass]="{'invalid-border':formControl.cardType?.errors && submitted}" (change)="changeCard($event)"
-                formControlName="cardType" placeholder="Select a card type">
+                [ngClass]="{'invalid-border':formControl.cardType?.errors && submitted, 'valid-border':formControl.cardType.valid}"
+                (change)="changeCard($event)" formControlName="cardType" placeholder="Select a card type">
                 <option class="p-4 selected bg-dark" *ngFor="let card of Cards" [ngValue]="card">{{card}}</option>
               </select>
               <div class="error" *ngIf="(cardForm.get('cardType')?.invalid && submitted)">
