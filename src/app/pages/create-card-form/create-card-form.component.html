@@ -26,7 +26,7 @@
                 <label for="lastName" class="form-label">Last Name</label>
                 <div class="form-item mb-3">
                   <input type="text" autocomplete="off" id="lastName" name="lastName"
-                    [ngClass]="{'invalid-border':formControl.lastName?.errors && submitted}"
+                    [ngClass]="{'invalid-border':formControl.lastName?.errors && submitted, 'valid-border':formControl.lastName.valid}"
                     class="form-control form-text-field  shadow-none" formControlName="lastName" placeholder="">
                   <div class="error" *ngIf="(cardForm.get('lastName')?.invalid && submitted)">
                     <small class="text-danger" *ngIf="cardForm.get('lastName')?.errors?.['required'] ">
