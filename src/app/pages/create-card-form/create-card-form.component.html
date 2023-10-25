@@ -94,7 +94,7 @@
             <div class="mb-3">
               <input type="file" (change)="onFileChanged($event)" class="shadow-none rounded-3 form-control"
                 accept=".png, .jpg, .jpeg" formControlName="uploadCard"
-                [ngClass]="{'invalid-border':formControl.uploadCard?.errors && submitted, 'valid-border':formControl.idNumber.valid}">
+                [ngClass]="{'invalid-border':formControl.uploadCard?.errors && submitted, 'valid-border':formControl.uploadCard.valid}">
               <div class="error" *ngIf="(cardForm.get('uploadCard')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('uploadCard')?.errors?.['required'] ">
                   ID upload required
