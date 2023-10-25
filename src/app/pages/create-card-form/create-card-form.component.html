@@ -78,10 +78,10 @@
               </div>
             </div>
 
-            <label for="date" class="form-label">ID Number</label>
+            <label for="idNumber" class="form-label">ID Number</label>
             <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="idNumber" name="date"
-                [ngClass]="{'invalid-border':formControl.idNumber?.errors && submitted}"
+              <input type="text" autocomplete="off" id="idNumber" name="idNumber"
+                [ngClass]="{'invalid-border':formControl.idNumber?.errors && submitted, 'valid-border':formControl.idNumber.valid}"
                 class="form-control form-text-field  shadow-none" formControlName="idNumber" placeholder="">
               <div class="error" *ngIf="(cardForm.get('idNumber')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('idNumber')?.errors?.['required'] ">
@@ -94,7 +94,7 @@
             <div class="mb-3">
               <input type="file" (change)="onFileChanged($event)" class="shadow-none rounded-3 form-control"
                 accept=".png, .jpg, .jpeg" formControlName="uploadCard"
-                [ngClass]="{'invalid-border':formControl.uploadCard?.errors && submitted}">
+                [ngClass]="{'invalid-border':formControl.uploadCard?.errors && submitted, 'valid-border':formControl.idNumber.valid}">
               <div class="error" *ngIf="(cardForm.get('uploadCard')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="cardForm.get('uploadCard')?.errors?.['required'] ">
                   ID upload required
