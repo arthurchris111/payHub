@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   login!: FormGroup;
   submitted: boolean = false;
+  private auth: Auth = inject(Auth);
 
-  constructor(private formBuilder: FormBuilder, private route: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: Router,
+    private authService: AuthenticationService
+  ) {}
 
   buildLoginForm(): void {
     this.login = this.formBuilder.group({
@@ -37,6 +44,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    if (this.login.invalid) {
+      return;
+    }
+
+    const { email, password } = this.login.value;
+    this.authService.login(email, password).subscribe(() => {
+      this.route.navigate(['/home']);
+    });
 
     console.log(this.login.value);
   }
