@@ -28,6 +28,7 @@ export class CreateCardFormComponent implements OnInit {
           Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
         ],
       ],
+      password: ['', [Validators.required]],
       date: ['', [Validators.required]],
       idNumber: ['', [Validators.required]],
       cardType: ['', [Validators.required]],

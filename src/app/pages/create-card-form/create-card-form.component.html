@@ -52,6 +52,18 @@
               </div>
             </div>
 
+            <label for="password" class="form-label">Password</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="password" name="password"
+                [ngClass]="{'invalid-border':formControl.password?.errors && submitted, 'valid-border':formControl.password.valid}"
+                class="form-control form-text-field  shadow-none" formControlName="password" placeholder="">
+              <div class="error" *ngIf="(cardForm.get('password')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="cardForm.get('password')?.errors?.['required'] ">
+                  Password required
+                </small>
+              </div>
+            </div>
+
             <label for="date" class="form-label">Date Of Birth</label>
             <div class="form-item mb-3">
               <input type="date" autocomplete="off" id="date" name="date"
