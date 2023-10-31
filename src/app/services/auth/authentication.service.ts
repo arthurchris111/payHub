@@ -8,7 +8,7 @@ import { Observable, catchError, from, throwError } from 'rxjs';
 export class AuthenticationService {
   constructor(private auth: Auth) {}
 
-  login(email: any, password: any) {
+  public login(email: any, password: any) {
     return from(signInWithEmailAndPassword(this.auth, email, password)).pipe(
       catchError((err: any) => throwError(() => err))
     );

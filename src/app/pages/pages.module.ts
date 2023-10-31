@@ -7,6 +7,7 @@ import { FaqComponent } from './faq/faq.component';
 import { CreateCardFormComponent } from './create-card-form/create-card-form.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 const components = [
   HomeComponent,

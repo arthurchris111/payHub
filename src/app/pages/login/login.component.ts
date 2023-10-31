@@ -2,7 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/auth/authentication.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private toastr: ToastrService
   ) {}
 
   buildLoginForm(): void {
@@ -44,15 +46,21 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    if (this.login.invalid) {
+    if (this.login.value.invalid) {
       return;
     }
 
     const { email, password } = this.login.value;
-    this.authService.login(email, password).subscribe(() => {
-      this.route.navigate(['/home']);
+    // debugger
+    this.authService.login(email, password).subscribe({
+      next: (res: any) => {
+        this.route.navigate(['/home']);
+      },
+      error: (error: any) => {
+        this.toastr.error('Incorrect credentials', 'Login');
+      },
     });
 
-    console.log(this.login.value);
+    // console.log(this.login.value);
   }
 }
