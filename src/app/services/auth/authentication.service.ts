@@ -16,7 +16,11 @@ export class AuthenticationService {
 
   public logout(): Observable<any> {
     return from(this.auth.signOut()).pipe(
-      catchError((err: any) => throwError(() => err))
+      catchError((err: any) =>
+        throwError(() => {
+          console.log(err);
+        })
+      )
     );
   }
 }

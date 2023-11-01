@@ -54,10 +54,14 @@ export class LoginComponent implements OnInit {
     // debugger
     this.authService.login(email, password).subscribe({
       next: (res: any) => {
+        console.log(res);
+
         this.route.navigate(['/home']);
       },
       error: (error: any) => {
-        this.toastr.error('Incorrect credentials', 'Login');
+        console.log(error);
+
+        this.toastr.error(error, 'Login');
       },
     });
 
