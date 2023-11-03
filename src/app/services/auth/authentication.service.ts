@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from '@angular/fire/auth';
 import { Observable, catchError, from, throwError } from 'rxjs';
 
 @Injectable({
@@ -12,6 +16,17 @@ export class AuthenticationService {
     return from(signInWithEmailAndPassword(this.auth, email, password)).pipe(
       catchError((err: any) => throwError(() => err))
     );
+  }
+
+  public signup(
+    firstName: string,
+    lastName: string,
+    email: any,
+    password: any
+  ) {
+    return from(
+      createUserWithEmailAndPassword(this.auth, email, password)
+    ).pipe(catchError((err: any) => throwError(() => err)));
   }
 
   public logout(): Observable<any> {

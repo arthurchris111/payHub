@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 
 @Component({
   selector: 'pay-create-card-form',
@@ -13,8 +15,15 @@ export class CreateCardFormComponent implements OnInit {
   isFetching: boolean = false;
   image: any;
   cardName: any;
+  email = '';
+  password = '';
 
-  constructor(private formBuilder: FormBuilder, private route: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: Router,
+    private auth: AngularFireAuth,
+    private authService: AuthenticationService
+  ) {}
 
   buildCardForm(): void {
     this.cardForm = this.formBuilder.group({
@@ -65,6 +74,13 @@ export class CreateCardFormComponent implements OnInit {
       return;
     }
 
+    const { firstName, lastName, email, password } = this.cardForm.value;
+
+    this.authService.signup(firstName, lastName, email, password).subscribe({
+      next: (res: any) => {
+        this.route.navigate(['/login']);
+      },
+    });
     console.log(this.cardForm.value);
   }
 }

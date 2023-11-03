@@ -54,17 +54,14 @@ export class LoginComponent implements OnInit {
     // debugger
     this.authService.login(email, password).subscribe({
       next: (res: any) => {
-        console.log(res);
-
+        // console.log(res);
         this.route.navigate(['/home']);
       },
       error: (error: any) => {
-        console.log(error);
-
+        // console.log(error);
         this.toastr.error(error, 'Login');
       },
     });
-
-    // console.log(this.login.value);
+    console.log(this.login.value);
   }
 }
