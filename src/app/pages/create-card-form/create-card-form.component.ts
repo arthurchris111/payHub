@@ -1,3 +1,4 @@
+import { UsersService } from './../../services/users/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -21,8 +22,8 @@ export class CreateCardFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
-    private auth: AngularFireAuth,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private usersService: UsersService
   ) {}
 
   buildCardForm(): void {
@@ -73,6 +74,11 @@ export class CreateCardFormComponent implements OnInit {
     if (this.cardForm.invalid) {
       return;
     }
+
+    /* TODO
+    Send data to bitnob to create card
+    Send firstname lastname,email,password to firebase
+*/
 
     const { firstName, lastName, email, password } = this.cardForm.value;
 

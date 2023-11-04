@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'faq', component: FaqComponent },
-      { path: 'create-card', component: CreateCardFormComponent },
+      { path: 'create', component: CreateCardFormComponent },
       { path: 'login', component: LoginComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
     ],

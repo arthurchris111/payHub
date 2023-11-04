@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from '@angular/fire/auth';
-import { Observable, catchError, from, throwError } from 'rxjs';
+import { catchError, from, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -29,13 +29,13 @@ export class AuthenticationService {
     ).pipe(catchError((err: any) => throwError(() => err)));
   }
 
-  public logout(): Observable<any> {
-    return from(this.auth.signOut()).pipe(
-      catchError((err: any) =>
-        throwError(() => {
-          console.log(err);
-        })
-      )
-    );
-  }
+  // public logout(): Observable<any> {
+  //   return from(this.auth.signOut()).pipe(
+  //     catchError((err: any) =>
+  //       throwError(() => {
+  //         console.log(err);
+  //       })
+  //     )
+  //   );
+  // }
 }
