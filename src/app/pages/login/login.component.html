@@ -13,9 +13,7 @@
             [ngClass]="{'invalid-border':formControl.email?.errors && submitted, 'valid-border':formControl.email.valid}"
             class="form-control form-text-field  shadow-none invalid-border" formControlName="email" placeholder="">
           <div class="error" *ngIf="(login.get('email')?.invalid && submitted)">
-            <small class="text-danger" *ngIf="login.get('email')?.errors?.['required'] ">
-              Email required
-            </small>
+            <small class="text-danger" *ngIf="login.get('email')?.errors?.['required'] "> Email required</small>
             <small class="text-danger" *ngIf="login.get('email')?.errors?.['pattern']">
               Invalid email
             </small>
@@ -28,9 +26,7 @@
             [ngClass]="{'invalid-border':formControl.password?.errors && submitted, 'valid-border':formControl.password.valid}"
             class="form-control form-text-field  shadow-none" formControlName="password" placeholder="">
           <div class="error" *ngIf="(login.get('password')?.invalid && submitted)">
-            <small class="text-danger" *ngIf="login.get('password')?.errors?.['required'] ">
-              Password required
-            </small>
+            <small class="text-danger" *ngIf="login.get('password')?.errors?.['required'] ">Password required </small>
 
           </div>
         </div>
