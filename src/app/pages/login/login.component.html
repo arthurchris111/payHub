@@ -14,9 +14,7 @@
             class="form-control form-text-field  shadow-none invalid-border" formControlName="email" placeholder="">
           <div class="error" *ngIf="(login.get('email')?.invalid && submitted)">
             <small class="text-danger" *ngIf="login.get('email')?.errors?.['required'] "> Email required</small>
-            <small class="text-danger" *ngIf="login.get('email')?.errors?.['pattern']">
-              Invalid email
-            </small>
+            <small class="text-danger" *ngIf="login.get('email')?.errors?.['pattern']">Invalid email</small>
           </div>
         </div>
 
@@ -34,9 +32,8 @@
         <button class="btn btn-dark w-100 shadow-none rounded-pill mt-3" type="submit">Login</button>
         <div class="mt-3 mb-5">
           <div class="d-flex justify-content-start">
-            <p class="account"> Don't have an account?
-              <a [routerLink]="['/create']" routerLinkActive="router-link-active"
-                class="text-decoration-none text-light fw-bold ">Create card</a>
+            <p class="account"> Don't have an account?<a [routerLink]="['/create']"
+                routerLinkActive="router-link-active" class="text-decoration-none text-light fw-bold ">Create card</a>
             </p>
           </div>
         </div>
