@@ -8,7 +8,7 @@ import { AuthenticationService } from 'src/app/services/auth/authentication.serv
 import { FileUpload } from 'src/app/models/file-upload';
 import { ProfileUser } from 'src/app/models/user';
 import { switchMap } from 'rxjs';
-// import { ImageUploadService } from 'src/app/services/image-upload/image-upload.service';
+import { ImageUploadService } from 'src/app/services/image-upload/image-upload.service';
 
 @Component({
   selector: 'pay-create-card-form',
@@ -29,9 +29,10 @@ export class CreateCardFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: Router,
     private authService: AuthenticationService,
-    private usersService: UsersService // private uploadService: ImageUploadService
+    private usersService: UsersService,
+    private uploadService: ImageUploadService
   ) {
-    this.usersService.get().subscribe((res: any) => console.log(res));
+    // this.usersService.get().subscribe((res: any) => console.log(res));
   }
 
   buildCardForm(): void {
@@ -75,24 +76,24 @@ export class CreateCardFormComponent implements OnInit {
     this.selectedFiles = event.target.files;
   }
 
-  // upload(): void {
-  //   if (this.selectedFiles) {
-  //     const file: File | null = this.selectedFiles.item(0);
-  //     this.selectedFiles = undefined;
+  upload(): void {
+    if (this.selectedFiles) {
+      const file: File | null = this.selectedFiles.item(0);
+      this.selectedFiles = undefined;
 
-  //     if (file) {
-  //       this.currentFileUpload = new FileUpload(file);
-  //       this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
-  //         (percentage) => {
-  //           this.percentage = Math.round(percentage ? percentage : 0);
-  //         },
-  //         (error) => {
-  //           console.log(error);
-  //         }
-  //       );
-  //     }
-  //   }
-  // }
+      if (file) {
+        this.currentFileUpload = new FileUpload(file);
+        this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
+          (percentage) => {
+            this.percentage = Math.round(percentage ? percentage : 0);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
+    }
+  }
 
   onSubmit() {
     this.submitted = true;
