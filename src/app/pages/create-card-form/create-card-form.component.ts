@@ -1,9 +1,13 @@
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { UsersService } from './../../services/users/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthenticationService } from 'src/app/services/auth/authentication.service';
+import { FileUpload } from 'src/app/models/file-upload';
+import { ProfileUser } from 'src/app/models/user';
+// import { ImageUploadService } from 'src/app/services/image-upload/image-upload.service';
 
 @Component({
   selector: 'pay-create-card-form',
@@ -16,14 +20,34 @@ export class CreateCardFormComponent implements OnInit {
   isFetching: boolean = false;
   image: any;
   cardName: any;
-  email = '';
-  password = '';
+  selectedFiles?: FileList;
+  currentFileUpload?: FileUpload;
+
+  user: ProfileUser = {
+    uid: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  };
+
+  // userData: ProfileUser = {
+  //   uid: '',
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   password: '',
+  //   date: '',
+  //   idNumber: '',
+  //   cardType: '',
+  //   uploadCard: '',
+  // };
 
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
     private authService: AuthenticationService,
-    private usersService: UsersService
+    private usersService: UsersService // private uploadService: ImageUploadService
   ) {}
 
   buildCardForm(): void {
@@ -54,33 +78,63 @@ export class CreateCardFormComponent implements OnInit {
     return this.cardForm.controls;
   }
 
-  // id type array
+  // select id type
   Cards: any = ['Voters ID', 'Ghana card'];
 
-  // change card type
+  // change id card type
   changeCard(e: any) {
     this.cardName?.setValue(e.target.value, {});
   }
 
-  // upload id image
-  onFileChanged(event: any) {
-    this.image = event.target.files[0];
+  // upload id image to fireStorage
+  selectFile(event: any) {
+    this.selectedFiles = event.target.files;
   }
+
+  // upload(): void {
+  //   if (this.selectedFiles) {
+  //     const file: File | null = this.selectedFiles.item(0);
+  //     this.selectedFiles = undefined;
+
+  //     if (file) {
+  //       this.currentFileUpload = new FileUpload(file);
+  //       this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
+  //         // (percentage) => {
+  //         //   this.percentage = Math.round(percentage ? percentage : 0);
+  //         // },
+  //         (error) => {
+  //           console.log(error);
+  //         }
+  //       );
+  //     }
+  //   }
+  // }
 
   onSubmit() {
     this.submitted = true;
     this.isFetching = true;
+    const { firstName, lastName, email, password } = this.cardForm.value;
 
     if (this.cardForm.invalid) {
       return;
     }
 
-    /* TODO
-    Send data to bitnob to create card
-    Send firstname lastname,email,password to firebase
-*/
+    // TODO
+    //  Send data to bitnob to create card
+    this.usersService.userDataToBitnob(this.cardForm.value).subscribe(() => {
+      console.log('data sent successfully'),
+        (error: Error) => {
+          console.error('Error sending data:', error);
+        };
+    });
 
-    const { firstName, lastName, email, password } = this.cardForm.value;
+    // Send firstname lastname,email,password to firebase
+    this.usersService.addUser(this.user).subscribe(() => {
+      console.log('user added'),
+        (error: Error) => {
+          console.error('Error adding user:', error);
+        };
+    });
 
     this.authService.signup(firstName, lastName, email, password).subscribe({
       next: (res: any) => {

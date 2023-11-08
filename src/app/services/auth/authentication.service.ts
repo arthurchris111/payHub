@@ -1,18 +1,23 @@
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Injectable } from '@angular/core';
 import {
-  Auth,
+  User,
+  authState,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  Auth,
 } from '@angular/fire/auth';
-import { catchError, from, throwError } from 'rxjs';
+import { Observable, catchError, from, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
+  // currentUser = authState(this.auth);
+
   constructor(private auth: Auth) {}
 
-  public login(email: any, password: any) {
+  public login(email: string, password: string) {
     return from(signInWithEmailAndPassword(this.auth, email, password)).pipe(
       catchError((err: any) => throwError(() => err))
     );
@@ -21,21 +26,15 @@ export class AuthenticationService {
   public signup(
     firstName: string,
     lastName: string,
-    email: any,
-    password: any
+    email: string,
+    password: string
   ) {
     return from(
       createUserWithEmailAndPassword(this.auth, email, password)
     ).pipe(catchError((err: any) => throwError(() => err)));
   }
 
-  // public logout(): Observable<any> {
-  //   return from(this.auth.signOut()).pipe(
-  //     catchError((err: any) =>
-  //       throwError(() => {
-  //         console.log(err);
-  //       })
-  //     )
-  //   );
-  // }
+  public logout(): Observable<any> {
+    return from(this.auth.signOut());
+  }
 }
