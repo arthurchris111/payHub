@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 import { FileUpload } from 'src/app/models/file-upload';
 import { ProfileUser } from 'src/app/models/user';
+import { switchMap } from 'rxjs';
 // import { ImageUploadService } from 'src/app/services/image-upload/image-upload.service';
 
 @Component({
@@ -48,7 +49,9 @@ export class CreateCardFormComponent implements OnInit {
     private route: Router,
     private authService: AuthenticationService,
     private usersService: UsersService // private uploadService: ImageUploadService
-  ) {}
+  ) {
+    this.usersService.get().subscribe((res: any) => console.log(res));
+  }
 
   buildCardForm(): void {
     this.cardForm = this.formBuilder.group({
@@ -115,32 +118,52 @@ export class CreateCardFormComponent implements OnInit {
     this.isFetching = true;
     const { firstName, lastName, email, password } = this.cardForm.value;
 
-    if (this.cardForm.invalid) {
-      return;
-    }
+    // if (this.cardForm.invalid) {
+    //   return;
+    // }
 
+    this.usersService.create({ firstName, lastName });
     // TODO
     //  Send data to bitnob to create card
-    this.usersService.userDataToBitnob(this.cardForm.value).subscribe(() => {
-      console.log('data sent successfully'),
-        (error: Error) => {
-          console.error('Error sending data:', error);
-        };
-    });
+    // this.usersService.userDataToBitnob(this.cardForm.value).subscribe(() => {
+    //   console.log('data sent successfully'),
+    //     (error: Error) => {
+    //       console.error('Error sending data:', error);
+    //     };
+    // });
 
-    // Send firstname lastname,email,password to firebase
-    this.usersService.addUser(this.user).subscribe(() => {
-      console.log('user added'),
-        (error: Error) => {
-          console.error('Error adding user:', error);
-        };
-    });
-
-    this.authService.signup(firstName, lastName, email, password).subscribe({
-      next: (res: any) => {
-        this.route.navigate(['/login']);
-      },
-    });
-    console.log(this.cardForm.value);
+    // this.authService
+    //   .signup(email, password)
+    //   .pipe(
+    //     switchMap(({ user: { uid } }) =>
+    //       this.usersService.addUser({
+    //         uid,
+    //         email,
+    //         password,
+    //         firstName,
+    //         lastName,
+    //       })
+    //     )
+    //   )
+    //   .subscribe(() => {
+    //     this.route.navigate(['/home']);
+    //   });
   }
+
+  // Send firstname lastname,email,password to firebase
+  //   this.usersService.addUser(this.user).subscribe(() => {
+  //     console.log('user added'),
+  //       (error: Error) => {
+  //         console.error('Error adding user:', error);
+  //       };
+  //   });
+
+  //   // signing up with email and password
+  //   this.authService.signup(email, password).subscribe({
+  //     next: (res: any) => {
+  //       this.route.navigate(['/login']);
+  //     },
+  //   });
+  //   console.log(this.cardForm.value);
+  // }
 }

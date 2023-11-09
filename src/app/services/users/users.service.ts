@@ -17,18 +17,28 @@ import { AuthenticationService } from '../auth/authentication.service';
 import { Observable, from, of, switchMap } from 'rxjs';
 import { ProfileUser } from '../../models/user';
 import { HttpClient } from '@angular/common/http';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
   // bitnob API URL
+  tutorialsRef: AngularFirestoreCollection<any>;
+  private dbPath = 'Users';
+
   private apiUrl = '';
 
   constructor(
     private firestore: Firestore,
     private authServices: AuthenticationService,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private db: AngularFirestore
+  ) {
+    // this.tutorialsRef = db.collection(this.dbPath);
+  }
 
   // get currentUserProfile(): Observable<ProfileUser | null> {
   //   return this.authServices.currentUser.pipe(
@@ -41,22 +51,26 @@ export class UsersService {
   //     })
   //   );
   // }
-  userDataToBitnob(user: ProfileUser): Observable<any> {
-    return this.http.post(this.apiUrl, user);
+  // userDataToBitnob(user: ProfileUser): Observable<any> {
+  //   return this.http.post(this.apiUrl, user);
+  // }
+
+  // addUser(user: ProfileUser): Observable<void> {
+  //   const ref = doc(this.firestore, 'users', user.uid);
+  //   return from(setDoc(ref, user));
+  // }
+
+  // updateUser(user: ProfileUser): Observable<void> {
+  //   const ref = doc(this.firestore, 'users', user.uid);
+  //   return from(updateDoc(ref, { ...user }));
+  // }
+
+  create(tutorial: any): any {
+    console.log(tutorial);
+    return this.db.collection(this.dbPath).add(tutorial);
   }
 
-  addUser(user: ProfileUser): Observable<void> {
-    const ref = doc(this.firestore, 'users', user.uid);
-    return from(setDoc(ref, user));
-  }
-
-  updateUser(user: ProfileUser): Observable<void> {
-    const ref = doc(this.firestore, 'users', user.uid);
-    return from(updateDoc(ref, { ...user }));
-  }
-
-  deleteUser(user: ProfileUser): Observable<void> {
-    const ref = doc(this.firestore, 'users', user.uid);
-    return from(deleteDoc(ref));
+  get(): any {
+    return this.db.collection(this.dbPath).snapshotChanges();
   }
 }

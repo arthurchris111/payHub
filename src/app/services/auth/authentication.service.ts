@@ -23,12 +23,7 @@ export class AuthenticationService {
     );
   }
 
-  public signup(
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string
-  ) {
+  public signup(email: string, password: string) {
     return from(
       createUserWithEmailAndPassword(this.auth, email, password)
     ).pipe(catchError((err: any) => throwError(() => err)));
