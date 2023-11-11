@@ -24,26 +24,6 @@ export class CreateCardFormComponent implements OnInit {
   selectedFiles?: FileList;
   currentFileUpload?: FileUpload;
 
-  // user: ProfileUser = {
-  //   uid: '',
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: '',
-  // };
-
-  // userData: ProfileUser = {
-  //   uid: '',
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: '',
-  //   date: '',
-  //   idNumber: '',
-  //   cardType: '',
-  //   uploadCard: '',
-  // };
-
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
