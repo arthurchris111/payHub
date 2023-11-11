@@ -24,13 +24,13 @@ export class CreateCardFormComponent implements OnInit {
   selectedFiles?: FileList;
   currentFileUpload?: FileUpload;
 
-  user: ProfileUser = {
-    uid: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-  };
+  // user: ProfileUser = {
+  //   uid: '',
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   password: '',
+  // };
 
   // userData: ProfileUser = {
   //   uid: '',
@@ -122,7 +122,17 @@ export class CreateCardFormComponent implements OnInit {
     //   return;
     // }
 
-    this.usersService.create({ firstName, lastName });
+    // Send firstName lastName,email,password to firebase
+    this.usersService.create({ firstName, lastName, email, password });
+
+    // signing up with email and password
+    this.authService.signup(email, password).subscribe({
+      next: (res: any) => {
+        this.route.navigate(['/login']);
+      },
+    });
+    console.log(this.cardForm.value);
+
     // TODO
     //  Send data to bitnob to create card
     // this.usersService.userDataToBitnob(this.cardForm.value).subscribe(() => {
@@ -150,13 +160,12 @@ export class CreateCardFormComponent implements OnInit {
     //   });
   }
 
-  // Send firstname lastname,email,password to firebase
-  //   this.usersService.addUser(this.user).subscribe(() => {
-  //     console.log('user added'),
-  //       (error: Error) => {
-  //         console.error('Error adding user:', error);
-  //       };
-  //   });
+  // this.usersService.addUser(this.user).subscribe(() => {
+  //   console.log('user added'),
+  //     (error: Error) => {
+  //       console.error('Error adding user:', error);
+  //     };
+  // });
 
   //   // signing up with email and password
   //   this.authService.signup(email, password).subscribe({

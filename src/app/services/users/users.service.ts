@@ -26,7 +26,7 @@ import {
 })
 export class UsersService {
   // bitnob API URL
-  tutorialsRef: AngularFirestoreCollection<any>;
+  profileUserRef: AngularFirestoreCollection<ProfileUser>;
   private dbPath = 'Users';
 
   private apiUrl = '';
@@ -37,7 +37,7 @@ export class UsersService {
     private http: HttpClient,
     private db: AngularFirestore
   ) {
-    // this.tutorialsRef = db.collection(this.dbPath);
+    this.profileUserRef = db.collection(this.dbPath);
   }
 
   // get currentUserProfile(): Observable<ProfileUser | null> {
@@ -65,13 +65,20 @@ export class UsersService {
   //   return from(updateDoc(ref, { ...user }));
   // }
 
-  // adding user
-  create(tutorial: any): any {
-    console.log(tutorial);
-    return this.db.collection(this.dbPath).add(tutorial);
-  }
-
   get(): any {
     return this.db.collection(this.dbPath).snapshotChanges();
+  }
+
+  create(user: ProfileUser): any {
+    console.log(user);
+    return this.db.collection(this.dbPath).add({ ...user });
+  }
+
+  update(id: string, data: any): Promise<void> {
+    return this.profileUserRef.doc(id).update(data);
+  }
+
+  delete(id: string): Promise<void> {
+    return this.profileUserRef.doc(id).delete();
   }
 }
