@@ -14,6 +14,7 @@ import { Observable, catchError, from, throwError } from 'rxjs';
 })
 export class AuthenticationService {
   // currentUser = authState(this.auth);
+  // currentUser = authState(this.auth);
 
   constructor(private auth: Auth) {}
 
