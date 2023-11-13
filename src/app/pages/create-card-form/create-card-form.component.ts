@@ -23,6 +23,7 @@ export class CreateCardFormComponent implements OnInit {
   cardName: any;
   selectedFiles?: FileList;
   currentFileUpload?: FileUpload;
+  percentage = 0;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -82,9 +83,9 @@ export class CreateCardFormComponent implements OnInit {
   //     if (file) {
   //       this.currentFileUpload = new FileUpload(file);
   //       this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
-  //         // (percentage) => {
-  //         //   this.percentage = Math.round(percentage ? percentage : 0);
-  //         // },
+  //         (percentage) => {
+  //           this.percentage = Math.round(percentage ? percentage : 0);
+  //         },
   //         (error) => {
   //           console.log(error);
   //         }
@@ -111,7 +112,7 @@ export class CreateCardFormComponent implements OnInit {
         this.route.navigate(['/login']);
       },
     });
-    console.log(this.cardForm.value);
+    // console.log(this.cardForm.value);
 
     // TODO
     //  Send data to bitnob to create card

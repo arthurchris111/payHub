@@ -35,6 +35,7 @@ import { environment } from 'src/environments/environment';
     ToastrModule.forRoot(),
     AngularFireDatabaseModule,
     HttpClientModule,
+    // AngularFireStorageModule
   ],
 
   providers: [{ useClass: HandlingErrorService, provide: ErrorHandler }],
