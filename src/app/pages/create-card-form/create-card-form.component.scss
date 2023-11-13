@@ -57,13 +57,15 @@ input::file-selector-button {
   margin-bottom: 80px;
 }
 
-
-
-
 .account {
   color: #98a2b3;
 }
 
 .centered {
   min-height: 80vh!important;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  background-color: rgb(129, 129, 129);
+  border-radius: 5px;
 }

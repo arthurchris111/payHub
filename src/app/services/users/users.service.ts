@@ -28,7 +28,6 @@ export class UsersService {
   // bitnob API URL
   profileUserRef: AngularFirestoreCollection<ProfileUser>;
   private path = 'Users';
-
   private apiUrl = '';
 
   constructor(
